@@ -7,6 +7,7 @@ use App\SanPham;
 use App\Kho;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -18,7 +19,10 @@ class CartController extends Controller
     public function index()
     {
         # code...
-        return view('cart');
+        $data = GioHang::with('sanpham')->get();
+        $tonggia = DB::table('giohang')->where('idkh','=',Auth::user()->id)->sum('gia');
+        
+        return view('cart',['giohang'=>$data,'tonggia'=>$tonggia]);
     }
     public function cartAjax()
     {
@@ -26,7 +30,7 @@ class CartController extends Controller
         $data = GioHang::with('sanpham')->where('idkh',$idkh)->get();
         $output ='';
         foreach($data as  $val){
-            $output .= '<div class="dropdown-item d-flex align-items-start" href="#"><div class="img" style="background-image: url(images/prod-'. $val->id .'.jpg);"></div>';
+            $output .= '<div class="dropdown-item d-flex align-items-start" href="#"><div class="img" style="background-image: url(images/prod-'. $val->idsp .'.jpg);"></div>';
             foreach($val->sanpham as $vall){
                 $output .= '<div class="text pl-3">
                             <h4> '. $vall->tensp .'</h4>';
@@ -84,7 +88,7 @@ class CartController extends Controller
                 $news->idkh = Auth::user()->id;
                 $news->idsp = $idsp;
                 $news->soluong = $soluongGet;
-                $news->gia = $gia;
+                $news->gia = $gia * $soluongGet;
                 $news->save();
                 $khoNews = Kho::find($idkho);
                 $khoNews->soluong = $soluongnew;
@@ -99,5 +103,23 @@ class CartController extends Controller
         }
         
         echo $return;
+    }
+    public function xoaGioHang(Request $request)
+    {
+        # code...
+        $id = $request->get('id');
+       
+        $news = GioHang::find($id);
+        $news->delete();
+    }
+    public function tinhTien(Request $request)
+    {
+        $id= $request->get('id');
+        $soluong= $request->get('soluong');
+        $gia = SanPham::find(GioHang::find($id)->idsp)->gia;
+        $news = GioHang::find($id);
+        $news->soluong = $soluong;
+        $news->gia = $gia * $soluong;
+        $news->save();
     }
 }

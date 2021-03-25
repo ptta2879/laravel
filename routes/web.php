@@ -30,6 +30,8 @@ Route::get('/logout',function(){
 Route::get('/GioHangAjax','CartController@cartAjax');
 Route::get('/AddGioHang', 'CartController@themSanPham');
 Route::get('/AddGioHangChiTiet', 'CartController@themSanPhamChiTiet');
+Route::get('/XoaGioHang', 'CartController@xoaGioHang');
+Route::get('/TinhTien', 'CartController@tinhTien');
 Auth::routes();
 
 

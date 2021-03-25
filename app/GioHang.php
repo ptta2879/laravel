@@ -15,6 +15,6 @@ class GioHang extends Model
     }
     public function sanPham()
     {
-        return $this->hasMany('App\SanPham','id');
+        return $this->hasMany('App\SanPham','id','idsp');
     }
 }
