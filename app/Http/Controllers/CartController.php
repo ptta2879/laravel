@@ -77,8 +77,6 @@ class CartController extends Controller
         $gia = SanPham::find($idsp)->gia;
         $datasoluong =SanPham::find($idsp)->kho()->get();
         $soluong =$datasoluong[0]->soluong;
-        $idkho = $datasoluong[0]->id;
-        $soluongnew=$soluong-$soluongGet;
         $return = 0;
         if($checkSanPham !=0 ){
             $return = 1;
@@ -90,9 +88,6 @@ class CartController extends Controller
                 $news->soluong = $soluongGet;
                 $news->gia = $gia * $soluongGet;
                 $news->save();
-                $khoNews = Kho::find($idkho);
-                $khoNews->soluong = $soluongnew;
-                $khoNews->save();
             }else{
                 $return = 3;
             }

@@ -12,4 +12,13 @@ class ContactController extends Controller
         
         return view('contact');
     }
+    public function nhanLienHe(Request $request)
+    {
+        # code...
+        $ten = $request->get('fullname');
+        $email = $request->get('email');
+        $tieude = $request->get('tieude');
+        $message = $request->get('message');
+        
+    }
 }

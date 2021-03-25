@@ -99,7 +99,8 @@ App ={
                 soluong:soluong
             },
             success: function(result){
-
+                Notiflix.Report.Success( 'Cập nhật Thành Công', 'Sản phẩm đã được cập nhật lại giá', 'OK',function(){window.location='GioHang';}); 
+                        Notiflix.Loading.Remove(600);
             }
         });
         

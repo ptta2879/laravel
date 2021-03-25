@@ -32,6 +32,7 @@ Route::get('/AddGioHang', 'CartController@themSanPham');
 Route::get('/AddGioHangChiTiet', 'CartController@themSanPhamChiTiet');
 Route::get('/XoaGioHang', 'CartController@xoaGioHang');
 Route::get('/TinhTien', 'CartController@tinhTien');
+Route::post('/NhanLienHe','ContactController@nhanLienHe' );
 Auth::routes();
 
 

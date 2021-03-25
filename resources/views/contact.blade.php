@@ -94,12 +94,13 @@
 								<div class="col-md-7">
 									<div class="contact-wrap w-100 p-md-5 p-4">
 										<h3 class="mb-4">Liên Hệ Với Chúng Tôi</h3>
-										<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+										<form method="POST" action="{{url('NhanLienHe')}}" id="contactForm" name="contactForm" class="contactForm">
+											{{ csrf_field() }}
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label" for="name">Tên Đầy Đủ</label>
-														<input type="text" required="" class="form-control" name="name" id="name" placeholder="Tên">
+														<input type="text" required="" class="form-control" name="fullname" id="fullname" placeholder="Tên">
 													</div>
 												</div>
 												<div class="col-md-6"> 
@@ -111,7 +112,7 @@
 												<div class="col-md-12">
 													<div class="form-group">
 														<label class="label" for="subject">Tiêu Đề</label>
-														<input type="text" required="" class="form-control" name="subject" id="subject" placeholder="Tiêu Đề">
+														<input type="text" required="" class="form-control" name="tieude" id="tieude" placeholder="Tiêu Đề">
 													</div>
 												</div>
 												<div class="col-md-12">
