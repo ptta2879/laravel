@@ -11,7 +11,7 @@
     
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="Home">Liquor <span>store</span></a>
+      <a class="navbar-brand" href="Home">bachacha <span>store</span></a>
       @include('navcart')
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
   </nav>
   <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/newbg.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
@@ -53,7 +53,7 @@
 	          	<div class="row align-items-end">
 	          		<div class="col-md-6">
 	                <div class="form-group">
-	                	<label for="firstname">Họ Và Tên Đệm</label>
+	                	<label for="fullname">Họ Và Tên Đệm</label>
 	                  <input type="text" name="fullname" id="fullname" required="" value="{{$datauser->hovaten}}"  class="form-control" placeholder="Họ của bạn">
 					 		 @if ($errors->has('fullname'))
                                    							<span class="help-block">
@@ -64,7 +64,7 @@
 	              </div>
 	              <div class="col-md-6">
 	                <div class="form-group">
-	                	<label for="lastname">Tên</label>
+	                	<label for="name">Tên</label>
 	                  <input type="text" name="name" id="name" value="{{$datauser->ten}}" required="" class="form-control" placeholder="Tên của bạn">
 					  @if ($errors->has('name'))
                                    							<span class="help-block">
@@ -144,17 +144,17 @@
 							<h3 class="billing-heading mb-4">Tổng Giá Trị Của Hóa Đơn</h3>
 							<p class="d-flex">
 									  <span>Tổng tiền</span>
-									  <span>$20.60</span>
+									  <span>{{$tonggia}} VND</span>
 								  </p>
 								  
 								  <p class="d-flex">
 									  <span>Giảm Giá</span>
-									  <span>$3.00</span>
+									  <span>0.00</span>
 								  </p>
 								  <hr>
 								  <p class="d-flex total-price">
 									  <span>Total</span>
-									  <span>$17.60</span>
+									  <span>{{$tonggia}} VND</span>
 								  </p>
 						</div>
 								
@@ -162,7 +162,7 @@
 				<div class="col-md-12 ">
 				<div class="form-group mt-5">
 					
-				  <button type="submit" class="btn btn-primary py-3 px-4" placeholder="">Place an order</button>
+				  <button type="submit" class="btn btn-primary py-3 px-4" placeholder="">Xác Nhận</button>
 				</div>
 			  </div>
 	            </div>

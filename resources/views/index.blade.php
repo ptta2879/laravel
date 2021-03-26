@@ -11,7 +11,7 @@
     
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="Home">Liquor <span>store</span></a>
+      <a class="navbar-brand" href="Home">bachacha <span>store</span></a>
       @include('navcart')
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,13 +31,13 @@
   </nav>
   <!-- END nav -->
     
-    <div class="hero-wrap" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background-image: url('images/newbg.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-8 ftco-animate d-flex align-items-end">
           	<div class="text w-100 text-center">
-	            <h1 class="mb-4">BaChaCha<span>Thơm Ngon</span> Bá Cháy.</h1>
+	            <h1 class="mb-4"><span>BaChaCha</span> Thơm Ngon <span>Bá Cháy.</span></h1>
 	            <p><a href="SanPham" class="btn btn-primary py-2 px-4">Cửa Hàng</a> <a href="GioiThieu" class="btn btn-white btn-outline-white py-2 px-4">Tìm Hiểu Thêm</a></p>
             </div>
           </div>
@@ -299,7 +299,9 @@
     @include('footer');
     
 	
-
+@if (session('thanhconghoadon'))
+<script>Notiflix.Notify.Success("  {{session('thanhconghoadon')}} ");</script>
+@endif
   <!-- loader -->
   
   </body>
