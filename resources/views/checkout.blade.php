@@ -12,7 +12,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
       <a class="navbar-brand" href="Home">Liquor <span>store</span></a>
-      @include('navcart');
+      @include('navcart')
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
@@ -47,19 +47,30 @@
     	<div class="container">
     		<div class="row justify-content-center">
           		<div class="col-xl-10 ftco-animate">
-						<form action="#" class="billing-form">
+						<form action="{{url('HoaDon')}}" method="POST" class="billing-form">
+							{{ csrf_field() }}
 							<h3 class="mb-4 billing-heading">Chi Tiết Hóa Đơn</h3>
 	          	<div class="row align-items-end">
 	          		<div class="col-md-6">
 	                <div class="form-group">
 	                	<label for="firstname">Họ Và Tên Đệm</label>
-	                  <input type="text" required=""  class="form-control" placeholder="Họ của bạn">
+	                  <input type="text" name="fullname" id="fullname" required="" value="{{$datauser->hovaten}}"  class="form-control" placeholder="Họ của bạn">
+					 		 @if ($errors->has('fullname'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('fullname') }}</strong>
+                                    						</span>
+                               							 @endif
 	                </div>
 	              </div>
 	              <div class="col-md-6">
 	                <div class="form-group">
 	                	<label for="lastname">Tên</label>
-	                  <input type="text" required="" class="form-control" placeholder="Tên của bạn">
+	                  <input type="text" name="name" id="name" value="{{$datauser->ten}}" required="" class="form-control" placeholder="Tên của bạn">
+					  @if ($errors->has('name'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('name') }}</strong>
+                                    						</span>
+                               							 @endif
 	                </div>
                 </div>
                 
@@ -67,21 +78,65 @@
 		            <div class="col-md-12">
 	                <div class="form-group">
 	                	<label for="phone">Số Điện Thoại</label>
-	                  <input type="text" required="" class="form-control" placeholder="">
+	                  <input type="tel" name="phone" id="phone" value="{{$datauser->sdt}}" required="" class="form-control" placeholder="">
+					  @if ($errors->has('phone'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('phone') }}</strong>
+                                    						</span>
+                               							 @endif
 	                </div>
 	              </div>
 	              <div class="col-md-12">
 	                <div class="form-group">
 	                	<label for="emailaddress">Địa Chỉ Email</label>
-	                  <input type="text" required="" class="form-control" placeholder="Địa Chỉ">
+	                  <input type="email" name="email" id="email" required="" value="{{$datauser->email}}"class="form-control" placeholder="Địa Chỉ Email">
+					  @if ($errors->has('email'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('email') }}</strong>
+                                    						</span>
+                               							 @endif
+	                </div>
+                </div>
+				<div class="col-md-12">
+	                <div class="form-group">
+	                	<label for="diachi">Địa Chỉ</label>
+	                  <input type="text" id="diachi" name="diachi" value="{{$datauser->diachi}}" required="" class="form-control" placeholder="Địa Chỉ Nhận Hàng">
+					  @if ($errors->has('diachi'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('diachi') }}</strong>
+                                    						</span>
+                               							 @endif
 	                </div>
                 </div>
                 <div class="w-100"></div>
                 <div class="form-group mt-4">
 					<div class="radio">
-					  <label class="mr-3"><input type="radio" name="optradio"> Create an Account? </label>
-					  <label><input type="radio" name="optradio"> Ship to different address</label>
+					  <label class="mr-3"><input id="nhanhang" type="radio" value="1" name="kieuthanhtoan"> Thanh Toán Khi Nhận Hàng </label>
+					  <label><input type="radio" id="chuyenkhoan" value="2" name="kieuthanhtoan"> Chuyển Khoản</label>
+					  @if ($errors->has('kieuthanhtoan'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('kieuthanhtoan') }}</strong>
+                                    						</span>
+                               							 @endif
 					</div>
+				</div>
+				<div class="w-100"></div>
+				<div id="thongtinchuyenkhoan" class="cart-detail cart-total p-3 p-md-4 mb-2 alert alert-warning">
+					<h3 class="billing-heading mb-4">Thông Tin Về Tài Khoản Ngân Hàng</h3>
+					<p class="d-flex">
+							  <span>Tên Chủ Tài Khoản</span>
+							  <span>TRAN ANH THI</span>
+						  </p>
+						  
+						  <p class="d-flex">
+							  <span>Số Tài Khoản</span>
+							  <span>$3.00</span>
+						  </p>
+						  <hr>
+						  <p class="d-flex total-price">
+							  <span>Nội Dung Chuyển Khoản</span>
+							  <span>'Thanh Toán hóa đơn BaChaCha' kèm theo địa chỉ Email của bạn khi đăng nhập hệ thống và số điện thoại</span>
+						  </p>
 				</div>
 				<div class="w-100"></div>
 				
@@ -124,6 +179,5 @@
     </section>
 
     @include('footer')
-    
   </body>
 </html>

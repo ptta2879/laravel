@@ -111,3 +111,14 @@ App ={
         $('#thanhtoan').hide();
     }
 }
+$(window).on('load',function(){
+    $('#thongtinchuyenkhoan').hide();
+    $('#nhanhang').on('click',function(){
+        $('#thongtinchuyenkhoan').fadeOut();
+        $('#thongtinchuyenkhoan').hide();
+    });
+    $('#chuyenkhoan').on('click',function(){
+        $('#thongtinchuyenkhoan').fadeIn();
+        $('#thongtinchuyenkhoan').show();
+    })
+});

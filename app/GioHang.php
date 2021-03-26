@@ -11,7 +11,7 @@ class GioHang extends Model
     public $timestamps = false;
     public function taiKhoan()
     {
-        return $this->hasOne('App\TaiKhoan');
+        return $this->belongsTo('App\TaiKhoan');
     }
     public function sanPham()
     {

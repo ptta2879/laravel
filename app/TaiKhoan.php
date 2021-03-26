@@ -30,6 +30,7 @@ class TaiKhoan extends Authenticatable
     }
     public function gioHang()
     {
-        return Model::belongsTo('App\GioHang','idkh');
+        return Model::hasOne('App\GioHang','idkh','id');
+        
     }
 }
