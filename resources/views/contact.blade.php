@@ -101,24 +101,44 @@
 													<div class="form-group">
 														<label class="label" for="name">Tên Đầy Đủ</label>
 														<input type="text" required="" class="form-control" name="fullname" id="fullname" placeholder="Tên">
+														@if ($errors->has('fullname'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('fullname') }}</strong>
+                                    						</span>
+                               							 @endif
 													</div>
 												</div>
 												<div class="col-md-6"> 
 													<div class="form-group">
 														<label class="label" for="email">Địa Chỉ Email</label>
 														<input type="email" required="" class="form-control" name="email" id="email" placeholder="Email">
+														@if ($errors->has('email'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('email') }}</strong>
+                                    						</span>
+                               							 @endif
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
 														<label class="label" for="subject">Tiêu Đề</label>
 														<input type="text" required="" class="form-control" name="tieude" id="tieude" placeholder="Tiêu Đề">
+														@if ($errors->has('tieude'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('tieude') }}</strong>
+                                    						</span>
+                               							 @endif
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
 														<label class="label" for="#">Lời Nhắn</label>
 														<textarea name="message" required="" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
+														@if ($errors->has('message'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('message') }}</strong>
+                                    						</span>
+                               							 @endif
 													</div>
 												</div>
 												<div class="col-md-12">
@@ -142,6 +162,11 @@
 		</section>
 
    @include('footer')
-    
+   @if (session('success'))
+   	<script>Notiflix.Notify.Success("  {{session('success')}} ");</script>
+   @endif
+   @if (session('fail'))
+   <script>Notiflix.Notify.Failure("  {{session('fail')}} ");</script>
+   @endif
   </body>
 </html>
