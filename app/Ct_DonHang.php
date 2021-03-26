@@ -11,10 +11,10 @@ class Ct_DonHang extends Model
     public $timestamps = false;
     public function sanPham()
     {
-        return $this->hasMany('App/SanPham','idsp');
+        return $this->hasMany('App\SanPham','id','idsp');
     }
     public function donHang()
     {
-        return $this->hasOne('App/DonHang','iddonhang');
+        return $this->hasOne('App\DonHang','id','iddonhang');
     }
 }

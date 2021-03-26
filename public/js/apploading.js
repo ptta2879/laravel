@@ -120,5 +120,29 @@ $(window).on('load',function(){
     $('#chuyenkhoan').on('click',function(){
         $('#thongtinchuyenkhoan').fadeIn();
         $('#thongtinchuyenkhoan').show();
+    });
+    $(".btn-icon").on("click", function () {
+        // console.log(this);
+        let myValue = $(this).data('val');
+       
+        $.each(myValue, function(key,val){
+           var idsp = val.idsp;
+
+           $.ajax({
+               type:'GET',
+               data:{idsp:idsp},
+               url:'DonHangDaMua',
+               success: function(result){
+                 var print = '<h5>'+result+'</h5><p>'+val.gia+'</p><p>'+val.soluong+'</p><hr></hr>'; 
+                 console.log(print); 
+                 $('#noidungdonhang').append(print);
+               }
+           })
+        });
+    });
+    $('#dong').on('click', function(){
+        $('#noidungdonhang h5').remove();
+        $('#noidungdonhang p').remove();
+        $('#noidungdonhang hr').remove();
     })
 });

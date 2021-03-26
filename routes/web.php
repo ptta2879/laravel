@@ -32,6 +32,8 @@ Route::get('/AddGioHang', 'CartController@themSanPham');
 Route::get('/AddGioHangChiTiet', 'CartController@themSanPhamChiTiet');
 Route::get('/XoaGioHang', 'CartController@xoaGioHang');
 Route::get('/TinhTien', 'CartController@tinhTien');
+Route::get('/HangDaMua', 'ProductBuyController@index');
+Route::get('/DonHangDaMua', 'ProductBuyController@donHangDaMua');
 Route::post('/NhanLienHe','ContactController@nhanLienHe' );
 Route::post('/HoaDon','CheckOutController@taoHoaDon' );
 Auth::routes();

@@ -22,6 +22,9 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item "><a href="Home" class="nav-link">Trang Chủ</a></li>
           <li class="nav-item"><a href="GioiThieu" class="nav-link">Giới Thiệu</a></li>
+		  @if (Auth::check())
+          <li class="nav-item "><a href="HangDaMua" class="nav-link">Đơn Hàng</a></li>
+          @endif
           <li class="nav-item"><a href="BaiViet" class="nav-link">Bài Viết</a></li>
           <li class="nav-item"><a href="LienHe" class="nav-link">Liên Hệ</a></li>
         </ul>

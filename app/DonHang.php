@@ -12,11 +12,11 @@ class DonHang extends Model
     public function ctDonHang()
     {
         # code...
-        return $this->belongsTo('App/Ct_DonHang','iddonhang');
+        return $this->hasMany('App\Ct_DonHang','iddonhang');
     }
     public function taiKhoan()
     {
         # code...
-        return $this->hasOne('App/TaiKhoan','idkh');
+        return $this->hasOne('App\TaiKhoan','idkh');
     }
 }
