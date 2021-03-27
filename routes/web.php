@@ -40,6 +40,15 @@ Route::get('/admin/Home', 'AdminController@index');
 Route::get('/admin', 'AdminController@index')->middleware('loginadmin');
 Route::get('/admin/login', 'LoginController@index');
 Route::post('/admin/login', 'LoginController@loginAdmin');
+Route::get('/admin/BaiViet', 'BaiVietController@index');
+Route::get('/admin/ThemBaiViet', 'BaiVietController@themBaiViet');
+Route::get('/admin/TonKho', 'KhoController@index');
+Route::get('/admin/NhapKho', 'KhoController@nhapKho');
+Route::get('/admin/LienHe', 'LienHeController@index');
+Route::get('/admin/LoaiSanPham', 'LoaiSanPhamController@index');
+Route::get('/admin/ThemLoaiSanPham', 'LoaiSanPhamController@themLoaiSanPham');
+Route::get('/admin/SanPham', 'SanPhamController@index');
+Route::get('/admin/ThemSanPham', 'SanPhamController@themSanPham');
 
 Auth::routes();
 

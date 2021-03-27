@@ -92,7 +92,7 @@
 
                             <li class="menu-title">Chức Năng</li>
                             <li>
-                                <a href="admin/Home" class="waves-effect" aria-expanded="false">
+                                <a href=" Home" class="waves-effect" aria-expanded="false">
                                     <i class=" remixicon-dashboard-line"></i>
                                     <span> Trang Chủ </span>
                                 </a>
@@ -107,16 +107,16 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href="admin/SanPham">Danh Sách Sản Phẩm</a>
+                                        <a href=" SanPham">Danh Sách Sản Phẩm</a>
                                     </li>
                                     <li>
-                                        <a href="admin/ThemSanPham">Thêm Sản Phẩm</a>
+                                        <a href=" ThemSanPham">Thêm Sản Phẩm</a>
                                     </li>
                                     
                                 </ul>
                             </li>
                             <li>
-                                <a href="admin/LienHe" class="waves-effect">
+                                <a href=" LienHe" class="waves-effect">
                                     <i class="remixicon-mail-open-line"></i>
                                     <span> Liên Hệ </span>
                                     
@@ -131,16 +131,16 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href="admin/LoaiSanPham">Các loại sản phẩm</a>
+                                        <a href=" LoaiSanPham">Các loại sản phẩm</a>
                                     </li>
                                     <li>
-                                        <a href="admin/ThemLoaiSanPham">Thêm loại sản phẩm</a>
+                                        <a href=" ThemLoaiSanPham">Thêm loại sản phẩm</a>
                                     </li>
                                     
                                 </ul>
                             </li>
                             <li>
-                                <a href="admin/DonHang" class="waves-effect" aria-expanded="false">
+                                <a href=" DonHang" class="waves-effect" aria-expanded="false">
                                     <i class=" remixicon-shopping-cart-line"></i>
                                     <span> Đơn Hàng</span>
                                     
@@ -155,10 +155,10 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href="admin/BaiViet">Danh Sách Bài Viết</a>
+                                        <a href=" BaiViet">Danh Sách Bài Viết</a>
                                     </li>
                                     <li>
-                                        <a href="admin/ThemBaiViet">Thêm Bài Viết Mới</a>
+                                        <a href=" ThemBaiViet">Thêm Bài Viết Mới</a>
                                     </li>
                                     
                                 </ul>
@@ -172,13 +172,13 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href="admin/TonKho">Tồn Kho</a>
+                                        <a href=" TonKho">Tồn Kho</a>
                                     </li>
                                     <li>
-                                        <a href="admin/NhapKho">Danh sách số lần nhập kho</a>
+                                        <a href=" NhapKho">Danh sách số lần nhập kho</a>
                                     </li>
                                     <li>
-                                        <a href="admin/DangXuat" class="waves-effect">
+                                        <a href=" DangXuat" class="waves-effect">
                                             <i class="remixicon-logout-box-line"></i>
                                             <span>Đăng xuất</span>
                                             
@@ -301,7 +301,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-                               2020-2021 &copy; Minton theme by  
+                               2021 &copy; BaChaCha  
                             </div>
                             
                         </div>

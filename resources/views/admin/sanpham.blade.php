@@ -55,12 +55,12 @@
                 <div class="logo-box">
                     <a href="Home.html" class="logo text-center">
                         <span class="logo-lg">
-                            <img src="{{url'(assets\images\logo-light.png')}}" alt="" height="20">
+                            <img src="{{url('assets\images\logo-light.png')}}" alt="" height="20">
                             <!-- <span class="logo-lg-text-light">Xeria</span> -->
                         </span>
                         <span class="logo-sm">
                             <!-- <span class="logo-sm-text-dark">X</span> -->
-                            <img src="{{url'assets\images\logo-sm.png')}}" alt="" height="24">
+                            <img src="{{url('assets\images\logo-sm.png')}}" alt="" height="24">
                         </span>
                     </a>
                 </div>
@@ -89,7 +89,7 @@
 
                             <li class="menu-title">Chức Năng</li>
                             <li>
-                                <a href="admin/Home" class="waves-effect " aria-expanded="false">
+                                <a href="Home" class="waves-effect " aria-expanded="false">
                                     <i class=" remixicon-dashboard-line"></i>
                                     <span> Trang Chủ </span>
                                 </a>
@@ -104,10 +104,10 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href="admin/SanPham">Danh Sách Sản Phẩm</a>
+                                        <a href="SanPham">Danh Sách Sản Phẩm</a>
                                     </li>
                                     <li>
-                                        <a href="admin/ThemSanPham">Thêm Sản Phẩm</a>
+                                        <a href="ThemSanPham">Thêm Sản Phẩm</a>
                                     </li>
                                     
                                 </ul>
