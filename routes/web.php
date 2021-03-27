@@ -36,6 +36,11 @@ Route::get('/HangDaMua', 'ProductBuyController@index');
 Route::get('/DonHangDaMua', 'ProductBuyController@donHangDaMua');
 Route::post('/NhanLienHe','ContactController@nhanLienHe' );
 Route::post('/HoaDon','CheckOutController@taoHoaDon' );
+Route::get('/admin/Home', 'AdminController@index');
+Route::get('/admin', 'AdminController@index')->middleware('loginadmin');
+Route::get('/admin/login', 'LoginController@index');
+Route::post('/admin/login', 'LoginController@loginAdmin');
+
 Auth::routes();
 
 

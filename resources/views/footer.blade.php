@@ -17,7 +17,7 @@
             <div class="ftco-footer-widget mb-4 ml-md-4">
               <h2 class="ftco-heading-2">Thông Tin</h2>
               <ul class="list-unstyled">
-                <li><a href="GioiThieu"><span class="fa fa-chevron-right mr-2"></span>Giới Thiệu</a></li>
+                <li><a href="GioigiThieu"><span class="fa fa-chevron-right mr-2"></span>Giới Thiệu</a></li>
                 <li><a href="SanPham"><span class="fa fa-chevron-right mr-2"></span>Sản Phẩm</a></li>
                 <li><a href="LienHe"><span class="fa fa-chevron-right mr-2"></span>Liên Hệ</a></li>
                 <li><a href="BaiViet"><span class="fa fa-chevron-right mr-2"></span>Bài Viết</a></li>

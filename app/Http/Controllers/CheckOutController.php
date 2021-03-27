@@ -45,7 +45,6 @@ class CheckOutController extends Controller
         $news->loaithanhtoan =$kieuthanhtoan;
         $news->email =$email;
         $news->trangthai = 0;
-        $news->trangthaigiaohang=0;
         if($news->save()){
             $iddonhang = $news->id;
             $datagiohang = GioHang::where('idkh',Auth::user()->id)->get();

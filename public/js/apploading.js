@@ -127,7 +127,9 @@ $(window).on('load',function(){
        
         $.each(myValue, function(key,val){
            var idsp = val.idsp;
-
+           $('#noidungdonhang h5').remove();
+           $('#noidungdonhang p').remove();
+           $('#noidungdonhang hr').remove();
            $.ajax({
                type:'GET',
                data:{idsp:idsp},
@@ -140,9 +142,4 @@ $(window).on('load',function(){
            })
         });
     });
-    $('#dong').on('click', function(){
-        $('#noidungdonhang h5').remove();
-        $('#noidungdonhang p').remove();
-        $('#noidungdonhang hr').remove();
-    })
 });

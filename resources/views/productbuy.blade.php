@@ -60,7 +60,7 @@
 						      <th>Tổng Tiền</th>
 						      <th>Địa Chỉ</th>
 							  <th>Số điện Thoại</th>
-						      
+						      <th>Trạng Thái</th>
 							  <th>&nbsp; </th>
 							  
 						    </tr>
@@ -92,6 +92,16 @@
                                 </div>
 				          </td>
                           <td>{{$item->sdt}}</td>
+                          <td>@if($item->trangthai == 0 )
+                              {{'Chưa xác nhận'}}
+                          @else
+                            @if ($item->trangthai == 1)
+                                {{'Đang giao Hàng'}}
+                            @else 
+                            {{'Đã nhận hàng'}}
+                            @endif
+                          @endif
+                        </td>
                             <td>
                                 
                                 <button type="button" class="btn btn-primary btn-icon" data-toggle="modal" data-val="{{$item->ctdonhang}}" data-target="#exampleModal">
