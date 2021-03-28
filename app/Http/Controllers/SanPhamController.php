@@ -18,7 +18,7 @@ class SanPhamController extends Controller
     }
     public function index()
     { 
-        $datasp = SanPham::with('loaisanpham')->get();
+        $datasp = SanPham::with('loaiSanPham')->get();
         $dataloaisanpham = LoaiSanPham::all();
         return view('admin/sanpham',['sanpham'=>$datasp,'loaisanpham'=>$dataloaisanpham]);
     }

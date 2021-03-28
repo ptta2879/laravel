@@ -124,19 +124,19 @@ $(window).on('load',function(){
     $(".btn-icon").on("click", function () {
         // console.log(this);
         let myValue = $(this).data('val');
-       
+        $('#noidungdonhang h5').remove();
+        $('#noidungdonhang p').remove();
+        $('#noidungdonhang hr').remove();
         $.each(myValue, function(key,val){
            var idsp = val.idsp;
-           $('#noidungdonhang h5').remove();
-           $('#noidungdonhang p').remove();
-           $('#noidungdonhang hr').remove();
+           
            $.ajax({
                type:'GET',
                data:{idsp:idsp},
                url:'DonHangDaMua',
                success: function(result){
                  var print = '<h5>'+result+'</h5><p>'+val.gia+'</p><p>'+val.soluong+'</p><hr></hr>'; 
-                 console.log(print); 
+                  
                  $('#noidungdonhang').append(print);
                }
            })

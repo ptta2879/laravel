@@ -19,7 +19,7 @@ class CartController extends Controller
     public function index()
     {
         # code...
-        $data = GioHang::with('sanpham')->get();
+        $data = GioHang::with('sanPham')->get();
         $tonggia = DB::table('giohang')->where('idkh','=',Auth::user()->id)->sum('gia');
         
         return view('cart',['giohang'=>$data,'tonggia'=>$tonggia]);
@@ -27,7 +27,7 @@ class CartController extends Controller
     public function cartAjax()
     {
         $idkh = Auth::user()->id;
-        $data = GioHang::with('sanpham')->where('idkh',$idkh)->get();
+        $data = GioHang::with('sanPham')->where('idkh',$idkh)->get();
         $output ='';
         foreach($data as  $val){
             $output .= '<div class="dropdown-item d-flex align-items-start" href="#"><div class="img" style="background-image: url(images/prod-'. $val->idsp .'.jpg);"></div>';

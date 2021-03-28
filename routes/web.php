@@ -54,6 +54,7 @@ Route::get('/admin/DonHang', 'DonHangController@index');
 Route::get('/admin/DangXuat', 'LogOutController@index');
 Route::get('/admin/SuaSanPham', 'SanPhamController@sua');
 Route::get('/admin/LienHeUpdate', 'LienHeController@trangThai');
+Route::get('/admin/ctDonHang', 'DonHangController@ctDonHang');
 Route::post('/admin/SuaSanPham', 'SanPhamController@suaThongTin');
 Route::post('/admin/LoaiSanPham', 'LoaiSanPhamController@suaLoai');
 Route::post('/admin/ThemLoaiSanPham', 'LoaiSanPhamController@addLoaiSanPham');
@@ -61,4 +62,4 @@ Route::delete('/admin/DeleteLoaiSanPham', 'LoaiSanPhamController@deleteLoaiSanPh
 Route::delete('/admin/DeleteSanPham', 'SanPhamController@deleteSanPham');
 Auth::routes();
 
-
+Route::post('/admin/ThayDoiTrangThai', 'DonHangController@thayDoiTrangThai');

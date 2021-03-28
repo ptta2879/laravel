@@ -9,7 +9,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{url('assets\images\favicon.ico')}}">
-
+        <link href="{{url('assets\libs\footable\footable.core.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets\libs\jquery-vectormap\jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css">
         <!-- third party css -->
         <link href="{{url('assets\libs\datatables\dataTables.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\libs\datatables\responsive.bootstrap4.css')}}" rel="stylesheet" type="text/css">
@@ -250,21 +251,22 @@
                                     </div>
                                     
                                     <div class="table-responsive">
-                                        <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0 no-paging footable-loaded footable tablet breakpoint" data-page-size="7">
+                                        <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0" data-page-size="7">
                                             <thead>
                                             <tr>
-                                                <th data-toggle="true" class="footable-visible footable-sortable footable-first-column">STT<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Tên Tài Khoản<span class="footable-sort-indicator"></span></th>
-                                                <th data-hide="phone" class="footable-visible footable-sortable">Họ Và Tên Đệm<span class="footable-sort-indicator"></span></th>
-                                                <th data-hide="phone, tablet" class="footable-sortable" style="display: none;">Tên<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Địa Chỉ<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Giá<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">SĐT<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Ngày Mua<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Loại Thanh Toán<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Email<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Trạn Thái<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable footable-last-column"><span class="footable-sort-indicator"></span></th>
+                                                <th data-toggle="true" class="">STT</th>
+                                                <th >Tên Tài Khoản</th>
+                                                <th data-hide="phone" >Họ Và Tên Đệm</th>
+                                                <th data-hide="phone, tablet"  >Tên</th>
+                                                <th >Địa Chỉ </th>
+                                                <th >Giá  </th>
+                                                <th >SĐT  </th>
+                                                <th >Ngày Mua  </th>
+                                                <th >Loại Thanh Toán  </th>
+                                                <th >Email  </th>
+                                                <th >Trạn Thái  </th>
+                                                <th >  </th>
+                                                
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -276,22 +278,24 @@
                                                 
                                             <tr style="" class="footable-even">
 
-                                                <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>{{$count}}</td>
-                                                <td class="footable-visible">{{$item->taikhoan->hovaten.' '.$item->taikhoan->ten}} </td>
-                                                <td class="footable-visible">{{$item->hovaten}} </td>
-                                                <td class="" style="display: none;">{{$item->ten}} </td>
-                                                <td class="footable-visible">{{$item->diachi}}</td>
-                                                <td class="footable-visible">{{$item->tonggia}}</td>
-                                                <td class="footable-visible">{{$item->sdt}}</td>
-                                                <td class="footable-visible">{{$item->ngaylap}}</td>
-                                                <td class="footable-visible">@if ($item->loaithanhtoan==1)
+                                                <td ><span class="footable-toggle"></span>{{$count}}</td>
+                                                <td >{{$item->taikhoan->hovaten.' '.$item->taikhoan->ten}} </td>
+                                                <td >{{$item->hovaten}} </td>
+                                                <td >{{$item->ten}} </td>
+                                                <td >{{$item->diachi}}</td>
+                                                <td >{{$item->tonggia}}</td>
+                                                <td >{{$item->sdt}}</td>
+                                                <td >{{$item->ngaylap}}</td>
+                                                <td >@if ($item->loaithanhtoan==1)
                                                     {{'Thanh Toán Nhận Hàng'}}
                                                 @else
                                                 {{'Chuyển Khoản'}}
                                                 @endif</td>
-                                                <td class="footable-visible">{{$item->email}}</td>
+                                                <td >{{$item->email}}</td>
                                                 <td>
+                                                    {{ csrf_field() }}
                                                     <select id="trangthai{{$item->id}}" onchange="App.donHang({{$item->id}})" name="trangthai" class="selectpicker" data-style="btn-outline-primary">
+                                                       
                                                         <option @if ($item->trangthai == 0)
                                                             {{'selected'}}
                                                         @endif  value="0">Chưa xác nhận</option>
@@ -303,8 +307,10 @@
                                                         @endif value="2">Đã nhận hàng và thanh toán</option>
                                                     </select>
                                                 </td>
-                                                <td style="white-space: nowrap; width: 1%;" class="footable-visible footable-last-column">
-                                           <button type="button" class="tabledit-edit-button btn btn-primary" style="float: none;"><span class="remixicon-edit-2-line"></span></button></td>
+                                                
+                                                    <td style="white-space: nowrap; width: 1%;" class="footable-visible footable-last-column">
+                                                        <button type="button"  id="nutdonhang" class="btn btn-primary waves-effect waves-light btn-icon" data-value="{{$item->ctdonhang}}" data-toggle="modal" data-target="#ctdonhang"><span class="remixicon-edit-2-line"></button>
+                                                        </td>
                                             </tr>
                                             @php
                                                 $count++;
@@ -313,7 +319,7 @@
                                             </tbody>
                                             <tfoot>
                                             <tr class="active">
-                                                <td colspan="11" class="footable-visible">
+                                                <td colspan="12" class="footable-visible">
                                                     <div class="text-right">
                                                         <ul class="pagination pagination-rounded justify-content-end footable-pagination m-t-10 mb-0"><li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li><li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li><li class="footable-page active"><a data-page="0" href="#">1</a></li><li class="footable-page-arrow disabled"><a data-page="next" href="#next">›</a></li><li class="footable-page-arrow disabled"><a data-page="last" href="#last">»</a></li></ul>
                                                     </div>
@@ -326,7 +332,33 @@
                             </div> <!-- end col -->
                         </div>
                         <!-- end row -->
-
+                        <div id="ctdonhang" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Chi Tiết Đơn Hàng</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    </div>
+                                    <div class="modal-body p-4">
+                                        <div class="table-responsive">
+                                            <table class="table mb-0">
+                                                <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Tên Sản Phẩm</th>
+                                                    <th>Giá</th>
+                                                    <th>Số Lượng</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="noidung">
+                                                                       
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         
                         <!-- end row -->
@@ -369,6 +401,8 @@
         <!-- Vendor js -->
         <script src="{{url('assets\js\vendor.min.js')}}"></script>
 
+        <script src="{{url('assets\libs\footable\footable.all.min.js')}}"></script>
+        <script src="{{url('assets\js\pages\foo-tables.init.js')}}"></script>
         <!-- third party js -->
         <script src="{{url('assets\libs\datatables\jquery.dataTables.min.js')}}"></script>
         <script src="{{url('assets\libs\datatables\dataTables.bootstrap4.js')}}"></script>
@@ -393,7 +427,7 @@
         <script src="{{url('assets\libs\bootstrap-touchspin\jquery.bootstrap-touchspin.min.js')}}"></script>
         <script src="{{url('assets\libs\jquery-mask-plugin\jquery.mask.min.js')}}"></script>
         <!-- third party js ends -->
-
+        
         <!-- Datatables init -->
         <script src="{{url('assets\js\pages\datatables.init.js')}}"></script>
 

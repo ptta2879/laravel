@@ -77,6 +77,30 @@ App={
             }
 
         });
+    },
+    donHang:function(id){
+        Notiflix.Loading.Pulse('Đang Xử Lý...');
+        let select = '#trangthai'+ id.toString();
+        let giatri = $(select).val();
+        var _token = $('input[name="_token"]').val();
+        $.ajax({
+            type:'POST',
+            data:{
+                id:id,
+                trangthai:giatri,
+                _token:_token
+            },
+            url:'ThayDoiTrangThai',
+            success:function(result){
+                if(result == 'success'){
+                    Notiflix.Notify.Success('Thay Đổi Trạng Thái Thành Công');
+                    Notiflix.Loading.Remove(600);
+                }else{
+                    Notiflix.Notify.Failure('Thay Đổi Trạng Thái Không Thành Công');
+                    Notiflix.Loading.Remove(600);
+                }
+            }
+        })
     }
 }
 $(window).on('load',function(){
@@ -86,5 +110,30 @@ $(window).on('load',function(){
         var modal = $(this);
         modal.find('.modal-body #idloai').val(recipient.id);
         modal.find('.modal-body #tenloai').val(recipient.tenloai);
+    });
+    $('#ctdonhang').on('show.bs.modal',function(event){
+        var button = $(event.relatedTarget);
+        var recipient = button.data('value');
+        var modal = $(this);
+        let count = 1;
+        $('#noidung tr').remove();
+        $.each(recipient,function(key,val){
+            var idsp = val.idsp;
+            
+            $.ajax({
+                type:'GET',
+                data:{
+                    idsp:idsp
+                },
+                url:'ctDonHang',
+                success: function(result){
+                    
+                    var print = '<tr><td>'+count+'</td><td>'+result+'</td><td>'+val.gia+'</td><td>'+val.soluong+'</td></tr>';
+                    $('#noidung').append(print);
+                    ++count;
+                }
+            })
+            
+        })
     })
 })
