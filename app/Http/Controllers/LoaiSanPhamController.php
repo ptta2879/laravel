@@ -35,4 +35,26 @@ class LoaiSanPhamController extends Controller
             return redirect('admin/LoaiSanPham')->with('suafail','Sửa Không Thành Công');
         }
     }
+    public function addLoaiSanPham(Request $request)
+    {
+        $tenloai = $request->tenloai;
+        $new = new LoaiSanPham();
+        $new->tenloai = $tenloai;
+        if($new->save()){
+            return redirect('admin/LoaiSanPham')->with('themthanhcong','Thêm Thành Công');
+        }else{
+            return redirect('admin/LoaiSanPham')->with('themfail','Thêm Không Thành Công');
+        }
+    }
+    public function deleteLoaiSanPham(Request $request)
+    {
+        $id = $request->id;
+        $news = LoaiSanPham::find($id);
+        if($news->delete()){
+            echo 'thanhcong';
+        }
+        else{
+            echo 'thatbai';
+        }
+    }
 }

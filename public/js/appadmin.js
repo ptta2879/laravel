@@ -23,6 +23,60 @@ App={
                 }
             }
         });
+    },
+    xoaLoaiSanPham: function(id){
+        Notiflix.Loading.Pulse('Đang Xử Lý...');
+        var _token = $('input[name="_token"]').val();
+        $.ajax({
+            type:'DELETE',
+            data: {id:id,
+            _token:_token},
+            url: 'DeleteLoaiSanPham',
+            success:function(result){
+                if(result == 'thanhcong'){
+                    
+                    Notiflix.Report.Success( 'Thành Công', 'Thành Công Xóa Loại Sản Phẩm', 'Xác Nhận', function(){
+                        Notiflix.Loading.Remove(600);
+                    window.location='LoaiSanPham';
+                    } ); 
+                    
+                }else{
+                    Notiflix.Report.Failure( 'Thất Bại', 'Xóa Loại Sản Phẩm Không Thành Công', 'Xác Nhận', function(){
+                        Notiflix.Loading.Remove(600);
+                        window.location='LoaiSanPham'
+                    } ); 
+                    
+                }
+            }
+
+        });
+    },
+    xoaSanPham: function(id){
+        Notiflix.Loading.Pulse('Đang Xử Lý...');
+        var _token = $('input[name="_token"]').val();
+        $.ajax({
+            type:'DELETE',
+            data: {id:id,
+            _token:_token},
+            url: 'DeleteSanPham',
+            success:function(result){
+                if(result == 'thanhcong'){
+                    
+                    Notiflix.Report.Success( 'Thành Công', 'Thành Công Xóa Sản Phẩm', 'Xác Nhận', function(){
+                        Notiflix.Loading.Remove(600);
+                    window.location='SanPham';
+                    } ); 
+                    
+                }else{
+                    Notiflix.Report.Failure( 'Thất Bại', 'Xóa Sản Phẩm Không Thành Công', 'Xác Nhận', function(){
+                        Notiflix.Loading.Remove(600);
+                        window.location='SanPham'
+                    } ); 
+                    
+                }
+            }
+
+        });
     }
 }
 $(window).on('load',function(){

@@ -14,7 +14,7 @@ class LienHeController extends Controller
     }
     public function index()
     {
-        $data = LienHe::all();
+        $data = LienHe::orderBy('id','DESC')->get();
         return view('admin/lienhe',['lienhe'=>$data]);
     }
     public function trangThai(Request $request)

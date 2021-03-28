@@ -244,10 +244,12 @@
                                         <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0 no-paging footable-loaded footable tablet breakpoint" data-page-size="7">
                                             <thead>
                                             <tr>
+                                                
                                                 <th data-toggle="true" class="footable-visible footable-sortable footable-first-column">STT<span class="footable-sort-indicator"></span></th>
                                                 <th class="footable-visible footable-sortable">Loại sản phẩm<span class="footable-sort-indicator"></span></th>
                                                 
                                                 <th class="footable-visible footable-sortable footable-last-column"><span class="footable-sort-indicator"></span></th>
+                                                <th class="footable-visible footable-sortable footable-last-column"></th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -256,12 +258,13 @@
                                                 @endphp
                                                 @foreach ($loaisanpham as $item)
                                                 <tr style="" class="footable-even">
-
+                                                    
                                                     <td class="footable-visible footable-first-column"><span class="footable-toggle">{{ $count }}</span></td>
                                                     <td class="footable-visible">{{$item->tenloai}}</td>
                                                     <td style="white-space: nowrap; width: 1%;" class="footable-visible footable-last-column">
                                                         <button type="button"  id="nutloaisanpham" class="btn btn-primary waves-effect waves-light btn-icon" data-value="{{$item}}" data-toggle="modal" data-target="#con-close-modal"><span class="remixicon-edit-2-line"></button>
-                                                        
+                                                        </td>
+                                                        <td style="white-space: nowrap; width: 1%;" class="footable-visible footable-last-column"><button onclick="App.xoaLoaiSanPham({{$item->id}})" class="btn  btn-danger waves-effect waves-light btn-icon "><i class="fa fa-times"></i></button></td>
                                                 @php
                                                     $count++;
                                                 @endphp
@@ -270,7 +273,7 @@
                                             </tbody>
                                             <tfoot>
                                             <tr class="active">
-                                                <td colspan="9" class="footable-visible">
+                                                <td colspan="4" class="footable-visible">
                                                     <div class="text-right">
                                                         <ul class="pagination pagination-rounded justify-content-end footable-pagination m-t-10 mb-0"><li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li><li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li><li class="footable-page active"><a data-page="0" href="#">1</a></li><li class="footable-page-arrow disabled"><a data-page="next" href="#next">›</a></li><li class="footable-page-arrow disabled"><a data-page="last" href="#last">»</a></li></ul>
                                                     </div>
@@ -390,8 +393,14 @@
         @if (session('suathanhcong'))
         <script>Notiflix.Notify.Success("  {{session('suathanhcong')}} ");</script>
         @endif
+        @if (session('themthanhcong'))
+        <script>Notiflix.Notify.Success("  {{session('themthanhcong')}} ");</script>
+        @endif
         @if (session('suafail'))
         <script>Notiflix.Notify.Failure("  {{session('suafail')}} ");</script>
+        @endif
+        @if (session('themfail'))
+        <script>Notiflix.Notify.Failure("  {{session('themfail')}} ");</script>
         @endif
     </body>
 </html>

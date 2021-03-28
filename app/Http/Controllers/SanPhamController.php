@@ -6,6 +6,7 @@ use App\Http\Requests\SanPhamRequest;
 use App\Kho;
 use App\LoaiSanPham;
 use App\SanPham;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class SanPhamController extends Controller
@@ -113,6 +114,23 @@ class SanPhamController extends Controller
             }
         }else{
             return redirect('admin/SanPham')->with('khofail','Tạo kho thất bại');
+        }
+    }
+    public function deleteSanPham(Request $request)
+    {
+        # code...
+        $id = $request->id;
+        $news = SanPham::find($id);
+        if($news->delete()){
+            $namefile = 'images\sanpham-'.$id.'.jpg';
+            if(File::delete($namefile)){
+                echo 'thanhcong';
+            }else{
+                echo 'hinhfail';
+            }
+        }
+        else{
+            echo 'thatbai';
         }
     }
 }

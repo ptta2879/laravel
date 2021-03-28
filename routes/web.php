@@ -56,6 +56,9 @@ Route::get('/admin/SuaSanPham', 'SanPhamController@sua');
 Route::get('/admin/LienHeUpdate', 'LienHeController@trangThai');
 Route::post('/admin/SuaSanPham', 'SanPhamController@suaThongTin');
 Route::post('/admin/LoaiSanPham', 'LoaiSanPhamController@suaLoai');
+Route::post('/admin/ThemLoaiSanPham', 'LoaiSanPhamController@addLoaiSanPham');
+Route::delete('/admin/DeleteLoaiSanPham', 'LoaiSanPhamController@deleteLoaiSanPham');
+Route::delete('/admin/DeleteSanPham', 'SanPhamController@deleteSanPham');
 Auth::routes();
 
 

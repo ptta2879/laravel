@@ -131,7 +131,7 @@
                                         <a href="{{url('admin/LoaiSanPham')}} ">Các loại sản phẩm</a>
                                     </li>
                                     <li>
-                                        <a href=" {{url('admin/ThemLoaiSanPhamr')}}">Thêm loại sản phẩm</a>
+                                        <a href=" {{url('admin/ThemLoaiSanPham')}}">Thêm loại sản phẩm</a>
                                     </li>
                                     
                                 </ul>
@@ -174,14 +174,15 @@
                                     <li>
                                         <a href="{{url('admin/NhapKho')}} ">Danh sách số lần nhập kho</a>
                                     </li>
-                                    <li>
-                                        <a href="{{url('admin/DangXuat')}} " class="waves-effect">
-                                            <i class="remixicon-logout-box-line"></i>
-                                            <span>Đăng xuất</span>
-                                            
-                                        </a>
-                                    </li>
+                                    
                                 </ul>
+                            </li>
+                            <li>
+                                <a href="{{url('admin/DangXuat')}} " class="waves-effect">
+                                    <i class="remixicon-logout-box-line"></i>
+                                    <span>Đăng xuất</span>
+                                    
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -255,6 +256,7 @@
                                                 <th>Nguồn Gốc</th>
                                                 <th>Giới Thiệu</th>
                                                 <th></th>
+                                                <th></th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -274,11 +276,13 @@
                                                     <td>{{$item->mota}}</td>
                                                     <td>{{$item->nguongoc}}</td>
                                                     <td>{{$item->gioithieu}}</td>
-                                                    
+                                                   
                                                
                                                 
                                                 <td style="white-space: nowrap; width: 1%;">
                                            <a href="SuaSanPham?id={{$item->id}}" class="tabledit-edit-button btn btn-primary" style="float: none;"><span class="remixicon-edit-2-line"></span></a></td>
+                                                    {{ csrf_field() }}
+                                           <td style="white-space: nowrap; width: 1%;" class="footable-visible footable-last-column"><button onclick="App.xoaSanPham({{$item->id}})" class="btn  btn-danger waves-effect waves-light btn-icon "><i class="fa fa-times"></i></button></td>
                                             </tr>
                                             @php
                                                 $count++
@@ -287,7 +291,7 @@
                                             </tbody>
                                             <tfoot>
                                             <tr class="active">
-                                                <td colspan="8">
+                                                <td colspan="9">
                                                     <div class="text-right">
                                                         <ul class="pagination pagination-rounded justify-content-end footable-pagination m-t-10 mb-0"></ul>
                                                     </div>

@@ -60,12 +60,12 @@
                 <div class="logo-box">
                     <a href="index.html" class="logo text-center">
                         <span class="logo-lg">
-                            <img src="{{url('images\logo-light.png')}}" alt="" height="20">
+                            <img src="{{url('assets/images/logo-light.png')}}" alt="" height="20">
                             <!-- <span class="logo-lg-text-light">Xeria</span> -->
                         </span>
                         <span class="logo-sm">
                             <!-- <span class="logo-sm-text-dark">X</span> -->
-                            <img src="{{url('images\logo-sm.png')}}" alt="" height="24">
+                            <img src="{{url('assets/images/logo-sm.png')}}" alt="" height="24">
                         </span>
                     </a>
                 </div>
@@ -179,14 +179,15 @@
                                     <li>
                                         <a href="{{url('admin/NhapKho')}}">Danh sách số lần nhập kho</a>
                                     </li>
-                                    <li>
-                                        <a href="{{url('admin/DangXuat')}} " class="waves-effect">
-                                            <i class="remixicon-logout-box-line"></i>
-                                            <span>Đăng xuất</span>
-                                            
-                                        </a>
-                                    </li>
+                                    
                                 </ul>
+                            </li>
+                            <li>
+                                <a href="{{url('admin/DangXuat')}} " class="waves-effect">
+                                    <i class="remixicon-logout-box-line"></i>
+                                    <span>Đăng xuất</span>
+                                    
+                                </a>
                             </li>
                         </ul>
                     </div>

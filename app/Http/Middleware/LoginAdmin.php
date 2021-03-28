@@ -19,7 +19,7 @@ class LoginAdmin
         if(Auth::check()&&Auth::user()->phanquyen==1){
             return $next($request);
         }else{
-            return redirect('/admin/login')->with('faillogin','Bạn không có quyền vào admin');
+            return redirect('/admin/login');
         }
     }
 }

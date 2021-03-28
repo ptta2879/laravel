@@ -213,7 +213,7 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                    
-                                    <h4 class="page-title">Thêm sản phẩm</h4>
+                                    <h4 class="page-title">Thêm loại sản phẩm</h4>
                                 </div>
                             </div>
                         </div>     
@@ -223,67 +223,19 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">
-                                    <h4 class="header-title">Thêm sản phẩm</h4>
+                                    <h4 class="header-title">Thêm loại sản phẩm</h4>
                                     <p id="desctable" class="sub-header">
                                         Nhập đầy đủ các thông tin sau đây
                                     </p>
-                                    <form action="" method="GET" enctype="multipart/form-data" class="parsley-form" novalidate="">
+                                    <form action="{{url('admin/ThemLoaiSanPham')}}" method="POST"  class="parsley-form" novalidate="">
                                         <!-- Start fields -->
+                                        {{ csrf_field() }}
                                         <div class="form-group">
-                                            <label>Tên sản phẩm</label>
+                                            <label>Tên Loại Sản Phẩm</label>
                                             <div>
-                                                <input name="tensp" type="text" class="form-control" required="" data-parsley-maxlength="8" placeholder="Tối đa 250 ký tự">
+                                                <input name="tenloai" type="text" class="form-control" required="" data-parsley-maxlength="8" placeholder="Tối đa 250 ký tự">
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Số lượng</label>
-                                            <div>
-                                                <input name="soluong" type="text" class="form-control" required="" data-parsley-maxlength="8" placeholder="Tối đa 250 ký tự">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Giá</label>
-                                            <div>
-                                                <input name="gia" type="number" class="form-control" required="" step="0.01" min="1" data-parsley-maxlength="30" placeholder="2000.00">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Mô Tả</label>
-                                            <div>
-                                                <textarea name="mota" class="form-control" id="example-textarea" rows="5"></textarea>
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nguồn gốc xuất xứ</label>
-                                            <div>
-                                                <textarea name="nguongoc" class="form-control" id="example-textarea" rows="5"></textarea>
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Giới Thiệu</label>
-                                            <div>
-                                                <textarea name="gioithieu" class="form-control" id="example-textarea" rows="5"></textarea>
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Loại sản phẩm</label>
-                                            <div>
-                                                <select class="form-control">
-                                                    <option selected="" value="1">Bánh Tráng</option>
-                                                    <option value="2">Cơm Cháy</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Hình sản phẩm</label>
-                                            <div>
-                                                 <input name="hinh" type="file" class="form-control" required="" >
-                                            </div>
-                                        </div>
-
                                         <div class="form-group mb-0">
                                             <div>
                                                 <button type="submit" class="btn btn-primary waves-effect waves-light mr-1">
@@ -327,110 +279,7 @@
         <!-- END wrapper -->
 
         <!-- Right Sidebar -->
-        <div class="right-bar">
-            <div class="rightbar-title">
-                <a href="javascript:void(0);" class="right-bar-toggle float-right">
-                    <i class="fe-x noti-icon"></i>
-                </a>
-                <h4 class="m-0 text-white">Settings</h4>
-            </div>
-            <div class="slimscroll-menu">
-                <!-- User box -->
-                <div class="user-box">
-                    <div class="user-img">
-                        <img src="images\users\avatar-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
-                        <a href="javascript:void(0);" class="user-edit"><i class="mdi mdi-pencil"></i></a>
-                    </div>
-            
-                    <h5><a href="javascript: void(0);">Nik G. Patel</a> </h5>
-                    <p class="text-muted mb-0"><small>Admin Head</small></p>
-                </div>
-
-                <ul class="nav nav-pills bg-light nav-justified">
-                    <li class="nav-item">
-                        <a href="#home1" data-toggle="tab" aria-expanded="false" class="nav-link rounded-0">
-                            General
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#messages1" data-toggle="tab" aria-expanded="false" class="nav-link rounded-0 active">
-                            Chat
-                        </a>
-                    </li>
-                </ul>
-                <div class="tab-content pl-3 pr-3">
-                    <div class="tab-pane" id="home1">
-                        <div class="row mb-2">
-                            <div class="col">
-                                <h5 class="m-0 font-15">Notifications</h5>
-                                <p class="text-muted"><small>Do you need them?</small></p>
-                            </div> <!-- end col-->
-                            <div class="col-auto">
-                                <div class="custom-control custom-switch mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="tabswitch1">
-                                    <label class="custom-control-label" for="tabswitch1"></label>
-                                </div>
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row-->
-
-                        <div class="row mb-2">
-                            <div class="col">
-                                <h5 class="m-0 font-15">API Access</h5>
-                                <p class="text-muted"><small>Enable/Disable access</small></p>
-                            </div> <!-- end col-->
-                            <div class="col-auto">
-                                <div class="custom-control custom-switch mb-2">
-                                    <input type="checkbox" class="custom-control-input" checked="" id="tabswitch2">
-                                    <label class="custom-control-label" for="tabswitch2"></label>
-                                </div>
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row-->
-
-                        <div class="row mb-2">
-                            <div class="col">
-                                <h5 class="m-0 font-15">Auto Updates</h5>
-                                <p class="text-muted"><small>Keep up to date</small></p>
-                            </div> <!-- end col-->
-                            <div class="col-auto">
-                                <div class="custom-control custom-switch mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="tabswitch3">
-                                    <label class="custom-control-label" for="tabswitch3"></label>
-                                </div>
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row-->
-
-                        <div class="row mb-2">
-                            <div class="col">
-                                <h5 class="m-0 font-15">Online Status</h5>
-                                <p class="text-muted"><small>Show your status to all</small></p>
-                            </div> <!-- end col-->
-                            <div class="col-auto">
-                                <div class="custom-control custom-switch mb-2">
-                                    <input type="checkbox" class="custom-control-input" checked="" id="tabswitch4">
-                                    <label class="custom-control-label" for="tabswitch4"></label>
-                                </div>
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row-->
-
-                        <div class="alert alert-success alert-dismissible fade mt-3 show" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                            <h5>Unlimited Access</h5>
-                            Upgrade to plan to get access to unlimited reports
-                            <br>
-                            <a href="javascript: void(0);" class="btn btn-outline-success mt-3 btn-sm">Upgrade<i class="ml-1 mdi mdi-arrow-right"></i></a>
-                        </div>
-                
-                    </div>
-                    
-
-            </div> <!-- end slimscroll-menu-->
-        </div>
+        
         <!-- /Right-bar -->
 
         <!-- Right bar overlay-->
