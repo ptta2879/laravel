@@ -8,7 +8,7 @@
         <meta content="Coderthemes" name="author">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{url('images\favicon.ico')}}">
+        <link rel="shortcut icon" href="{{url('assets\images\favicon.ico')}}">
 
         <!-- third party css -->
         <link href="{{url('assets\libs\datatables\dataTables.bootstrap4.css')}}" rel="stylesheet" type="text/css">

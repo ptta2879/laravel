@@ -8,7 +8,7 @@
         <meta content="Coderthemes" name="author">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{url('images\favicon.ico')}}">
+        <link rel="shortcut icon" href="{{url('assets\images\favicon.ico')}}">
 
         <!-- third party css -->
         <link href="{{url('assets\libs\datatables\dataTables.bootstrap4.css')}}" rel="stylesheet" type="text/css">
@@ -16,6 +16,13 @@
         <link href="{{url('assets\libs\datatables\buttons.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\libs\datatables\select.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <!-- third party css end -->
+        <link href="{{url('assets\assets\libs\jquery-vectormap\jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css">
+<link href="{{url('assets\libs\bootstrap-tagsinput\bootstrap-tagsinput.css')}}" rel="stylesheet">
+        <link href="{{url('assets\libs\switchery\switchery.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets\libs\multiselect\multi-select.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets\libs\select2\select2.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets\libs\bootstrap-select\bootstrap-select.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets\libs\bootstrap-touchspin\jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet">
 
         <!-- App css -->
         <link href="{{url('assets\css\bootstrap.min.css')}}" rel="stylesheet" type="text/css">
@@ -212,7 +219,7 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     
-                                    <h4 class="page-title">Danh sách sản phẩm</h4>
+                                    <h4 class="page-title">Danh sách đơn hàng</h4>
 
                                 </div>
                             </div>
@@ -222,18 +229,18 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">
-                                    <h4 class="header-title">Danh sách sản phẩm</h4>
+                                    <h4 class="header-title">Danh sách các đơn hàng</h4>
                                     <p class="sub-header">
-                                        Danh sách những sản phẩm có trong hệ thống 
+                                        Danh sách những đơn hàng đã đặt có trong hệ thống 
                                     </p>
                                     <div class="mb-2">
                                         <div class="row">
                                             <div class="col-12 text-sm-center form-inline">
                                                 <select id="demo-foo-filter-status" class="custom-select custom-select-sm">
                                                         <option value="">Show all</option>
-                                                        <option value="active">Active</option>
-                                                        <option value="disabled">Disabled</option>
-                                                        <option value="suspended">Suspended</option>
+                                                        <option value="Thanh Toán Nhận Hàng">Thanh Toán Nhận Hàng</option>
+                                                        <option value="Chuyển Khoản">Chuyển Khoản</option>
+                                                        
                                                     </select>
                                                 <div class="form-group">
                                                     <input id="demo-foo-search" type="text" placeholder="Tìm kiếm" class="form-control form-control-sm" autocomplete="on">
@@ -247,34 +254,66 @@
                                             <thead>
                                             <tr>
                                                 <th data-toggle="true" class="footable-visible footable-sortable footable-first-column">STT<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Loại sản phẩm<span class="footable-sort-indicator"></span></th>
-                                                <th data-hide="phone" class="footable-visible footable-sortable">Tên sản phẩm<span class="footable-sort-indicator"></span></th>
+                                                <th class="footable-visible footable-sortable">Tên Tài Khoản<span class="footable-sort-indicator"></span></th>
+                                                <th data-hide="phone" class="footable-visible footable-sortable">Họ Và Tên Đệm<span class="footable-sort-indicator"></span></th>
                                                 <th data-hide="phone, tablet" class="footable-sortable" style="display: none;">Tên<span class="footable-sort-indicator"></span></th>
+                                                <th class="footable-visible footable-sortable">Địa Chỉ<span class="footable-sort-indicator"></span></th>
                                                 <th class="footable-visible footable-sortable">Giá<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Mô tả<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Nguồn Gốc<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Giới Thiệu<span class="footable-sort-indicator"></span></th>
+                                                <th class="footable-visible footable-sortable">SĐT<span class="footable-sort-indicator"></span></th>
+                                                <th class="footable-visible footable-sortable">Ngày Mua<span class="footable-sort-indicator"></span></th>
+                                                <th class="footable-visible footable-sortable">Loại Thanh Toán<span class="footable-sort-indicator"></span></th>
+                                                <th class="footable-visible footable-sortable">Email<span class="footable-sort-indicator"></span></th>
+                                                <th class="footable-visible footable-sortable">Trạn Thái<span class="footable-sort-indicator"></span></th>
                                                 <th class="footable-visible footable-sortable footable-last-column"><span class="footable-sort-indicator"></span></th>
                                             </tr>
                                             </thead>
                                             <tbody>
+                                                @php
+                                                    $count=1;
+                                                @endphp
+                                                @foreach ($donhang as $item)
+                                                    
+                                                
                                             <tr style="" class="footable-even">
 
-                                                <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>Isidra</td>
-                                                <td class="footable-visible"></td>
-                                                <td class="footable-visible">Traffic Court Referee</td>
-                                                <td class="" style="display: none;">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
+                                                <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>{{$count}}</td>
+                                                <td class="footable-visible">{{$item->taikhoan->hovaten.' '.$item->taikhoan->ten}} </td>
+                                                <td class="footable-visible">{{$item->hovaten}} </td>
+                                                <td class="" style="display: none;">{{$item->ten}} </td>
+                                                <td class="footable-visible">{{$item->diachi}}</td>
+                                                <td class="footable-visible">{{$item->tonggia}}</td>
+                                                <td class="footable-visible">{{$item->sdt}}</td>
+                                                <td class="footable-visible">{{$item->ngaylap}}</td>
+                                                <td class="footable-visible">@if ($item->loaithanhtoan==1)
+                                                    {{'Thanh Toán Nhận Hàng'}}
+                                                @else
+                                                {{'Chuyển Khoản'}}
+                                                @endif</td>
+                                                <td class="footable-visible">{{$item->email}}</td>
+                                                <td>
+                                                    <select id="trangthai{{$item->id}}" onchange="App.donHang({{$item->id}})" name="trangthai" class="selectpicker" data-style="btn-outline-primary">
+                                                        <option @if ($item->trangthai == 0)
+                                                            {{'selected'}}
+                                                        @endif  value="0">Chưa xác nhận</option>
+                                                        <option @if ($item->trangthai == 1)
+                                                            {{'selected'}}
+                                                        @endif value="1">Xác nhận đang giao hàng</option>
+                                                        <option @if ($item->trangthai == 2)
+                                                            {{'selected'}}
+                                                        @endif value="2">Đã nhận hàng và thanh toán</option>
+                                                    </select>
+                                                </td>
                                                 <td style="white-space: nowrap; width: 1%;" class="footable-visible footable-last-column">
                                            <button type="button" class="tabledit-edit-button btn btn-primary" style="float: none;"><span class="remixicon-edit-2-line"></span></button></td>
                                             </tr>
+                                            @php
+                                                $count++;
+                                            @endphp
+                                            @endforeach
                                             </tbody>
                                             <tfoot>
                                             <tr class="active">
-                                                <td colspan="9" class="footable-visible">
+                                                <td colspan="11" class="footable-visible">
                                                     <div class="text-right">
                                                         <ul class="pagination pagination-rounded justify-content-end footable-pagination m-t-10 mb-0"><li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li><li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li><li class="footable-page active"><a data-page="0" href="#">1</a></li><li class="footable-page-arrow disabled"><a data-page="next" href="#next">›</a></li><li class="footable-page-arrow disabled"><a data-page="last" href="#last">»</a></li></ul>
                                                     </div>
@@ -344,6 +383,15 @@
         <script src="{{url('assets\libs\datatables\dataTables.select.min.js')}}"></script>
         <script src="{{url('assets\libs\pdfmake\pdfmake.min.js')}}"></script>
         <script src="{{url('assets\libs\pdfmake\vfs_fonts.js')}}"></script>
+        <script src="{{url('assets\libs\select2\select2.min.js')}}"></script>
+        <script src="{{url('assets\libs\bootstrap-tagsinput\bootstrap-tagsinput.min.js')}}"></script>
+        <script src="{{url('assets\libs\switchery\switchery.min.js')}}"></script>
+        <script src="{{url('assets\libs\multiselect\jquery.multi-select.js')}}"></script>
+        <script src="{{url('assets\libs\jquery-quicksearch\jquery.quicksearch.min.js')}}"></script>
+        <script src="{{url('assets\libs\select2\select2.min.js')}}"></script>
+        <script src="{{url('assets\libs\bootstrap-select\bootstrap-select.min.js')}}"></script>
+        <script src="{{url('assets\libs\bootstrap-touchspin\jquery.bootstrap-touchspin.min.js')}}"></script>
+        <script src="{{url('assets\libs\jquery-mask-plugin\jquery.mask.min.js')}}"></script>
         <!-- third party js ends -->
 
         <!-- Datatables init -->

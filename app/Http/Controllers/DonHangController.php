@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DonHang;
 use Illuminate\Http\Request;
 
 class DonHangController extends Controller
@@ -13,6 +14,8 @@ class DonHangController extends Controller
     }
     public function index()
     {
-        return view('admin/donhang');
+        $data  = DonHang::with('taikhoan')->orderBy('id','DESC')->get();
+        printf($data);
+        return view('admin/donhang',['donhang'=>$data]);
     }
 }

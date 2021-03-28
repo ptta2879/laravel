@@ -8,7 +8,7 @@
         <meta content="Coderthemes" name="author">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{url('images\favicon.ico')}}">
+        <link rel="shortcut icon" href="{{url('assets\images\favicon.ico')}}">
 
         <!-- third party css -->
         <link href="{{url('assets\libs\datatables\dataTables.bootstrap4.css')}}" rel="stylesheet" type="text/css">
@@ -107,7 +107,7 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href="{{url('admin/SanPham')}} ">Danh Sách Sản Phẩm</a>
+                                        <a href="{{url('admin/Home')}} ">Danh Sách Sản Phẩm</a>
                                     </li>
                                     <li>
                                         <a href="{{url('admin/ThemSanPham')}} ">Thêm Sản Phẩm</a>

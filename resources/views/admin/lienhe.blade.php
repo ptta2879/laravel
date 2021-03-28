@@ -8,7 +8,7 @@
         <meta content="Coderthemes" name="author">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{url('images\favicon.ico')}}">
+        <link rel="shortcut icon" href="{{url('assets\images\favicon.ico')}}">
 
         <!-- Footable css -->
         <link href="{{url('assets\libs\footable\footable.core.min.css')}}" rel="stylesheet" type="text/css">

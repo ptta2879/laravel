@@ -17,6 +17,6 @@ class DonHang extends Model
     public function taiKhoan()
     {
         # code...
-        return $this->hasOne('App\TaiKhoan','idkh');
+        return $this->hasOne('App\TaiKhoan','id','idkh');
     }
 }
