@@ -89,7 +89,7 @@
 
                             <li class="menu-title">Chức Năng</li>
                             <li>
-                                <a href="Home" class="waves-effect " aria-expanded="false">
+                                <a href="{{url('admin/Home')}}" class="waves-effect " aria-expanded="false">
                                     <i class=" remixicon-dashboard-line"></i>
                                     <span> Trang Chủ </span>
                                 </a>
@@ -104,16 +104,16 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href="SanPham">Danh Sách Sản Phẩm</a>
+                                        <a href="{{url('admin/SanPham')}}">Danh Sách Sản Phẩm</a>
                                     </li>
                                     <li>
-                                        <a href="ThemSanPham">Thêm Sản Phẩm</a>
+                                        <a href="{{url('admin/ThemSanPham')}}">Thêm Sản Phẩm</a>
                                     </li>
                                     
                                 </ul>
                             </li>
                             <li>
-                                <a href="admin/LienHe" class="waves-effect">
+                                <a href="{{url('admin/LienHe')}} " class="waves-effect">
                                     <i class="remixicon-mail-open-line"></i>
                                     <span> Liên Hệ </span>
                                     
@@ -128,16 +128,16 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href="admin/LoaiSanPham">Các loại sản phẩm</a>
+                                        <a href="{{url('admin/LoaiSanPham')}} ">Các loại sản phẩm</a>
                                     </li>
                                     <li>
-                                        <a href="admin/ThemLoaiSanPhamr">Thêm loại sản phẩm</a>
+                                        <a href=" {{url('admin/ThemLoaiSanPhamr')}}">Thêm loại sản phẩm</a>
                                     </li>
                                     
                                 </ul>
                             </li>
                             <li>
-                                <a href="admi/DonHang" class="waves-effect">
+                                <a href="{{url('admin/DonHang')}}" class="waves-effect">
                                     <i class=" remixicon-shopping-cart-line"></i>
                                     <span> Đơn Hàng</span>
                                     
@@ -152,10 +152,10 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href="admin/BaiViet">Danh Sách Bài Viết</a>
+                                        <a href="{{url('admin/BaiViet')}} ">Danh Sách Bài Viết</a>
                                     </li>
                                     <li>
-                                        <a href="admin/ThemBaiViet">Thêm Bài Viết Mới</a>
+                                        <a href="{{url('admin/ThemBaiViet')}} ">Thêm Bài Viết Mới</a>
                                     </li>
                                     
                                 </ul>
@@ -169,13 +169,13 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href="admin/TonKho">Tồn Kho</a>
+                                        <a href="{{url('admin/TonKho')}} ">Tồn Kho</a>
                                     </li>
                                     <li>
-                                        <a href="admin/NhapKho">Danh sách số lần nhập kho</a>
+                                        <a href="{{url('admin/NhapKho')}} ">Danh sách số lần nhập kho</a>
                                     </li>
                                     <li>
-                                        <a href="admin/DangXuat" class="waves-effect">
+                                        <a href="{{url('admin/DangXuat')}} " class="waves-effect">
                                             <i class="remixicon-logout-box-line"></i>
                                             <span>Đăng xuất</span>
                                             
@@ -230,9 +230,10 @@
                                             <div class="col-12 text-sm-center form-inline">
                                                 <select id="demo-foo-filter-status" class="custom-select custom-select-sm">
                                                         <option value="">Show all</option>
-                                                        <option value="active">Active</option>
-                                                        <option value="disabled">Disabled</option>
-                                                        <option value="suspended">Suspended</option>
+                                                        @foreach ($loaisanpham as $val)
+                                                        <option value="{{$val->tenloai}}">{{$val->tenloai}}</option>
+                                                        @endforeach
+                                                        
                                                     </select>
                                                 <div class="form-group">
                                                     <input id="demo-foo-search" type="text" placeholder="Tìm kiếm" class="form-control form-control-sm" autocomplete="on">
@@ -248,7 +249,7 @@
                                                 <th data-toggle="true">STT</th>
                                                 <th>Loại sản phẩm</th>
                                                 <th data-hide="phone">Tên sản phẩm</th>
-                                                <th data-hide="phone, tablet">Tên</th>
+                                                
                                                 <th>Giá</th>
                                                 <th>Mô tả</th>
                                                 <th>Nguồn Gốc</th>
@@ -257,23 +258,36 @@
                                             </tr>
                                             </thead>
                                             <tbody>
+                                                @php
+                                                    $count=1;
+                                                @endphp
+                                             @foreach ($sanpham as $item)
                                             <tr>
-
-                                                <td>Isidra</td>
-                                                <td></td>
-                                                <td>Traffic Court Referee</td>
-                                                <td>Ân</td>
-                                                <td>Ân</td>
-                                                <td>Ân</td>
-                                                <td>Ân</td>
-                                                <td>Ân</td>
+                                               
+                                                    <td>{{$count}}</td>
+                                                    
+                                                    <td>{{$item->loaisanpham->tenloai}}</td>
+                                                 
+                                                    
+                                                    <td>{{$item->tensp}}</td>
+                                                    <td>{{$item->gia}}</td>
+                                                    <td>{{$item->mota}}</td>
+                                                    <td>{{$item->nguongoc}}</td>
+                                                    <td>{{$item->gioithieu}}</td>
+                                                    
+                                               
+                                                
                                                 <td style="white-space: nowrap; width: 1%;">
-                                           <button type="button" class="tabledit-edit-button btn btn-primary" style="float: none;"><span class="remixicon-edit-2-line"></span></button></td>
+                                           <a href="SuaSanPham?id={{$item->id}}" class="tabledit-edit-button btn btn-primary" style="float: none;"><span class="remixicon-edit-2-line"></span></a></td>
                                             </tr>
+                                            @php
+                                                $count++
+                                            @endphp
+                                            @endforeach
                                             </tbody>
                                             <tfoot>
                                             <tr class="active">
-                                                <td colspan="9">
+                                                <td colspan="8">
                                                     <div class="text-right">
                                                         <ul class="pagination pagination-rounded justify-content-end footable-pagination m-t-10 mb-0"></ul>
                                                     </div>
@@ -331,6 +345,25 @@
 
         <!-- App js -->
         <script src="{{url('assets\js\app.min.js')}}"></script>
+        @include('admin/footeradmin')
+        @if (session('suathanhcong'))
+        <script>Notiflix.Notify.Success("  {{session('suathanhcong')}} ");</script>
+        @endif
+        @if (session('fail'))
+        <script>Notiflix.Notify.Failure("  {{session('fail')}} ");</script>
+        @endif
+        @if (session('file'))
+        <script>Notiflix.Notify.Failure("  {{session('file')}} ");</script>
+        @endif
+        @if (session('success'))
+        <script>Notiflix.Notify.Success("  {{session('success')}} ");</script>
+        @endif
+        @if (session('sanphamfail'))
+        <script>Notiflix.Notify.Failure("  {{session('sanphamfail')}} ");</script>
+        @endif
+        @if (session('khofail'))
+        <script>Notiflix.Notify.Failure("  {{session('khofail')}} ");</script>
+        @endif
         
     </body>
 </html>

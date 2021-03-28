@@ -58,7 +58,7 @@
 							@foreach ($sanpham as $item)
 							<div class="col-md-4 d-flex">
 								<div class="product ftco-animate">
-									<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/prod-{{$item->id}}.jpg);">
+									<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/sanpham-{{$item->id}}.jpg);">
 										<div class="desc">
 											<p class="meta-prod d-flex">
 												

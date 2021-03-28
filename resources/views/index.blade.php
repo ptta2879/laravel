@@ -141,7 +141,7 @@
 					@foreach ($sanpham as $valsp)
 					<div class="col-md-3 d-flex">
 						<div class="product ftco-animate">
-							<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/prod-{{$valsp->id}}.jpg);">
+							<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/sanpham-{{$valsp->id}}.jpg);">
 								<div class="desc">
 									<p class="meta-prod d-flex">
 										<a href="javascript:void(0);" onclick="App.addCart({{$valsp->id}});" class=" d-flex align-items-center justify-content-center"><span class="flaticon-shopping-bag"></span></a>

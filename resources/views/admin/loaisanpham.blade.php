@@ -16,7 +16,7 @@
         <link href="{{url('assets\libs\datatables\buttons.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\libs\datatables\select.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <!-- third party css end -->
-
+        <link href="{{url('assets\libs\custombox\custombox.min.css')}}" rel="stylesheet">
         <!-- App css -->
         <link href="{{url('assets\css\bootstrap.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\css\icons.min.css')}}" rel="stylesheet" type="text/css">
@@ -92,7 +92,7 @@
 
                             <li class="menu-title">Chức Năng</li>
                             <li>
-                                <a href=" Home" class="waves-effect" aria-expanded="false">
+                                <a href=" {{url('admin/Home')}}" class="waves-effect" aria-expanded="false">
                                     <i class=" remixicon-dashboard-line"></i>
                                     <span> Trang Chủ </span>
                                 </a>
@@ -107,16 +107,16 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href=" SanPham">Danh Sách Sản Phẩm</a>
+                                        <a href="{{url('admin/SanPham')}} ">Danh Sách Sản Phẩm</a>
                                     </li>
                                     <li>
-                                        <a href=" ThemSanPham">Thêm Sản Phẩm</a>
+                                        <a href="{{url('admin/ThemSanPham')}} ">Thêm Sản Phẩm</a>
                                     </li>
                                     
                                 </ul>
                             </li>
                             <li>
-                                <a href=" LienHe" class="waves-effect">
+                                <a href=" {{url('admin/LienHe')}}" class="waves-effect">
                                     <i class="remixicon-mail-open-line"></i>
                                     <span> Liên Hệ </span>
                                     
@@ -131,16 +131,16 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href=" LoaiSanPham">Các loại sản phẩm</a>
+                                        <a href="{{url('admin/LoaiSanPham')}} ">Các loại sản phẩm</a>
                                     </li>
                                     <li>
-                                        <a href=" ThemLoaiSanPham">Thêm loại sản phẩm</a>
+                                        <a href="{{url('admin/ThemLoaiSanPham')}} ">Thêm loại sản phẩm</a>
                                     </li>
                                     
                                 </ul>
                             </li>
                             <li>
-                                <a href=" DonHang" class="waves-effect">
+                                <a href="{{url('admin/DonHang')}} " class="waves-effect">
                                     <i class=" remixicon-shopping-cart-line"></i>
                                     <span> Đơn Hàng</span>
                                     
@@ -155,10 +155,10 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href=" BaiViet">Danh Sách Bài Viết</a>
+                                        <a href="{{url('admin/BaiViet')}} ">Danh Sách Bài Viết</a>
                                     </li>
                                     <li>
-                                        <a href=" ThemBaiViet">Thêm Bài Viết Mới</a>
+                                        <a href="{{url('admin/ThemBaiViet')}} ">Thêm Bài Viết Mới</a>
                                     </li>
                                     
                                 </ul>
@@ -172,13 +172,13 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href=" TonKho">Tồn Kho</a>
+                                        <a href="{{url('admin/TonKho')}} ">Tồn Kho</a>
                                     </li>
                                     <li>
-                                        <a href=" NhapKho">Danh sách số lần nhập kho</a>
+                                        <a href="{{url('admin/NhapKho')}} ">Danh sách số lần nhập kho</a>
                                     </li>
                                     <li>
-                                        <a href=" DangXuat" class="waves-effect">
+                                        <a href="{{url('admin/DangXuat')}} " class="waves-effect">
                                             <i class="remixicon-logout-box-line"></i>
                                             <span>Đăng xuất</span>
                                             
@@ -211,7 +211,7 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     
-                                    <h4 class="page-title">Danh sách sản phẩm</h4>
+                                    <h4 class="page-title">Loại sản phẩm</h4>
 
                                 </div>
                             </div>
@@ -221,9 +221,9 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">
-                                    <h4 class="header-title">Danh sách sản phẩm</h4>
+                                    <h4 class="header-title">Danh sách Các Loại Sản Phẩm</h4>
                                     <p class="sub-header">
-                                        Danh sách những sản phẩm có trong hệ thống 
+                                        Danh sách những loại sản phẩm có trong hệ thống 
                                     </p>
                                     <div class="mb-2">
                                         <div class="row">
@@ -232,7 +232,6 @@
                                                         <option value="">Show all</option>
                                                         <option value="active">Active</option>
                                                         <option value="disabled">Disabled</option>
-                                                        <option value="suspended">Suspended</option>
                                                     </select>
                                                 <div class="form-group">
                                                     <input id="demo-foo-search" type="text" placeholder="Tìm kiếm" class="form-control form-control-sm" autocomplete="on">
@@ -247,29 +246,27 @@
                                             <tr>
                                                 <th data-toggle="true" class="footable-visible footable-sortable footable-first-column">STT<span class="footable-sort-indicator"></span></th>
                                                 <th class="footable-visible footable-sortable">Loại sản phẩm<span class="footable-sort-indicator"></span></th>
-                                                <th data-hide="phone" class="footable-visible footable-sortable">Tên sản phẩm<span class="footable-sort-indicator"></span></th>
-                                                <th data-hide="phone, tablet" class="footable-sortable" style="display: none;">Tên<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Giá<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Mô tả<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Nguồn Gốc<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Giới Thiệu<span class="footable-sort-indicator"></span></th>
+                                                
                                                 <th class="footable-visible footable-sortable footable-last-column"><span class="footable-sort-indicator"></span></th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr style="" class="footable-even">
+                                                @php
+                                                    $count =1;
+                                                @endphp
+                                                @foreach ($loaisanpham as $item)
+                                                <tr style="" class="footable-even">
 
-                                                <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>Isidra</td>
-                                                <td class="footable-visible"></td>
-                                                <td class="footable-visible">Traffic Court Referee</td>
-                                                <td class="" style="display: none;">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td style="white-space: nowrap; width: 1%;" class="footable-visible footable-last-column">
-                                           <button type="button" class="tabledit-edit-button btn btn-primary" style="float: none;"><span class="remixicon-edit-2-line"></span></button></td>
-                                            </tr>
+                                                    <td class="footable-visible footable-first-column"><span class="footable-toggle">{{ $count }}</span></td>
+                                                    <td class="footable-visible">{{$item->tenloai}}</td>
+                                                    <td style="white-space: nowrap; width: 1%;" class="footable-visible footable-last-column">
+                                                        <button type="button"  id="nutloaisanpham" class="btn btn-primary waves-effect waves-light btn-icon" data-value="{{$item}}" data-toggle="modal" data-target="#con-close-modal"><span class="remixicon-edit-2-line"></button>
+                                                        
+                                                @php
+                                                    $count++;
+                                                @endphp
+                                                @endforeach
+                                            
                                             </tbody>
                                             <tfoot>
                                             <tr class="active">
@@ -284,6 +281,45 @@
                                     </div> <!-- end .table-responsive-->
                                 </div> <!-- end card-box -->
                             </div> <!-- end col -->
+                        </div>
+                        
+                        <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Loại Sản Phẩm</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    </div>
+                                    <div class="modal-body p-4">
+                                        <form action="{{url('admin/LoaiSanPham')}}" method="POST" class="parsley-form">
+                                            {{ csrf_field() }}
+                                            <div class="form-group">
+                                                <label>Id</label>
+                                                <div>
+                                                    <input name="idloai" id="idloai" type="number" readonly class="form-control" required="" >
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Tên Loại Sản Phẩm</label>
+                                                <div>
+                                                    <input name="tenloai" id="tenloai" type="text" class="form-control" required="" data-parsley-maxlength="8" placeholder="Tối đa 250 ký tự">
+                                                </div>
+                                            </div>
+                                            
+                                           
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light mr-1">
+                                            Lưu Thay Đổi
+                                        </button>
+                                       
+                                        <button data-dismiss="modal"  class="btn btn-secondary waves-effect waves-light">
+                                            Hủy
+                                        </button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
                         </div>
                         <!-- end row -->
 
@@ -320,110 +356,7 @@
         <!-- END wrapper -->
 
         <!-- Right Sidebar -->
-        <div class="right-bar">
-            <div class="rightbar-title">
-                <a href="javascript:void(0);" class="right-bar-toggle float-right">
-                    <i class="fe-x noti-icon"></i>
-                </a>
-                <h4 class="m-0 text-white">Settings</h4>
-            </div>
-            <div class="slimscroll-menu">
-                <!-- User box -->
-                <div class="user-box">
-                    <div class="user-img">
-                        <img src="images\users\avatar-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
-                        <a href="javascript:void(0);" class="user-edit"><i class="mdi mdi-pencil"></i></a>
-                    </div>
-            
-                    <h5><a href="javascript: void(0);">Nik G. Patel</a> </h5>
-                    <p class="text-muted mb-0"><small>Admin Head</small></p>
-                </div>
-
-                <ul class="nav nav-pills bg-light nav-justified">
-                    <li class="nav-item">
-                        <a href="#home1" data-toggle="tab" aria-expanded="false" class="nav-link rounded-0">
-                            General
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#messages1" data-toggle="tab" aria-expanded="false" class="nav-link rounded-0 active">
-                            Chat
-                        </a>
-                    </li>
-                </ul>
-                <div class="tab-content pl-3 pr-3">
-                    <div class="tab-pane" id="home1">
-                        <div class="row mb-2">
-                            <div class="col">
-                                <h5 class="m-0 font-15">Notifications</h5>
-                                <p class="text-muted"><small>Do you need them?</small></p>
-                            </div> <!-- end col-->
-                            <div class="col-auto">
-                                <div class="custom-control custom-switch mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="tabswitch1">
-                                    <label class="custom-control-label" for="tabswitch1"></label>
-                                </div>
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row-->
-
-                        <div class="row mb-2">
-                            <div class="col">
-                                <h5 class="m-0 font-15">API Access</h5>
-                                <p class="text-muted"><small>Enable/Disable access</small></p>
-                            </div> <!-- end col-->
-                            <div class="col-auto">
-                                <div class="custom-control custom-switch mb-2">
-                                    <input type="checkbox" class="custom-control-input" checked="" id="tabswitch2">
-                                    <label class="custom-control-label" for="tabswitch2"></label>
-                                </div>
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row-->
-
-                        <div class="row mb-2">
-                            <div class="col">
-                                <h5 class="m-0 font-15">Auto Updates</h5>
-                                <p class="text-muted"><small>Keep up to date</small></p>
-                            </div> <!-- end col-->
-                            <div class="col-auto">
-                                <div class="custom-control custom-switch mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="tabswitch3">
-                                    <label class="custom-control-label" for="tabswitch3"></label>
-                                </div>
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row-->
-
-                        <div class="row mb-2">
-                            <div class="col">
-                                <h5 class="m-0 font-15">Online Status</h5>
-                                <p class="text-muted"><small>Show your status to all</small></p>
-                            </div> <!-- end col-->
-                            <div class="col-auto">
-                                <div class="custom-control custom-switch mb-2">
-                                    <input type="checkbox" class="custom-control-input" checked="" id="tabswitch4">
-                                    <label class="custom-control-label" for="tabswitch4"></label>
-                                </div>
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row-->
-
-                        <div class="alert alert-success alert-dismissible fade mt-3 show" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                            <h5>Unlimited Access</h5>
-                            Upgrade to plan to get access to unlimited reports
-                            <br>
-                            <a href="javascript: void(0);" class="btn btn-outline-success mt-3 btn-sm">Upgrade<i class="ml-1 mdi mdi-arrow-right"></i></a>
-                        </div>
-                
-                    </div>
-                    
-
-            </div> <!-- end slimscroll-menu-->
-        </div>
+        
         <!-- /Right-bar -->
 
         <!-- Right bar overlay-->
@@ -447,12 +380,18 @@
         <script src="{{url('assets\libs\pdfmake\pdfmake.min.js')}}"></script>
         <script src="{{url('assets\libs\pdfmake\vfs_fonts.js')}}"></script>
         <!-- third party js ends -->
-
+        <script src="{{url('assets\libs\custombox\custombox.min.js')}}"></script>
         <!-- Datatables init -->
         <script src="{{url('assets\js\pages\datatables.init.js')}}"></script>
 
         <!-- App js -->
         <script src="{{url('assets\js\app.min.js')}}"></script>
-        
+        @include('admin/footeradmin')
+        @if (session('suathanhcong'))
+        <script>Notiflix.Notify.Success("  {{session('suathanhcong')}} ");</script>
+        @endif
+        @if (session('suafail'))
+        <script>Notiflix.Notify.Failure("  {{session('suafail')}} ");</script>
+        @endif
     </body>
 </html>

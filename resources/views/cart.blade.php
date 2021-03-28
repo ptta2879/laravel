@@ -69,7 +69,7 @@
 								@foreach ($giohang as $item)
 								<tr class="alert" role="alert">
 								<td>
-						    		<div class="img" style="background-image: url(images/prod-{{$item->idsp}}.jpg);"></div>
+						    		<div class="img" style="background-image: url(images/sanpham-{{$item->idsp}}.jpg);"></div>
 						    	</td>
 								@foreach ($item->sanpham as $val)
 								<td>

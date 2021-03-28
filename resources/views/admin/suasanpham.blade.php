@@ -21,7 +21,6 @@
         <link href="{{url('assets\css\bootstrap.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\css\icons.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\css\app.min.css')}}" rel="stylesheet" type="text/css">
-
     </head>
 
     <body>
@@ -99,7 +98,7 @@
                                 
                             </li>
                             <li>
-                                <a href="javascript: void(0);" class="waves-effect" aria-expanded="false">
+                                <a href="javascript: void(0);" class="waves-effect" aria-expanded="true">
                                     <i class=" remixicon-product-hunt-line"></i>
                                     <span> Sản Phẩm </span>
                                     <span class="menu-arrow"></span>
@@ -116,7 +115,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href=" {{url('admin/LienHe')}}" class="waves-effect">
+                                <a href="{{url('admin/LienHe')}}" class="waves-effect">
                                     <i class="remixicon-mail-open-line"></i>
                                     <span> Liên Hệ </span>
                                     
@@ -126,28 +125,28 @@
                                 <a href="javascript: void(0);" class="waves-effect" aria-expanded="false">
                                     <i class="remixicon-stack-line"></i>
                                     <span> Loại sản phẩm </span>
-                                    <span class="menu-arrow"></span>
+                                   <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href="{{url('admin/LoaiSanPham')}} ">Các loại sản phẩm</a>
+                                        <a href=" {{url('admin/LoaiSanPham')}}">Các loại sản phẩm</a>
                                     </li>
                                     <li>
-                                        <a href="{{url('admin/ThemLoaiSanPham')}} ">Thêm loại sản phẩm</a>
+                                        <a href=" {{url('admin/ThemLoaiSanPham')}}">Thêm loại sản phẩm</a>
                                     </li>
                                     
                                 </ul>
                             </li>
                             <li>
-                                <a href="{{url('admin/DonHang')}} " class="waves-effect" aria-expanded="false">
+                                <a href="{{url('admin/DonHang')}} " class="waves-effect">
                                     <i class=" remixicon-shopping-cart-line"></i>
                                     <span> Đơn Hàng</span>
                                     
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript: void(0);" class="waves-effect ">
+                                <a href="javascript: void(0);" class="waves-effect">
                                     <i class=" remixicon-slideshow-line"></i>
                                     <span> Bài Viết </span>
                                     <span class="menu-arrow"></span>
@@ -158,13 +157,13 @@
                                         <a href="{{url('admin/BaiViet')}} ">Danh Sách Bài Viết</a>
                                     </li>
                                     <li>
-                                        <a href="{{url('admin/ThemBaiViet')}} ">Thêm Bài Viết Mới</a>
+                                        <a href=" {{url('admin/ThemBaiViet')}}">Thêm Bài Viết Mới</a>
                                     </li>
                                     
                                 </ul>
                             </li>
                             <li>
-                                <a href="javascript: void(0);" class="waves-effect active">
+                                <a href="javascript: void(0);" class="waves-effect">
                                     <i class=" remixicon-home-6-line"></i>
                                     <span> Kho Hàng </span>
                                     <span class="menu-arrow"></span>
@@ -177,15 +176,14 @@
                                     <li>
                                         <a href="{{url('admin/NhapKho')}} ">Danh sách số lần nhập kho</a>
                                     </li>
-                                    
+                                    <li>
+                                        <a href="{{url('admin/DangXuat')}} " class="waves-effect">
+                                            <i class="remixicon-logout-box-line"></i>
+                                            <span>Đăng xuất</span>
+                                            
+                                        </a>
+                                    </li>
                                 </ul>
-                                <li>
-                                    <a href="{{url('admin/DangXuat')}} " class="waves-effect">
-                                        <i class="remixicon-logout-box-line"></i>
-                                        <span>Đăng xuất</span>
-                                        
-                                    </a>
-                                </li>
                             </li>
                         </ul>
                     </div>
@@ -205,104 +203,121 @@
 
             <div class="content-page">
                 <div class="content">
+
+                    <!-- Start Content-->
                     <div class="container-fluid">
                         
                         <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    
-                                    <h4 class="page-title">Danh sách sản phẩm</h4>
-
+                                   
+                                    <h4 class="page-title">Thay Đổi Thông Tin Sản Phẩm</h4>
                                 </div>
                             </div>
                         </div>     
                         <!-- end page title --> 
 
+            
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">
-                                    <h4 class="header-title">Danh sách sản phẩm</h4>
-                                    <p class="sub-header">
-                                        Danh sách những sản phẩm có trong hệ thống 
-                                    </p>
-                                    <div class="mb-2">
-                                        <div class="row">
-                                            <div class="col-12 text-sm-center form-inline">
-                                                <select id="demo-foo-filter-status" class="custom-select custom-select-sm">
-                                                        <option value="">Show all</option>
-                                                        <option value="active">Active</option>
-                                                        <option value="disabled">Disabled</option>
-                                                        <option value="suspended">Suspended</option>
-                                                    </select>
-                                                <div class="form-group">
-                                                    <input id="demo-foo-search" type="text" placeholder="Tìm kiếm" class="form-control form-control-sm" autocomplete="on">
-                                                </div>
+                                    <h4 class="header-title">Thay đổi thông tin của sản phầm</h4>
+                                    <p id="desctable" class="sub-header">
+                                        Sửa nội dung dưới và bấm vào nút Save để lưu thay đổi
+                                    </p> 
+                                    
+                                    <form action="{{url('admin/SuaSanPham')}}" method="POST" enctype="multipart/form-data" class="parsley-form" novalidate="">
+                                        <!-- Start fields -->
+                                        {{ csrf_field() }}
+                                        <div class="form-group">
+                                            <label>Id Sản Phẩm</label>
+                                            <div>
+                                                <input name="id" type="text" class="form-control" readonly value="{{$sanpham->id}}" required="" data-parsley-maxlength="8" value="">
                                             </div>
                                         </div>
-                                    </div>
-                                    
-                                    <div class="table-responsive">
-                                        <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0 no-paging footable-loaded footable tablet breakpoint" data-page-size="7">
-                                            <thead>
-                                            <tr>
-                                                <th data-toggle="true" class="footable-visible footable-sortable footable-first-column">STT<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Loại sản phẩm<span class="footable-sort-indicator"></span></th>
-                                                <th data-hide="phone" class="footable-visible footable-sortable">Tên sản phẩm<span class="footable-sort-indicator"></span></th>
-                                                <th data-hide="phone, tablet" class="footable-sortable" style="display: none;">Tên<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Giá<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Mô tả<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Nguồn Gốc<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Giới Thiệu<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable footable-last-column"><span class="footable-sort-indicator"></span></th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr style="" class="footable-even">
+                                        <div class="form-group">
+                                            <label>Tên sản phẩm</label>
+                                            <div>
+                                                <input name="tensp" type="text" class="form-control" required="" data-parsley-maxlength="8" value="{{$sanpham->tensp}}" placeholder="Tối đa 250 ký tự">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Giá</label>
+                                            <div>
+                                                <input name="gia" type="number" class="form-control" required="" step="0.01" min="1" value="{{$sanpham->gia}}" data-parsley-maxlength="30" placeholder="2000.00">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Mô Tả</label>
+                                            <div>
+                                                <textarea name="mota" class="form-control" id="example-textarea" value="" rows="5">{{$sanpham->mota}}</textarea>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nguồn gốc xuất xứ</label>
+                                            <div>
+                                                <textarea name="nguongoc" class="form-control" id="example-textarea" value="" rows="5">{{$sanpham->nguongoc}}</textarea>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Giới Thiệu</label>
+                                            <div>
+                                                <textarea name="gioithieu" class="form-control" id="example-textarea" value="" rows="5">{{$sanpham->gioithieu}}</textarea>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Loại sản phẩm</label>
+                                            <div>
+                                                <select name="idloai" class="form-control">
+                                                    @foreach ($loaisanpham as $item)
+                                                    <option @if ($item->id == $sanpham->idloai)
+                                                        {{'selected'}}
+                                                    @endif value="{{$item->id}}"> {{$item->tenloai}} </option>
+                                                    @endforeach
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Hình sản phẩm</label>
+                                            <div>@php
+                                                $linkimg = 'images\sanpham-'.$sanpham->id.'.jpg'
+                                            @endphp
+                                                    <img src="{{url(''.$linkimg.'')}}" width="200px" height="300px" alt="">
+                                                 <input name="hinhsanpham" type="file" class="form-control" required="" >
+                                            </div>
+                                        </div>
 
-                                                <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>Isidra</td>
-                                                <td class="footable-visible"></td>
-                                                <td class="footable-visible">Traffic Court Referee</td>
-                                                <td class="" style="display: none;">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td style="white-space: nowrap; width: 1%;" class="footable-visible footable-last-column">
-                                           <button type="button" class="tabledit-edit-button btn btn-primary" style="float: none;"><span class="remixicon-edit-2-line"></span></button></td>
-                                            </tr>
-                                            </tbody>
-                                            <tfoot>
-                                            <tr class="active">
-                                                <td colspan="9" class="footable-visible">
-                                                    <div class="text-right">
-                                                        <ul class="pagination pagination-rounded justify-content-end footable-pagination m-t-10 mb-0"><li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li><li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li><li class="footable-page active"><a data-page="0" href="#">1</a></li><li class="footable-page-arrow disabled"><a data-page="next" href="#next">›</a></li><li class="footable-page-arrow disabled"><a data-page="last" href="#last">»</a></li></ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div> <!-- end .table-responsive-->
+                                        <div class="form-group mb-0">
+                                            <div>
+                                                <button type="submit" class="btn btn-primary waves-effect waves-light mr-1">
+                                                    Save
+                                                </button>
+                                               
+                                                <button type="reset" class="btn btn-secondary waves-effect waves-light">
+                                                    Cancel
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div> <!-- end card-box -->
                             </div> <!-- end col -->
                         </div>
-                        <!-- end row -->
-
-
-                        
-                        <!-- end row -->
-                        
-                    </div>
-                    <!-- Start Content-->
-                    <!-- container -->
+                        <!-- end row-->                                                
+                    </div> <!-- container -->
                 </div> <!-- content -->
-            
+
                 <!-- Footer Start -->
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-                                2021 &copy; BaChaCha  
+                                2021 &copy; BaChaCha    
                             </div>
                             
                         </div>
@@ -351,6 +366,7 @@
 
         <!-- App js -->
         <script src="{{url('assets\js\app.min.js')}}"></script>
+        
         @include('admin/footeradmin')
     </body>
 </html>

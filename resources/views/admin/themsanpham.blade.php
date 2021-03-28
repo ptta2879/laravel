@@ -91,7 +91,7 @@
 
                             <li class="menu-title">Chức Năng</li>
                             <li>
-                                <a href=" Home" class="waves-effect" aria-expanded="false">
+                                <a href=" {{url('admin/Home')}}" class="waves-effect" aria-expanded="false">
                                     <i class=" remixicon-dashboard-line"></i>
                                     <span> Trang Chủ </span>
                                 </a>
@@ -106,16 +106,16 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href=" SanPham">Danh Sách Sản Phẩm</a>
+                                        <a href="{{url('admin/SanPham')}} ">Danh Sách Sản Phẩm</a>
                                     </li>
                                     <li>
-                                        <a href=" ThemSanPham">Thêm Sản Phẩm</a>
+                                        <a href="{{url('admin/ThemSanPham')}} ">Thêm Sản Phẩm</a>
                                     </li>
                                     
                                 </ul>
                             </li>
                             <li>
-                                <a href="LienHe" class="waves-effect">
+                                <a href="{{url('admin/LienHe')}}" class="waves-effect">
                                     <i class="remixicon-mail-open-line"></i>
                                     <span> Liên Hệ </span>
                                     
@@ -130,16 +130,16 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href=" LoaiSanPham">Các loại sản phẩm</a>
+                                        <a href=" {{url('admin/LoaiSanPham')}}">Các loại sản phẩm</a>
                                     </li>
                                     <li>
-                                        <a href=" ThemLoaiSanPham">Thêm loại sản phẩm</a>
+                                        <a href=" {{url('admin/ThemLoaiSanPham')}}">Thêm loại sản phẩm</a>
                                     </li>
                                     
                                 </ul>
                             </li>
                             <li>
-                                <a href=" DonHang" class="waves-effect">
+                                <a href="{{url('admin/DonHang')}} " class="waves-effect">
                                     <i class=" remixicon-shopping-cart-line"></i>
                                     <span> Đơn Hàng</span>
                                     
@@ -154,10 +154,10 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href=" BaiViet">Danh Sách Bài Viết</a>
+                                        <a href="{{url('admin/BaiViet')}} ">Danh Sách Bài Viết</a>
                                     </li>
                                     <li>
-                                        <a href=" ThemBaiViet">Thêm Bài Viết Mới</a>
+                                        <a href="{{url('admin/ThemBaiViet')}} ">Thêm Bài Viết Mới</a>
                                     </li>
                                     
                                 </ul>
@@ -171,13 +171,13 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href=" TonKho">Tồn Kho</a>
+                                        <a href="{{url('admin/TonKho')}} ">Tồn Kho</a>
                                     </li>
                                     <li>
-                                        <a href=" NhapKho">Danh sách số lần nhập kho</a>
+                                        <a href="{{url('admin/NhapKho')}} ">Danh sách số lần nhập kho</a>
                                     </li>
                                     <li>
-                                        <a href=" DangXuat" class="waves-effect">
+                                        <a href=" {{url('admin/DangXuat')}}" class="waves-effect">
                                             <i class="remixicon-logout-box-line"></i>
                                             <span>Đăng xuất</span>
                                             
@@ -226,25 +226,41 @@
                                     <p id="desctable" class="sub-header">
                                         Nhập đầy đủ các thông tin sau đây
                                     </p>
-                                    <form action="" method="GET" enctype="multipart/form-data" class="parsley-form" novalidate="">
+                                    <form action="{{url('admin/ThemSanPham')}}" method="POST" enctype="multipart/form-data" class="parsley-form" novalidate="">
                                         <!-- Start fields -->
+                                        {{ csrf_field() }}
                                         <div class="form-group">
                                             <label>Tên sản phẩm</label>
                                             <div>
                                                 <input name="tensp" type="text" class="form-control" required="" data-parsley-maxlength="8" placeholder="Tối đa 250 ký tự">
                                             </div>
+                                            @if ($errors->has('tensp'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('tensp') }}</strong>
+                                    						</span>
+                               							 @endif
                                         </div>
                                         <div class="form-group">
                                             <label>Số lượng</label>
                                             <div>
                                                 <input name="soluong" type="text" class="form-control" required="" data-parsley-maxlength="8" placeholder="Tối đa 250 ký tự">
                                             </div>
+                                            @if ($errors->has('soluong'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('soluong') }}</strong>
+                                    						</span>
+                               							 @endif
                                         </div>
                                         <div class="form-group">
                                             <label>Giá</label>
                                             <div>
                                                 <input name="gia" type="number" class="form-control" required="" step="0.01" min="1" data-parsley-maxlength="30" placeholder="2000.00">
                                             </div>
+                                            @if ($errors->has('gia'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('gia') }}</strong>
+                                    						</span>
+                               							 @endif
                                         </div>
                                         <div class="form-group">
                                             <label>Mô Tả</label>
@@ -252,6 +268,11 @@
                                                 <textarea name="mota" class="form-control" id="example-textarea" rows="5"></textarea>
                                                 
                                             </div>
+                                            @if ($errors->has('mota'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('mota') }}</strong>
+                                    						</span>
+                               							 @endif
                                         </div>
                                         <div class="form-group">
                                             <label>Nguồn gốc xuất xứ</label>
@@ -259,6 +280,11 @@
                                                 <textarea name="nguongoc" class="form-control" id="example-textarea" rows="5"></textarea>
                                                 
                                             </div>
+                                            @if ($errors->has('nguongoc'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('nguongoc') }}</strong>
+                                    						</span>
+                               							 @endif
                                         </div>
                                         <div class="form-group">
                                             <label>Giới Thiệu</label>
@@ -266,21 +292,36 @@
                                                 <textarea name="gioithieu" class="form-control" id="example-textarea" rows="5"></textarea>
                                                 
                                             </div>
+                                            @if ($errors->has('gioithieu'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('gioithieu') }}</strong>
+                                    						</span>
+                               							 @endif
                                         </div>
                                         <div class="form-group">
                                             <label>Loại sản phẩm</label>
                                             <div>
-                                                <select class="form-control">
+                                                <select name="idloai" class="form-control">
                                                     <option selected="" value="1">Bánh Tráng</option>
                                                     <option value="2">Cơm Cháy</option>
                                                 </select>
                                             </div>
+                                            @if ($errors->has('idloai'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('idloai') }}</strong>
+                                    						</span>
+                               							 @endif
                                         </div>
                                         <div class="form-group">
                                             <label>Hình sản phẩm</label>
                                             <div>
-                                                 <input name="hinh" type="file" class="form-control" required="" >
+                                                 <input name="hinhsanpham" type="file" class="form-control" required="" >
                                             </div>
+                                            @if ($errors->has('hinhsanpham'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('hinhsanpham') }}</strong>
+                                    						</span>
+                               							 @endif
                                         </div>
 
                                         <div class="form-group mb-0">
@@ -460,6 +501,6 @@
         <!-- App js -->
         <script src="{{url('assets\js\app.min.js')}}"></script>
         
-        
+        @include('admin/footeradmin')
     </body>
 </html>

@@ -11,6 +11,6 @@ class LogOutController extends Controller
     public function index()
     {
         Auth::logout();
-        return redirect('admin/logout');
+        return view('admin/logout');
     }
 }

@@ -13,7 +13,12 @@
         <!-- Footable css -->
         <link href="{{url('assets\libs\footable\footable.core.min.css')}}" rel="stylesheet" type="text/css">
 <link href="{{url('assets\assets\libs\jquery-vectormap\jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css">
-
+<link href="{{url('assets\libs\bootstrap-tagsinput\bootstrap-tagsinput.css')}}" rel="stylesheet">
+        <link href="{{url('assets\libs\switchery\switchery.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets\libs\multiselect\multi-select.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets\libs\select2\select2.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets\libs\bootstrap-select\bootstrap-select.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets\libs\bootstrap-touchspin\jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet">
         <!-- App css -->
         <link href="{{url('assets\css\bootstrap.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\css\icons.min.css')}}" rel="stylesheet" type="text/css">
@@ -89,7 +94,7 @@
 
                             <li class="menu-title">Chức Năng</li>
                             <li>
-                                <a href=" Home" class="waves-effect" aria-expanded="false">
+                                <a href=" {{url('admin/Home')}}" class="waves-effect" aria-expanded="false">
                                     <i class=" remixicon-dashboard-line"></i>
                                     <span> Trang Chủ </span>
                                 </a>
@@ -104,16 +109,16 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href=" SanPham">Danh Sách Sản Phẩm</a>
+                                        <a href=" {{url('admin/SanPham')}} ">Danh Sách Sản Phẩm</a>
                                     </li>
                                     <li>
-                                        <a href=" ThemSanPham">Thêm Sản Phẩm</a>
+                                        <a href=" {{url('admin/ThemSanPham')}}">Thêm Sản Phẩm</a>
                                     </li>
                                     
                                 </ul>
                             </li>
                             <li>
-                                <a href=" Lienhe" class="waves-effect active" aria-expanded="true">
+                                <a href="{{url('admin/LienHe')}} " class="waves-effect active" aria-expanded="true">
                                     <i class="remixicon-mail-open-line"></i>
                                     <span> Liên Hệ </span>
                                     
@@ -128,16 +133,16 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href=" LoaiSanPham">Các loại sản phẩm</a>
+                                        <a href="{{url('admin/LoaiSanPham')}} ">Các loại sản phẩm</a>
                                     </li>
                                     <li>
-                                        <a href=" ThemLoaiSanPham">Thêm loại sản phẩm</a>
+                                        <a href="{{url('admin/ThemLoaiSanPham')}} ">Thêm loại sản phẩm</a>
                                     </li>
                                     
                                 </ul>
                             </li>
                             <li>
-                                <a href=" DonHang" class="waves-effect">
+                                <a href="{{url('admin/DonHang')}} " class="waves-effect">
                                     <i class=" remixicon-shopping-cart-line"></i>
                                     <span> Đơn Hàng</span>
                                     
@@ -152,10 +157,10 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href=" BaiViet">Danh Sách Bài Viết</a>
+                                        <a href="{{url('admin/BaiViet')}} ">Danh Sách Bài Viết</a>
                                     </li>
                                     <li>
-                                        <a href=" ThemBaiViet">Thêm Bài Viết Mới</a>
+                                        <a href=" {{url('admin/ThemBaiViet')}}">Thêm Bài Viết Mới</a>
                                     </li>
                                     
                                 </ul>
@@ -169,13 +174,13 @@
                                 <ul class="nav-second-level mm-collapse" aria-expanded="false" style="">
                                     
                                     <li >
-                                        <a href=" TonKho">Tồn Kho</a>
+                                        <a href="{{url('admin/TonKho')}} ">Tồn Kho</a>
                                     </li>
                                     <li>
-                                        <a href=" NhapKho">Danh sách số lần nhập kho</a>
+                                        <a href="{{url('admin/NhapKho')}}">Danh sách số lần nhập kho</a>
                                     </li>
                                     <li>
-                                        <a href=" DangXuat" class="waves-effect">
+                                        <a href="{{url('admin/DangXuat')}} " class="waves-effect">
                                             <i class="remixicon-logout-box-line"></i>
                                             <span>Đăng xuất</span>
                                             
@@ -210,13 +215,8 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Vé khai giảng</a></li>
-                                            <li class="breadcrumb-item active">Danh Sách đăng ký và duyệt vé</li>
-                                        </ol>
-                                    </div>
-                                    <h4 class="page-title">Danh sách đăng ký và duyệt vé</h4>
+                                    
+                                    <h4 class="page-title">Liên Hệ</h4>
 
                                 </div>
                             </div>
@@ -226,18 +226,18 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">
-                                    <h4 class="header-title">Danh sách</h4>
+                                    <h4 class="header-title">Thông Tin Liên Hệ Của Khác Hàng</h4>
                                     <p class="sub-header">
-                                        Danh sách những sinh viên đã đăng ký và duyệt vé cho các sinh viên
+                                        Danh sách thông tin của khách hàng cần.
                                     </p>
                                     <div class="mb-2">
                                         <div class="row">
                                             <div class="col-12 text-sm-center form-inline">
                                                 <select id="demo-foo-filter-status" class="custom-select custom-select-sm">
                                                         <option value="">Show all</option>
-                                                        <option value="active">Active</option>
-                                                        <option value="disabled">Disabled</option>
-                                                        <option value="suspended">Suspended</option>
+                                                        <option value="Chưa hồi đáp">Chưa hồi đáp</option>
+                                                        <option value="Đã phản hồi">Đã phản hồi</option>
+                                                        
                                                     </select>
                                                 <div class="form-group">
                                                     <input id="demo-foo-search" type="text" placeholder="Tìm kiếm" class="form-control form-control-sm" autocomplete="on">
@@ -251,26 +251,47 @@
                                             <thead>
                                             <tr>
                                                 <th data-toggle="true">STT</th>
-                                                <th>MSSV</th>
-                                                <th data-hide="phone">Họ và tên</th>
-                                                <th data-hide="phone, tablet">Tên</th>
-                                                <th></th>
+                                                <th>Tên</th>
+                                                <th data-hide="phone">Email</th>
+                                                <th data-hide="phone, tablet">Tiêu Đề</th>
+                                                <th data-hide="phone, tablet">Tin nhắn</th>
+                                                <th data-hide="phone, tablet">Trạng Thái</th>
+                                                
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-
-                                                <td>Isidra</td>
-                                                <td>Boudreaux</td>
-                                                <td>Traffic Court Referee</td>
-                                                <td>Ân</td>
-                                                <td style="white-space: nowrap; width: 1%;">
-                                           <button type="button" class="tabledit-edit-button btn btn-success" style="float: none;"><span class="remixicon-check-line"></span></button></td>
-                                            </tr>
+                                                @php
+                                                    $count =1;
+                                                @endphp
+                                                @foreach ($lienhe as $item)
+                                                   
+                                                <tr>
+                                                    <td>{{$count}}</td>
+                                                    <td>{{$item->tendaydu}}</td>
+                                                    <td><a href="mailto:{{$item->email}}">{{$item->email}}</a> </td>
+                                                    <td>{{$item->tieude}}</td>
+                                                    <td>{{$item->tinnhan}}</td>
+                                                    <td>
+                                                        <select id="trangthai{{$item->id}}" onchange="App.lienHe({{$item->id}})" name="trangthai" class="selectpicker" data-style="btn-outline-primary">
+                                                            <option @if ($item->trangthai == 0)
+                                                                {{'selected'}}
+                                                            @endif  value="0">Chưa hồi đáp</option>
+                                                            <option @if ($item->trangthai == 1)
+                                                                {{'selected'}}
+                                                            @endif value="1">Đã phản hồi</option>
+                                                        </select>
+                                                    </td>
+                                                    
+                                                </tr>
+                                                @php
+                                                    $count++
+                                                @endphp
+                                                @endforeach
+                                            
                                             </tbody>
                                             <tfoot>
                                             <tr class="active">
-                                                <td colspan="5">
+                                                <td colspan="6">
                                                     <div class="text-right">
                                                         <ul class="pagination pagination-rounded justify-content-end footable-pagination m-t-10 mb-0"></ul>
                                                     </div>
@@ -319,7 +340,14 @@
         
         <!-- Vendor js -->
         <script src="{{url('assets\js\vendor.min.js')}}"></script>
-
+        <script src="{{url('assets\libs\bootstrap-tagsinput\bootstrap-tagsinput.min.js')}}"></script>
+        <script src="{{url('assets\libs\switchery\switchery.min.js')}}"></script>
+        <script src="{{url('assets\libs\multiselect\jquery.multi-select.js')}}"></script>
+        <script src="{{url('assets\libs\jquery-quicksearch\jquery.quicksearch.min.js')}}"></script>
+        <script src="{{url('assets\libs\select2\select2.min.js')}}"></script>
+        <script src="{{url('assets\libs\bootstrap-select\bootstrap-select.min.js')}}"></script>
+        <script src="{{url('assets\libs\bootstrap-touchspin\jquery.bootstrap-touchspin.min.js')}}"></script>
+        <script src="{{url('assets\libs\jquery-mask-plugin\jquery.mask.min.js')}}"></script>
         <!-- Footable js -->
         <script src="{{url('assets\libs\footable\footable.all.min.js')}}"></script>
 
@@ -328,6 +356,6 @@
 
         <!-- App js -->
         <script src="{{url('assets\js\app.min.js')}}"></script>
-        
+        @include('admin/footeradmin')
     </body>
 </html>

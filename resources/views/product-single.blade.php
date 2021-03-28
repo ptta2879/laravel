@@ -50,7 +50,7 @@
     		<div class="row">
           
             <div class="col-lg-6 mb-5 ftco-animate">
-    		  		<a href="images/prod-{{$sanpham->id}}.jpg" class="image-popup prod-img-bg"><img src="images/prod-{{$sanpham->id}}.jpg" class="img-fluid" alt="Colorlib Template"></a>
+    		  		<a href="images/sanpham-{{$sanpham->id}}.jpg" class="image-popup prod-img-bg"><img src="images/sanpham-{{$sanpham->id}}.jpg" class="img-fluid" alt="Colorlib Template"></a>
     		  	</div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
               <h3>{{$sanpham->tensp}}</h3>

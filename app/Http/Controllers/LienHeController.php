@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\LienHe;
 use Illuminate\Http\Request;
 
 class LienHeController extends Controller
@@ -13,6 +14,20 @@ class LienHeController extends Controller
     }
     public function index()
     {
-        return view('admin/lienhe');
+        $data = LienHe::all();
+        return view('admin/lienhe',['lienhe'=>$data]);
+    }
+    public function trangThai(Request $request)
+    {
+        
+        $id = $request->id;
+        $trangthai=$request->giatri;
+        $new = LienHe::find($id);
+        $new->trangthai= $trangthai; 
+        if($new->save()){
+            echo 'success';
+        }else{
+            echo 'false';
+        }
     }
 }

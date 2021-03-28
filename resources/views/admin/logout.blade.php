@@ -62,7 +62,7 @@
 
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <p class="text-muted">Back to <a href="admin/login" class="text-muted font-weight-medium ml-1">Đăng Nhập</a></p>
+                                <p class="text-muted">Back to <a href=" login" class="text-muted font-weight-medium ml-1">Đăng Nhập</a></p>
                             </div> <!-- end col -->
                         </div>
                         <!-- end row -->

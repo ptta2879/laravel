@@ -49,7 +49,13 @@ Route::get('/admin/LoaiSanPham', 'LoaiSanPhamController@index');
 Route::get('/admin/ThemLoaiSanPham', 'LoaiSanPhamController@themLoaiSanPham');
 Route::get('/admin/SanPham', 'SanPhamController@index');
 Route::get('/admin/ThemSanPham', 'SanPhamController@themSanPham');
-
+Route::post('/admin/ThemSanPham', 'SanPhamController@addSanPham');
+Route::get('/admin/DonHang', 'DonHangController@index');
+Route::get('/admin/DangXuat', 'LogOutController@index');
+Route::get('/admin/SuaSanPham', 'SanPhamController@sua');
+Route::get('/admin/LienHeUpdate', 'LienHeController@trangThai');
+Route::post('/admin/SuaSanPham', 'SanPhamController@suaThongTin');
+Route::post('/admin/LoaiSanPham', 'LoaiSanPhamController@suaLoai');
 Auth::routes();
 
 
