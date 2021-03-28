@@ -63,3 +63,6 @@ Route::delete('/admin/DeleteSanPham', 'SanPhamController@deleteSanPham');
 Auth::routes();
 
 Route::post('/admin/ThayDoiTrangThai', 'DonHangController@thayDoiTrangThai');
+Route::get('/admin/SuaBaiViet', 'BaiVietController@suaBaiVietView');
+Route::post('/admin/SuaBaiViet', 'BaiVietController@suaBaiViet');
+Route::post('/admin/ThemBaiViet', 'BaiVietController@addBaiViet');

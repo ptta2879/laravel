@@ -52,7 +52,7 @@
            
           <div class="col-lg-12 ftco-animate m-auto">
             <h1> {{$baiviet->tieude}} </h1>
-          	{{$baiviet->noidung}}
+          	{!!$baiviet->noidung!!}
             <div class="tag-widget post-tag-container mb-5 mt-5">
               
             </div>

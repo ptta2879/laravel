@@ -102,7 +102,7 @@
               <h3>Bài Viết Đề Xuất</h3>
 			  @foreach ($baiviet as $item)
 			  <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_{{$item->id}}.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(images/baiviet-{{$item->id}}.jpg);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="NoiDungBaiViet?id={{$item->id}}">{{$item->tieude}}</a></h3>
                   <div class="meta">

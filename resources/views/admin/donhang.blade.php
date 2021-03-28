@@ -64,7 +64,7 @@
 
                 <!-- LOGO -->
                 <div class="logo-box">
-                    <a href="index.html" class="logo text-center">
+                    <a href="{{url('admin/Home')}}" class="logo text-center">
                         <span class="logo-lg">
                             <img src="{{url('assets\images\logo-light.png')}}" alt="" height="20">
                             <!-- <span class="logo-lg-text-light">Xeria</span> -->

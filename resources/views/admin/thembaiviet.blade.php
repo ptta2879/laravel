@@ -16,12 +16,12 @@
         <link href="{{url('assets\libs\datatables\buttons.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\libs\datatables\select.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <!-- third party css end -->
-
+        
         <!-- App css -->
         <link href="{{url('assets\css\bootstrap.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\css\icons.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\css\app.min.css')}}" rel="stylesheet" type="text/css">
-
+        <link href="{{url('assets\libs\summernote\summernote-bs4.css')}}" rel="stylesheet" type="text/css">
     </head>
 
     <body>
@@ -56,7 +56,7 @@
 
                 <!-- LOGO -->
                 <div class="logo-box">
-                    <a href="index.html" class="logo text-center">
+                    <a href="{{url('admin/Home')}}" class="logo text-center">
                         <span class="logo-lg">
                             <img src="{{url('assets\images\logo-light.png')}}" alt="" height="20">
                             <!-- <span class="logo-lg-text-light">Xeria</span> -->
@@ -123,7 +123,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript: void(0);" class="waves-effect " aria-expanded="true">
+                                <a href="javascript: void(0);" class="waves-effect " aria-expanded="false">
                                     <i class="remixicon-stack-line"></i>
                                     <span> Loại sản phẩm </span>
                                     <span class="menu-arrow"></span>
@@ -214,7 +214,7 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                    
-                                    <h4 class="page-title">Thêm sản phẩm</h4>
+                                    <h4 class="page-title">Thêm Bài Viết</h4>
                                 </div>
                             </div>
                         </div>     
@@ -224,65 +224,47 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">
-                                    <h4 class="header-title">Thêm sản phẩm</h4>
+                                    <h4 class="header-title">Thêm Bài Viết</h4>
                                     <p id="desctable" class="sub-header">
                                         Nhập đầy đủ các thông tin sau đây
                                     </p>
-                                    <form action="" method="GET" enctype="multipart/form-data" class="parsley-form" novalidate="">
+                                    <form action="{{url('admin/ThemBaiViet')}}" method="POST" enctype="multipart/form-data" class="parsley-form" novalidate="">
                                         <!-- Start fields -->
+                                        {{ csrf_field() }}
                                         <div class="form-group">
-                                            <label>Tên sản phẩm</label>
+                                            <label>Tiêu Đề</label>
                                             <div>
-                                                <input name="tensp" type="text" class="form-control" required="" data-parsley-maxlength="8" placeholder="Tối đa 250 ký tự">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Số lượng</label>
-                                            <div>
-                                                <input name="soluong" type="text" class="form-control" required="" data-parsley-maxlength="8" placeholder="Tối đa 250 ký tự">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Giá</label>
-                                            <div>
-                                                <input name="gia" type="number" class="form-control" required="" step="0.01" min="1" data-parsley-maxlength="30" placeholder="2000.00">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Mô Tả</label>
-                                            <div>
-                                                <textarea name="mota" class="form-control" id="example-textarea" rows="5"></textarea>
+                                                <textarea name="tieude" id="" class="form-control"  id="example-textarea" rows="5"></textarea>
                                                 
                                             </div>
+                                            @if ($errors->has('tieude'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('tieude') }}</strong>
+                                    						</span>
+                               							 @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Nguồn gốc xuất xứ</label>
+                                            <label>Nội Dung</label>
                                             <div>
-                                                <textarea name="nguongoc" class="form-control" id="example-textarea" rows="5"></textarea>
-                                                
+                                                <textarea name="noidung" id="summernote-editor"></textarea>
                                             </div>
+                                            @if ($errors->has('noidung'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('noidung') }}</strong>
+                                    						</span>
+                               							 @endif
                                         </div>
+                                        
                                         <div class="form-group">
-                                            <label>Giới Thiệu</label>
+                                            <label>Hình Đại Diện Cho Bài Viết</label>
                                             <div>
-                                                <textarea name="gioithieu" class="form-control" id="example-textarea" rows="5"></textarea>
-                                                
+                                                 <input name="hinhbaiviet" type="file" class="form-control" required="" >
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Loại sản phẩm</label>
-                                            <div>
-                                                <select class="form-control">
-                                                    <option selected="" value="1">Bánh Tráng</option>
-                                                    <option value="2">Cơm Cháy</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Hình sản phẩm</label>
-                                            <div>
-                                                 <input name="hinh" type="file" class="form-control" required="" >
-                                            </div>
+                                            @if ($errors->has('hinhbaiviet'))
+                                   							<span class="help-block">
+                                        						<strong>{{ $errors->first('hinhbaiviet') }}</strong>
+                                    						</span>
+                               							 @endif
                                         </div>
 
                                         <div class="form-group mb-0">
@@ -458,6 +440,10 @@
 
         <!-- Datatables init -->
         <script src="{{url('assets\js\pages\datatables.init.js')}}"></script>
+        <script src="{{url('assets\libs\summernote\summernote-bs4.min.js')}}"></script>
+
+        <!-- Init js -->
+        <script src="{{url('assets\js\pages\form-summernote.init.js')}}"></script>
 
         <!-- App js -->
         <script src="{{url('assets\js\app.min.js')}}"></script>

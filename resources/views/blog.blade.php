@@ -51,14 +51,14 @@
           @foreach ($baiviet as $item)
           <div class="col-lg-6 d-flex align-items-stretch ftco-animate">
           	<div class="blog-entry d-md-flex">
-          		<a href="NoiDungBaiViet?id={{$item->id}}" class="block-20 img" style="background-image: url('images/image_{{$item->id}}.jpg');">
+          		<a href="NoiDungBaiViet?id={{$item->id}}" class="block-20 img" style="background-image: url('images/baiviet-{{$item->id}}.jpg');">
               </a>
               <div class="text p-4 bg-light">
               	<div class="meta">
               		<p><span class="fa fa-calendar"></span>{{$item->ngaydang}}</p>
               	</div>
                 <h3 class="heading mb-3"><a href="NoiDungBaiViet?id={{$item->id}}">{{$item->tieude}}</a></h3>
-                <p class="text-truncate">{{$item->noidung}}</p>
+                
                 <a href="NoiDungBaiViet?id={{$item->id}}" class="btn-custom">Tiếp Tục <span class="fa fa-long-arrow-right"></span></a>
 
               </div>

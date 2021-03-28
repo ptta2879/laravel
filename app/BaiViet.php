@@ -11,7 +11,7 @@ class BaiViet extends Model
     public $timestamps = false;
     public function taiKhoan()
     {   
-        return $this->hasOne('App\TaiKhoan','id');
+        return $this->hasOne('App\TaiKhoan','id','idtk');
         # code...
     }
     public function thongTinThanhVien()

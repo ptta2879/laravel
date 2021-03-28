@@ -56,7 +56,7 @@
 
                 <!-- LOGO -->
                 <div class="logo-box">
-                    <a href="index.html" class="logo text-center">
+                    <a href="{{url('admin/Home')}}" class="logo text-center">
                         <span class="logo-lg">
                             <img src="{{url('assets\images\logo-light.png')}}" alt="" height="20">
                             <!-- <span class="logo-lg-text-light">Xeria</span> -->
@@ -241,15 +241,15 @@
                                     </div>
                                     
                                     <div class="table-responsive">
-                                        <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0 no-paging footable-loaded footable tablet breakpoint" data-page-size="7">
+                                        <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0" data-page-size="7">
                                             <thead>
                                             <tr>
                                                 
-                                                <th data-toggle="true" class="footable-visible footable-sortable footable-first-column">STT<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Loại sản phẩm<span class="footable-sort-indicator"></span></th>
+                                                <th data-toggle="true"  >STT </span></th>
+                                                <th class="footable-visible footable-sortable">Loại sản phẩm </span></th>
                                                 
-                                                <th class="footable-visible footable-sortable footable-last-column"><span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable footable-last-column"></th>
+                                                <th > </span></th>
+                                                <th  ></th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -259,12 +259,12 @@
                                                 @foreach ($loaisanpham as $item)
                                                 <tr style="" class="footable-even">
                                                     
-                                                    <td class="footable-visible footable-first-column"><span class="footable-toggle">{{ $count }}</span></td>
-                                                    <td class="footable-visible">{{$item->tenloai}}</td>
-                                                    <td style="white-space: nowrap; width: 1%;" class="footable-visible footable-last-column">
+                                                    <td ><span class="footable-toggle">{{ $count }}</span></td>
+                                                    <td >{{$item->tenloai}}</td>
+                                                    <td style="white-space: nowrap; width: 1%;" >
                                                         <button type="button"  id="nutloaisanpham" class="btn btn-primary waves-effect waves-light btn-icon" data-value="{{$item}}" data-toggle="modal" data-target="#con-close-modal"><span class="remixicon-edit-2-line"></button>
                                                         </td>
-                                                        <td style="white-space: nowrap; width: 1%;" class="footable-visible footable-last-column"><button onclick="App.xoaLoaiSanPham({{$item->id}})" class="btn  btn-danger waves-effect waves-light btn-icon "><i class="fa fa-times"></i></button></td>
+                                                        <td style="white-space: nowrap; width: 1%;" ><button onclick="App.xoaLoaiSanPham({{$item->id}})" class="btn  btn-danger waves-effect waves-light btn-icon "><i class="fa fa-times"></i></button></td>
                                                 @php
                                                     $count++;
                                                 @endphp

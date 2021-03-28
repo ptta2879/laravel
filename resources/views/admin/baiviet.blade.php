@@ -56,7 +56,7 @@
 
                 <!-- LOGO -->
                 <div class="logo-box">
-                    <a href="index.html" class="logo text-center">
+                    <a href="{{url('admin/Home')}}" class="logo text-center">
                         <span class="logo-lg">
                             <img src="{{url('assets\images\logo-light.png')}}" alt="" height="20">
                             <!-- <span class="logo-lg-text-light">Xeria</span> -->
@@ -212,7 +212,7 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     
-                                    <h4 class="page-title">Danh sách sản phẩm</h4>
+                                    <h4 class="page-title">Danh sách bài viết</h4>
 
                                 </div>
                             </div>
@@ -222,9 +222,9 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">
-                                    <h4 class="header-title">Danh sách sản phẩm</h4>
+                                    <h4 class="header-title">Danh sách bài viết</h4>
                                     <p class="sub-header">
-                                        Danh sách những sản phẩm có trong hệ thống 
+                                        Các bài viết được đăng lên 
                                     </p>
                                     <div class="mb-2">
                                         <div class="row">
@@ -243,38 +243,39 @@
                                     </div>
                                     
                                     <div class="table-responsive">
-                                        <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0 no-paging footable-loaded footable tablet breakpoint" data-page-size="7">
+                                        <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0" data-page-size="7">
                                             <thead>
                                             <tr>
-                                                <th data-toggle="true" class="footable-visible footable-sortable footable-first-column">STT<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Loại sản phẩm<span class="footable-sort-indicator"></span></th>
-                                                <th data-hide="phone" class="footable-visible footable-sortable">Tên sản phẩm<span class="footable-sort-indicator"></span></th>
-                                                <th data-hide="phone, tablet" class="footable-sortable" style="display: none;">Tên<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Giá<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Mô tả<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Nguồn Gốc<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Giới Thiệu<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable footable-last-column"><span class="footable-sort-indicator"></span></th>
+                                                <th data-toggle="true" >STT </span></th>
+                                                <th  >Tên Tác Giả </span></th>
+                                                <th data-hide="phone"  >Tiêu Đề </span></th>
+                                                
+                                                <th  >Ngày Đăng </span></th>
+                                                <th></th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr style="" class="footable-even">
-
-                                                <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>Isidra</td>
-                                                <td class="footable-visible"></td>
-                                                <td class="footable-visible">Traffic Court Referee</td>
-                                                <td class="" style="display: none;">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td style="white-space: nowrap; width: 1%;" class="footable-visible footable-last-column">
-                                           <button type="button" class="tabledit-edit-button btn btn-primary" style="float: none;"><span class="remixicon-edit-2-line"></span></button></td>
-                                            </tr>
+                                                @php
+                                                    $count = 1;
+                                                @endphp
+                                                @foreach ($baiviet as $item)
+                                                <tr >
+                                                    <td>{{$count}}</td>
+                                                    <td>{{$item->taikhoan->hovaten . ' '. $item->taikhoan->ten}} </td>
+                                                    <td class="text-truncate">{{$item->tieude}}</td>
+                                                    
+                                                    <td>{{$item->ngaydang}}</td>
+                                                    <td style="white-space: nowrap; width: 1%;"><a href="SuaBaiViet?id={{$item->id}}" class="tabledit-edit-button btn btn-primary" style="float: none;"><span class="remixicon-edit-2-line"></span></a></td>
+                                              </tr>
+                                              @php
+                                                  $count++
+                                              @endphp
+                                                @endforeach
+                                            
                                             </tbody>
                                             <tfoot>
                                             <tr class="active">
-                                                <td colspan="9" class="footable-visible">
+                                                <td colspan="7" class="footable-visible">
                                                     <div class="text-right">
                                                         <ul class="pagination pagination-rounded justify-content-end footable-pagination m-t-10 mb-0"><li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li><li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li><li class="footable-page active"><a data-page="0" href="#">1</a></li><li class="footable-page-arrow disabled"><a data-page="next" href="#next">›</a></li><li class="footable-page-arrow disabled"><a data-page="last" href="#last">»</a></li></ul>
                                                     </div>
@@ -352,5 +353,24 @@
         <!-- App js -->
         <script src="{{url('assets\js\app.min.js')}}"></script>
         @include('admin/footeradmin')
+        @if (session('suathanhcong'))
+        <script>Notiflix.Notify.Success("  {{session('suathanhcong')}} ");</script>
+        @endif
+        @if (session('fail'))
+        <script>Notiflix.Notify.Failure("  {{session('fail')}} ");</script>
+        @endif
+        @if (session('file'))
+        <script>Notiflix.Notify.Failure("  {{session('file')}} ");</script>
+        @endif
+        @if (session('success'))
+        <script>Notiflix.Notify.Success("  {{session('success')}} ");</script>
+        @endif
+        @if (session('sanphamfail'))
+        <script>Notiflix.Notify.Failure("  {{session('sanphamfail')}} ");</script>
+        @endif
+        @if (session('khofail'))
+        <script>Notiflix.Notify.Failure("  {{session('khofail')}} ");</script>
+        @endif
+        
     </body>
 </html>

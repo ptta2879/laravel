@@ -28,7 +28,7 @@
                             <div class="card-body p-4">
                                 
                                 <div class="text-center w-75 m-auto">
-                                    <a href="index.html">
+                                    <a href="{{url('admin/Home')}}">
                                         <span><img src="{{url('assets\images\logo-dark.png')}}" alt="" height="22"></span>
                                     </a>
                                     <p class="text-muted mb-4 mt-3">Nhập thông tin đăng nhập của bạn để vào trang admin</p>
