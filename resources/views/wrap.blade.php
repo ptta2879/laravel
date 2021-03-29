@@ -20,8 +20,8 @@
         <div class="row">
             <div class="col-md-6 d-flex align-items-center">
                 <p class="mb-0 phone pl-md-2">
-                    <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> +00 1234 567</a> 
-                    <a href="#"><span class="fa fa-paper-plane mr-1"></span> youremail@email.com</a>
+                    <a href="tel:0388823807" class="mr-2"><span class="fa fa-phone mr-1"></span> 0388823807</a> 
+                    <a href="mailto:bachacha@gmail.com"><span class="fa fa-paper-plane mr-1"></span> bachachavn@gmail.com</a>
                 </p>
             </div>
             <div class="col-md-6 d-flex justify-content-md-end">

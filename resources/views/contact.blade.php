@@ -57,7 +57,7 @@
 				        			<span class="fa fa-map-marker"></span>
 				        		</div>
 				        		<div class="text">
-					            <p><span>Địa Chỉ</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+					            <p><span>Địa Chỉ</span> 12 Nguyễn Văn Bảo, Phường 5, Gò Vấp</p>
 					          </div>
 				          </div>
 								</div>
@@ -67,7 +67,7 @@
 				        			<span class="fa fa-phone"></span>
 				        		</div>
 				        		<div class="text">
-					            <p><span>Số Điện Thoại</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+					            <p><span>Số Điện Thoại</span> <a href="tel:0388823807">0388823807</a></p>
 					          </div>
 				          </div>
 								</div>
@@ -77,7 +77,7 @@
 				        			<span class="fa fa-paper-plane"></span>
 				        		</div>
 				        		<div class="text">
-					            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+					            <p><span>Email:</span> <a href="mailto:bachachavn@gmail.com">bachachavn@gmail.com</a></p>
 					          </div>
 				          </div>
 								</div>
@@ -87,7 +87,7 @@
 				        			<span class="fa fa-globe"></span>
 				        		</div>
 				        		<div class="text">
-					            <p><span>Website</span> <a href="#">yoursite.com</a></p>
+					            <p><span>Website</span> <a href="#">bachacha.com</a></p>
 					          </div>
 				          </div>
 								</div>

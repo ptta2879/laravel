@@ -126,9 +126,15 @@ class CartController extends Controller
         $id= $request->get('id');
         $soluong= $request->get('soluong');
         $gia = SanPham::find(GioHang::find($id)->idsp)->gia;
+        $idkho = SanPham::find(GioHang::find($id)->idsp)->idkho;
         $news = GioHang::find($id);
-        $news->soluong = $soluong;
-        $news->gia = $gia * $soluong;
-        $news->save();
+        $soluongcu = $news->soluong;
+        
+            $kho = Kho::find($idkho);
+            $kho->soluong = Kho::find($idkho)->soluong - ($soluong-$soluongcu);
+            $kho->save();
+            $news->soluong = $soluong;
+            $news->gia = $gia * $soluong;
+            $news->save();
     }
 }

@@ -3,12 +3,12 @@
         <div class="row mb-5">
           <div class="col-sm-12 col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2 logo"><a href="Home">Liquor <span>Store</span></a></h2>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
+              <h2 class="ftco-heading-2 logo"><a href="Home">BaChaCha <span>Store</span></a></h2>
+              <p>BaChaCha Thơm Ngon Bá Cháy</p>
               <ul class="ftco-footer-social list-unstyled mt-2">
-                <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                
+                <li class="ftco-animate"><a href="https://www.facebook.com/B%C3%A1nh-Tr%C3%A1ng-Bachacha-108555174656092"><span class="fa fa-facebook"></span></a></li>
+                
               </ul>
             </div>
           </div>
@@ -17,7 +17,7 @@
             <div class="ftco-footer-widget mb-4 ml-md-4">
               <h2 class="ftco-heading-2">Thông Tin</h2>
               <ul class="list-unstyled">
-                <li><a href="GioigiThieu"><span class="fa fa-chevron-right mr-2"></span>Giới Thiệu</a></li>
+                <li><a href="GioiThieu"><span class="fa fa-chevron-right mr-2"></span>Giới Thiệu</a></li>
                 <li><a href="SanPham"><span class="fa fa-chevron-right mr-2"></span>Sản Phẩm</a></li>
                 <li><a href="LienHe"><span class="fa fa-chevron-right mr-2"></span>Liên Hệ</a></li>
                 <li><a href="BaiViet"><span class="fa fa-chevron-right mr-2"></span>Bài Viết</a></li>
@@ -30,9 +30,9 @@
             	<h2 class="ftco-heading-2">Bạn Có Những Câu Hỏi?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon fa fa-map marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="tel:123"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="mailto:aasdsd@gmail.com"><span class="icon fa fa-paper-plane pr-4"></span><span class="text">info@yourdomain.com</span></a></li>
+	                <li><span class="icon fa fa-map marker"></span><span class="text"></span>12 Nguyễn Văn Bảo, Phường 5, Quận Gò Vấp</li>
+	                <li><a href="tel:0388823807"><span class="icon fa fa-phone"></span><span class="text">0388823807</span></a></li>
+	                <li><a href="mailto:bachacha@gmail.com"><span class="icon fa fa-paper-plane pr-4"></span><span class="text">bachachavn@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             </div>
