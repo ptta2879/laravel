@@ -16,7 +16,9 @@
         <link href="{{url('assets\libs\datatables\buttons.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\libs\datatables\select.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <!-- third party css end -->
-
+        <link href="{{url('assets\libs\footable\footable.core.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets\libs\jquery-vectormap\jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css">
+        
         <!-- App css -->
         <link href="{{url('assets\css\bootstrap.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\css\icons.min.css')}}" rel="stylesheet" type="text/css">
@@ -330,7 +332,10 @@
 
         <!-- Vendor js -->
         <script src="{{url('assets\js\vendor.min.js')}}"></script>
+        <script src="{{url('assets\libs\footable\footable.all.min.js')}}"></script>
 
+        <!-- Init js -->
+        <script src="{{url('assets\js\pages\foo-tables.init.js')}}"></script>
         <!-- third party js -->
         <script src="{{url('assets\libs\datatables\dataTables.bootstrap4.js')}}"></script>
         <script src="{{url('assets\libs\datatables\jquery.dataTables.min.js')}}"></script>

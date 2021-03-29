@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = SanPham::with('loaiSanPham')->paginate(8);
+        $data = SanPham::with('loaiSanPham')->where('trangthai','=',0)->paginate(8);
         $dataloai = LoaiSanPham::all();
         $databaiviet = BaiViet::orderBy('id','DESC')->get();
         

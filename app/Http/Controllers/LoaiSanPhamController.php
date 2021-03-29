@@ -14,7 +14,7 @@ class LoaiSanPhamController extends Controller
     }
     public function index()
     {
-        $data = LoaiSanPham::all();
+        $data = LoaiSanPham::where('trangthai','=',0)->get();
         return view('admin/loaisanpham',['loaisanpham'=>$data]);
     }
     public function themLoaiSanPham()
@@ -50,7 +50,8 @@ class LoaiSanPhamController extends Controller
     {
         $id = $request->id;
         $news = LoaiSanPham::find($id);
-        if($news->delete()){
+        $news->trangthai =1;
+        if($news->save()){
             echo 'thanhcong';
         }
         else{

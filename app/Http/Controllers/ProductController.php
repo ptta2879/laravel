@@ -11,7 +11,7 @@ class ProductController extends Controller
     //
     public function index()
     {
-        $data = SanPham::with('loaiSanPham')->paginate(12);
+        $data = SanPham::with('loaiSanPham')->where('trangthai','=',0)->paginate(12);
         $dataBaiViet = BaiViet::orderBy('id','DESC')->take(3)->get();
         
         return view('product',['sanpham'=>$data,'baiviet'=>$dataBaiViet]);

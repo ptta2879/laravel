@@ -16,7 +16,8 @@
         <link href="{{url('assets\libs\datatables\buttons.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\libs\datatables\select.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <!-- third party css end -->
-
+        <link href="{{url('assets\libs\footable\footable.core.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets\libs\jquery-vectormap\jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css">
         <!-- App css -->
         <link href="{{url('assets\css\bootstrap.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\css\icons.min.css')}}" rel="stylesheet" type="text/css">
@@ -90,7 +91,7 @@
 
                         <ul class="metismenu" id="side-menu">
 
-                            <li class="menu-title">Chức Năng</li>
+                            <li class="menu-title">Chức Năng</li> 
                             <li>
                                 <a href=" {{url('admin/Home')}}" class="waves-effect" aria-expanded="false">
                                     <i class=" remixicon-dashboard-line"></i>
@@ -243,34 +244,35 @@
                                     </div>
                                     
                                     <div class="table-responsive">
-                                        <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0 no-paging footable-loaded footable tablet breakpoint" data-page-size="7">
+                                        <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0" data-page-size="7">
                                             <thead>
                                             <tr>
                                                 <th data-toggle="true" class="footable-visible footable-sortable footable-first-column">STT<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Loại sản phẩm<span class="footable-sort-indicator"></span></th>
-                                                <th data-hide="phone" class="footable-visible footable-sortable">Tên sản phẩm<span class="footable-sort-indicator"></span></th>
-                                                <th data-hide="phone, tablet" class="footable-sortable" style="display: none;">Tên<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Giá<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Mô tả<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Nguồn Gốc<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Giới Thiệu<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable footable-last-column"><span class="footable-sort-indicator"></span></th>
+                                                <th class="footable-visible footable-sortable">Mã số kho<span class="footable-sort-indicator"></span></th>
+                                                <th data-hide="phone" class="footable-visible footable-sortable">Ngày Nhập<span class="footable-sort-indicator"></span></th>
+                                                <th data-hide="phone, tablet" class="footable-sortable" style="display: none;">Số Lượng<span class="footable-sort-indicator"></span></th>
+                                                
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr style="" class="footable-even">
+                                                @php
+                                                    $count =1;
+                                                @endphp
+                                                @foreach ($nhapkho as $item)
+                                                <tr style="" class="footable-even">
 
-                                                <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>Isidra</td>
-                                                <td class="footable-visible"></td>
-                                                <td class="footable-visible">Traffic Court Referee</td>
-                                                <td class="" style="display: none;">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td style="white-space: nowrap; width: 1%;" class="footable-visible footable-last-column">
-                                           <button type="button" class="tabledit-edit-button btn btn-primary" style="float: none;"><span class="remixicon-edit-2-line"></span></button></td>
-                                            </tr>
+                                                    <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>{{$count}}</td>
+                                                    <td class="footable-visible"> {{$item->idkho}} </td>
+                                                    <td class="footable-visible">{{$item->ngaynhap}}</td>
+                                                    <td class="" style="display: none;">{{$item->soluong}}</td>
+                                                    
+                                               
+                                                </tr>
+                                                @php
+                                                    $count++
+                                                @endphp
+                                                @endforeach
+                                            
                                             </tbody>
                                             <tfoot>
                                             <tr class="active">
@@ -329,7 +331,10 @@
 
         <!-- Vendor js -->
         <script src="{{url('assets\js\vendor.min.js')}}"></script>
-
+        <script src="{{url('assets\libs\footable\footable.all.min.js')}}"></script>
+    
+        <!-- Init js -->
+        <script src="{{url('assets\js\pages\foo-tables.init.js')}}"></script>
         <!-- third party js -->
         <script src="{{url('assets\libs\datatables\jquery.dataTables.min.js')}}"></script>
         <script src="{{url('assets\libs\datatables\dataTables.bootstrap4.js')}}"></script>

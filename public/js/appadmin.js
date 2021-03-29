@@ -52,7 +52,8 @@ App={
         });
     },
     xoaSanPham: function(id){
-        Notiflix.Loading.Pulse('Đang Xử Lý...');
+        Notiflix.Confirm.Show( 'Thông báo', 'Bạn Có muốn xóa sản phẩm', 'Yes', 'No', function(){ 
+            Notiflix.Loading.Pulse('Đang Xử Lý...');
         var _token = $('input[name="_token"]').val();
         $.ajax({
             type:'DELETE',
@@ -77,6 +78,8 @@ App={
             }
 
         });
+        } ); 
+        
     },
     donHang:function(id){
         Notiflix.Loading.Pulse('Đang Xử Lý...');
@@ -111,6 +114,7 @@ $(window).on('load',function(){
         modal.find('.modal-body #idloai').val(recipient.id);
         modal.find('.modal-body #tenloai').val(recipient.tenloai);
     });
+
     $('#ctdonhang').on('show.bs.modal',function(event){
         var button = $(event.relatedTarget);
         var recipient = button.data('value');
@@ -135,5 +139,12 @@ $(window).on('load',function(){
             })
             
         })
+    })
+    $('#nhapkho').on('show.bs.modal',function(event){
+        var button = $(event.relatedTarget);
+        var recipient = button.data('value');
+        var modal = $(this);
+        modal.find('.modal-body #idloai').val(recipient.id);
+        modal.find('.modal-body #soluong').val(recipient.soluong);
     })
 })

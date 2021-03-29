@@ -16,7 +16,10 @@
         <link href="{{url('assets\libs\datatables\buttons.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\libs\datatables\select.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <!-- third party css end -->
+        <link href="{{url('assets\libs\x-editable\bootstrap-editable.css')}}" rel="stylesheet" type="text/css">
 
+        <link href="{{url('assets\libs\footable\footable.core.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets\libs\jquery-vectormap\jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css">
         <!-- App css -->
         <link href="{{url('assets\css\bootstrap.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\css\icons.min.css')}}" rel="stylesheet" type="text/css">
@@ -212,7 +215,7 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     
-                                    <h4 class="page-title">Danh sách sản phẩm</h4>
+                                    <h4 class="page-title">Tồn Kho</h4>
 
                                 </div>
                             </div>
@@ -222,9 +225,9 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">
-                                    <h4 class="header-title">Danh sách sản phẩm</h4>
+                                    <h4 class="header-title">Danh Sách Số Lượng Còn Trong Kho</h4>
                                     <p class="sub-header">
-                                        Danh sách những sản phẩm có trong hệ thống 
+                                        Số lượng còn trong kho theo sản phẩm
                                     </p>
                                     <div class="mb-2">
                                         <div class="row">
@@ -243,34 +246,37 @@
                                     </div>
                                     
                                     <div class="table-responsive">
-                                        <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0 no-paging footable-loaded footable tablet breakpoint" data-page-size="7">
+                                        <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0" data-page-size="7">
                                             <thead>
                                             <tr>
                                                 <th data-toggle="true" class="footable-visible footable-sortable footable-first-column">STT<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Loại sản phẩm<span class="footable-sort-indicator"></span></th>
-                                                <th data-hide="phone" class="footable-visible footable-sortable">Tên sản phẩm<span class="footable-sort-indicator"></span></th>
-                                                <th data-hide="phone, tablet" class="footable-sortable" style="display: none;">Tên<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Giá<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Mô tả<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Nguồn Gốc<span class="footable-sort-indicator"></span></th>
-                                                <th class="footable-visible footable-sortable">Giới Thiệu<span class="footable-sort-indicator"></span></th>
+                                                <th class="footable-visible footable-sortable">Tên Sản Phẩm<span class="footable-sort-indicator"></span></th>
+                                                <th class="footable-visible footable-sortable">Số Lượng<span class="footable-sort-indicator"></span></th>
                                                 <th class="footable-visible footable-sortable footable-last-column"><span class="footable-sort-indicator"></span></th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr style="" class="footable-even">
+                                                @php
+                                                    $count =1;
+                                                @endphp
+                                                @foreach ($kho as $item)
+                                                <tr  class="footable-even">
 
-                                                <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>Isidra</td>
-                                                <td class="footable-visible"></td>
-                                                <td class="footable-visible">Traffic Court Referee</td>
-                                                <td class="" style="display: none;">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td class="footable-visible">Ân</td>
-                                                <td style="white-space: nowrap; width: 1%;" class="footable-visible footable-last-column">
-                                           <button type="button" class="tabledit-edit-button btn btn-primary" style="float: none;"><span class="remixicon-edit-2-line"></span></button></td>
-                                            </tr>
+                                                    <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>{{$count}}</td>
+                                                    
+                                                    <td class="footable-visible">{{ $item->sanpham->tensp }}</td>
+                                                    
+                                                    <td class="footable-visible">{{$item->soluong}}</td>
+                                                    
+                                                    <td style="white-space: nowrap; width: 1%;" class="footable-visible footable-last-column">
+                                                    <button type="button"  id="nutkho" class="btn btn-primary waves-effect waves-light btn-icon" data-value="{{$item}}" data-toggle="modal" data-target="#nhapkho"><span class="remixicon-edit-2-line"></button>
+                                               
+                                                </tr>
+                                                @php
+                                                    $count++;
+                                                @endphp
+                                                @endforeach
+                                            
                                             </tbody>
                                             <tfoot>
                                             <tr class="active">
@@ -288,7 +294,44 @@
                         </div>
                         <!-- end row -->
 
-
+                        <div id="nhapkho" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Kho</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    </div>
+                                    <div class="modal-body p-4">
+                                        <form action="{{url('admin/NhapKho')}}" method="POST" class="parsley-form">
+                                            {{ csrf_field() }}
+                                            <div class="form-group">
+                                                <label>Id</label>
+                                                <div>
+                                                    <input name="idloai" id="idloai" type="number" readonly class="form-control" required="" >
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Số lượng trong kho</label>
+                                                <div>
+                                                    <input name="soluong" id="soluong" type="number" class="form-control" required="" data-parsley-maxlength="8">
+                                                </div>
+                                            </div>
+                                            
+                                           
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light mr-1">
+                                            Lưu Thay Đổi
+                                        </button>
+                                       
+                                        <button data-dismiss="modal"  class="btn btn-secondary waves-effect waves-light">
+                                            Hủy
+                                        </button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
                         
                         <!-- end row -->
                         
@@ -321,110 +364,7 @@
         <!-- END wrapper -->
 
         <!-- Right Sidebar -->
-        <div class="right-bar">
-            <div class="rightbar-title">
-                <a href="javascript:void(0);" class="right-bar-toggle float-right">
-                    <i class="fe-x noti-icon"></i>
-                </a>
-                <h4 class="m-0 text-white">Settings</h4>
-            </div>
-            <div class="slimscroll-menu">
-                <!-- User box -->
-                <div class="user-box">
-                    <div class="user-img">
-                        <img src="images\users\avatar-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
-                        <a href="javascript:void(0);" class="user-edit"><i class="mdi mdi-pencil"></i></a>
-                    </div>
-            
-                    <h5><a href="javascript: void(0);">Nik G. Patel</a> </h5>
-                    <p class="text-muted mb-0"><small>Admin Head</small></p>
-                </div>
-
-                <ul class="nav nav-pills bg-light nav-justified">
-                    <li class="nav-item">
-                        <a href="#home1" data-toggle="tab" aria-expanded="false" class="nav-link rounded-0">
-                            General
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#messages1" data-toggle="tab" aria-expanded="false" class="nav-link rounded-0 active">
-                            Chat
-                        </a>
-                    </li>
-                </ul>
-                <div class="tab-content pl-3 pr-3">
-                    <div class="tab-pane" id="home1">
-                        <div class="row mb-2">
-                            <div class="col">
-                                <h5 class="m-0 font-15">Notifications</h5>
-                                <p class="text-muted"><small>Do you need them?</small></p>
-                            </div> <!-- end col-->
-                            <div class="col-auto">
-                                <div class="custom-control custom-switch mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="tabswitch1">
-                                    <label class="custom-control-label" for="tabswitch1"></label>
-                                </div>
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row-->
-
-                        <div class="row mb-2">
-                            <div class="col">
-                                <h5 class="m-0 font-15">API Access</h5>
-                                <p class="text-muted"><small>Enable/Disable access</small></p>
-                            </div> <!-- end col-->
-                            <div class="col-auto">
-                                <div class="custom-control custom-switch mb-2">
-                                    <input type="checkbox" class="custom-control-input" checked="" id="tabswitch2">
-                                    <label class="custom-control-label" for="tabswitch2"></label>
-                                </div>
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row-->
-
-                        <div class="row mb-2">
-                            <div class="col">
-                                <h5 class="m-0 font-15">Auto Updates</h5>
-                                <p class="text-muted"><small>Keep up to date</small></p>
-                            </div> <!-- end col-->
-                            <div class="col-auto">
-                                <div class="custom-control custom-switch mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="tabswitch3">
-                                    <label class="custom-control-label" for="tabswitch3"></label>
-                                </div>
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row-->
-
-                        <div class="row mb-2">
-                            <div class="col">
-                                <h5 class="m-0 font-15">Online Status</h5>
-                                <p class="text-muted"><small>Show your status to all</small></p>
-                            </div> <!-- end col-->
-                            <div class="col-auto">
-                                <div class="custom-control custom-switch mb-2">
-                                    <input type="checkbox" class="custom-control-input" checked="" id="tabswitch4">
-                                    <label class="custom-control-label" for="tabswitch4"></label>
-                                </div>
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row-->
-
-                        <div class="alert alert-success alert-dismissible fade mt-3 show" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                            <h5>Unlimited Access</h5>
-                            Upgrade to plan to get access to unlimited reports
-                            <br>
-                            <a href="javascript: void(0);" class="btn btn-outline-success mt-3 btn-sm">Upgrade<i class="ml-1 mdi mdi-arrow-right"></i></a>
-                        </div>
-                
-                    </div>
-                    
-
-            </div> <!-- end slimscroll-menu-->
-        </div>
+        
         <!-- /Right-bar -->
 
         <!-- Right bar overlay-->
@@ -432,7 +372,10 @@
 
         <!-- Vendor js -->
         <script src="{{url('assets\js\vendor.min.js')}}"></script>
-
+        <script src="{{url('assets\libs\footable\footable.all.min.js')}}"></script>
+    
+        <!-- Init js -->
+        <script src="{{url('assets\js\pages\foo-tables.init.js')}}"></script>
         <!-- third party js -->
         <script src="{{url('assets\libs\datatables\jquery.dataTables.min.js')}}"></script>
         <script src="{{url('assets\libs\datatables\dataTables.bootstrap4.js')}}"></script>
@@ -451,9 +394,16 @@
 
         <!-- Datatables init -->
         <script src="{{url('assets\js\pages\datatables.init.js')}}"></script>
-
+       
         <!-- App js -->
         <script src="{{url('assets\js\app.min.js')}}"></script>
         @include('admin/footeradmin')
+        @include('admin/footeradmin')
+        @if (session('thanhcong'))
+        <script>Notiflix.Notify.Success("  {{session('thanhcong')}} ");</script>
+        @endif
+        @if (session('thatbai'))
+        <script>Notiflix.Notify.Failure("  {{session('thatbai')}} ");</script>
+        @endif
     </body>
 </html>

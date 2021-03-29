@@ -13,8 +13,13 @@ class ProductSingleController extends Controller
         # code...
         $id = $request->get('id');
         $data = SanPham::find($id);
-        $datasoluong = SanPham::find($id)->kho()->get();
+        if($data->trangthai == 0){
+            $datasoluong = SanPham::find($id)->kho()->get();
         
-        return view('product-single',['sanpham'=>$data,'soluong'=>$datasoluong]);
+            return view('product-single',['sanpham'=>$data,'soluong'=>$datasoluong]);
+        }else{
+            return view('Home');
+        }
+        
     }
 }

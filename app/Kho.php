@@ -11,10 +11,10 @@ class Kho extends Model
     public $timestamps = false;
     public function sanPham()
     {
-        return $this->belongsTo('App/SanPham','idkho');
+        return $this->hasOne('App\SanPham','idkho');
     }
     public function nhapKho()
     {
-        return $this->hasMany('App/NhapKho','idkho');
+        return $this->hasMany('App\NhapKho','idkho');
     }
 }

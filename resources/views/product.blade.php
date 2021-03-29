@@ -62,7 +62,7 @@
 										<div class="desc">
 											<p class="meta-prod d-flex">
 												
-												<a href="javascript:void(0);" class=" d-flex align-items-center justify-content-center"><span class="flaticon-shopping-bag"></span></a>
+												<a onclick="App.addCart({{$item->id}})" href="javascript:void(0);" class=" d-flex align-items-center justify-content-center"><span class="flaticon-shopping-bag"></span></a>
 												<a href="ChiTietSanPham?id={{$item->id}}" class="d-flex align-items-center justify-content-center"><span class="flaticon-visibility"></span></a>
 											</p>
 										</div>

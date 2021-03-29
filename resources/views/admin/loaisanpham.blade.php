@@ -17,6 +17,9 @@
         <link href="{{url('assets\libs\datatables\select.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <!-- third party css end -->
         <link href="{{url('assets\libs\custombox\custombox.min.css')}}" rel="stylesheet">
+        <link href="{{url('assets\libs\footable\footable.core.min.css')}}" rel="stylesheet" type="text/css">
+<link href="{{url('assets\libs\jquery-vectormap\jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css">
+
         <!-- App css -->
         <link href="{{url('assets\css\bootstrap.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\css\icons.min.css')}}" rel="stylesheet" type="text/css">
@@ -177,14 +180,16 @@
                                     <li>
                                         <a href="{{url('admin/NhapKho')}} ">Danh sách số lần nhập kho</a>
                                     </li>
-                                    <li>
-                                        <a href="{{url('admin/DangXuat')}} " class="waves-effect">
-                                            <i class="remixicon-logout-box-line"></i>
-                                            <span>Đăng xuất</span>
-                                            
-                                        </a>
-                                    </li>
+                                    
                                 </ul>
+
+                            </li>
+                            <li>
+                                <a href="{{url('admin/DangXuat')}} " class="waves-effect">
+                                    <i class="remixicon-logout-box-line"></i>
+                                    <span>Đăng xuất</span>
+                                    
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -259,7 +264,7 @@
                                                 @foreach ($loaisanpham as $item)
                                                 <tr style="" class="footable-even">
                                                     
-                                                    <td ><span class="footable-toggle">{{ $count }}</span></td>
+                                                    <td >{{ $count }}</td>
                                                     <td >{{$item->tenloai}}</td>
                                                     <td style="white-space: nowrap; width: 1%;" >
                                                         <button type="button"  id="nutloaisanpham" class="btn btn-primary waves-effect waves-light btn-icon" data-value="{{$item}}" data-toggle="modal" data-target="#con-close-modal"><span class="remixicon-edit-2-line"></button>
@@ -367,7 +372,10 @@
 
         <!-- Vendor js -->
         <script src="{{url('assets\js\vendor.min.js')}}"></script>
+        <script src="{{url('assets\libs\footable\footable.all.min.js')}}"></script>
 
+        <!-- Init js -->
+        <script src="{{url('assets\js\pages\foo-tables.init.js')}}"></script>
         <!-- third party js -->
         <script src="{{url('assets\libs\datatables\jquery.dataTables.min.js')}}"></script>
         <script src="{{url('assets\libs\datatables\dataTables.bootstrap4.js')}}"></script>

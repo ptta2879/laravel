@@ -18,8 +18,8 @@ class SanPhamController extends Controller
     }
     public function index()
     { 
-        $datasp = SanPham::with('loaiSanPham')->get();
-        $dataloaisanpham = LoaiSanPham::all();
+        $datasp = SanPham::with('loaiSanPham')->where('trangthai','=',0)->get();
+        $dataloaisanpham = LoaiSanPham::where('trangthai','=',0)->get();
         return view('admin/sanpham',['sanpham'=>$datasp,'loaisanpham'=>$dataloaisanpham]);
     }
     public function themSanPham()
@@ -121,7 +121,8 @@ class SanPhamController extends Controller
         # code...
         $id = $request->id;
         $news = SanPham::find($id);
-        if($news->delete()){
+        $news->trangthai = 1;
+        if($news->save()){
             $namefile = 'images\sanpham-'.$id.'.jpg';
             if(File::delete($namefile)){
                 echo 'thanhcong';

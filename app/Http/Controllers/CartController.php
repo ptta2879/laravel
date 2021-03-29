@@ -30,7 +30,7 @@ class CartController extends Controller
         $data = GioHang::with('sanPham')->where('idkh',$idkh)->get();
         $output ='';
         foreach($data as  $val){
-            $output .= '<div class="dropdown-item d-flex align-items-start" href="#"><div class="img" style="background-image: url(images/prod-'. $val->idsp .'.jpg);"></div>';
+            $output .= '<div class="dropdown-item d-flex align-items-start" href="#"><div class="img" style="background-image: url(images/sanpham-'. $val->idsp .'.jpg);"></div>';
             foreach($val->sanpham as $vall){
                 $output .= '<div class="text pl-3">
                             <h4> '. $vall->tensp .'</h4>';

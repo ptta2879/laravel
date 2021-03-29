@@ -66,3 +66,4 @@ Route::post('/admin/ThayDoiTrangThai', 'DonHangController@thayDoiTrangThai');
 Route::get('/admin/SuaBaiViet', 'BaiVietController@suaBaiVietView');
 Route::post('/admin/SuaBaiViet', 'BaiVietController@suaBaiViet');
 Route::post('/admin/ThemBaiViet', 'BaiVietController@addBaiViet');
+Route::post('/admin/NhapKho', 'KhoController@addKho');
