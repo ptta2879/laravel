@@ -46,6 +46,7 @@ class CartController extends Controller
         $gia = SanPham::find($idsp)->gia;
         $datasoluong =SanPham::find($idsp)->kho()->get();
         $soluong =$datasoluong[0]->soluong;
+        $idkho = $datasoluong[0]->id;
         $return = 0;
         if($checkSanPham !=0 ){
             $return = 1;
@@ -55,7 +56,11 @@ class CartController extends Controller
             $news->idsp = $idsp;
             $news->soluong = 1;
             $news->gia = $gia;
-            $news->save();
+            if($news->save()){
+                $kho = Kho::find($idkho);
+                $kho->soluong = $soluong - 1;
+                $kho->save();
+            }
 
         }else{
             $return =  2;
@@ -72,6 +77,7 @@ class CartController extends Controller
         $gia = SanPham::find($idsp)->gia;
         $datasoluong =SanPham::find($idsp)->kho()->get();
         $soluong =$datasoluong[0]->soluong;
+        $idkho = $datasoluong[0]->id;
         $return = 0;
         if($checkSanPham !=0 ){
             $return = 1;
@@ -82,7 +88,11 @@ class CartController extends Controller
                 $news->idsp = $idsp;
                 $news->soluong = $soluongGet;
                 $news->gia = $gia * $soluongGet;
-                $news->save();
+                if($news->save()){
+                    $kho = Kho::find($idkho);
+                    $kho->soluong = $soluong - $soluongGet;
+                    $kho->save();
+                };
             }else{
                 $return = 3;
             }
@@ -98,9 +108,18 @@ class CartController extends Controller
     {
         # code...
         $id = $request->get('id');
-       
         $news = GioHang::find($id);
-        $news->delete();
+        $soluong = $news->soluong;
+        $idsp = $news->idsp;
+        $datasoluong =SanPham::find($idsp)->kho()->get();
+        $soluongkho =$datasoluong[0]->soluong;
+        $idkho = $datasoluong[0]->id;
+        $kho = Kho::find($idkho);
+        $kho->soluong = $soluongkho+$soluong;
+        if($kho->save()){
+            $news->delete();
+        }
+        
     }
     public function tinhTien(Request $request)
     {
