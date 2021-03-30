@@ -19,7 +19,8 @@ class CartController extends Controller
     public function index()
     {
         # code...
-        $data = GioHang::with('sanPham')->get();
+        $idkh = Auth::user()->id;
+        $data = GioHang::with('sanPham')->where('idkh',$idkh)->get();
         $tonggia = DB::table('giohang')->where('idkh','=',Auth::user()->id)->sum('gia');
         
         return view('cart',['giohang'=>$data,'tonggia'=>$tonggia]);
@@ -42,7 +43,8 @@ class CartController extends Controller
     public function themSanPham(Request $request)
     {
         $idsp = $request->get('id');
-        $checkSanPham = GioHang::where('idsp',$idsp)->count();
+
+        $checkSanPham = GioHang::whereRaw('idsp = ? and idkh = ?',[$idsp,Auth::user()->id])->count();
         $gia = SanPham::find($idsp)->gia;
         $datasoluong =SanPham::find($idsp)->kho()->get();
         $soluong =$datasoluong[0]->soluong;
@@ -51,16 +53,22 @@ class CartController extends Controller
         if($checkSanPham !=0 ){
             $return = 1;
         }elseif($soluong > 0){
-            $news = new GioHang();
-            $news->idkh = Auth::user()->id;
-            $news->idsp = $idsp;
-            $news->soluong = 1;
-            $news->gia = $gia;
-            if($news->save()){
-                $kho = Kho::find($idkho);
-                $kho->soluong = $soluong - 1;
-                $kho->save();
+            if(Auth::check()){
+                $news = new GioHang();
+                $news->idkh = Auth::user()->id;
+                $news->idsp = $idsp;
+                $news->soluong = 1;
+                $news->gia = $gia;
+                if($news->save()){
+                    $kho = Kho::find($idkho);
+                    $kho->soluong = $soluong - 1;
+                    $kho->save();
+                }
+            }else
+            {
+                $return =3;
             }
+            
 
         }else{
             $return =  2;
@@ -73,7 +81,7 @@ class CartController extends Controller
         # code...
         $idsp = $request->get('id');
         $soluongGet = $request->get('soluong');
-        $checkSanPham = GioHang::where('idsp',$idsp)->count();
+        $checkSanPham = GioHang::whereRaw('idsp = ? and idkh = ?',[$idsp,Auth::user()->id])->count();
         $gia = SanPham::find($idsp)->gia;
         $datasoluong =SanPham::find($idsp)->kho()->get();
         $soluong =$datasoluong[0]->soluong;

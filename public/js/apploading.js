@@ -18,21 +18,24 @@ App ={
         })
     },
     addCart:function(id){
-        Notiflix.Loading.Pulse('Đang Xử Lý...');
+        
         $.ajax({
             type:'GET',
             url:'AddGioHang',
             data:{id:id},
             success:function(result){
+                if(result == 3){
+                    Notiflix.Report.Info( 'Thông Tin', 'Bạn Chưa Đăng Nhập', 'Xác Nhận', function(){Notiflix.Loading.Remove();} );
+                }
                 if(result == 0){
                     Notiflix.Notify.Success('Thêm Vào giở hàng thành công');
-                    Notiflix.Loading.Remove(600);
+                    
                 }
                 else{
                         if(result == 2){
                             Notiflix.Report.Info( 'Thông Tin', 'Đã hết hàng', 'Xác Nhận', function(){Notiflix.Loading.Remove();} );
                         }else{
-                            Notiflix.Report.Info( 'Thông Tin', 'Bạn đã thêm mặt hàng này vào giỏ hàng rồi!!', 'Xác Nhận', function(){Notiflix.Loading.Remove();} );
+                            Notiflix.Report.Info( 'Thông Tin', 'Bạn đã thêm mặt hàng này vào giỏ hàng rồi!!', 'Xác Nhận' );
                         }
                      
                 }
@@ -40,7 +43,7 @@ App ={
         })
     },
     addChiTiet: function(id){
-        Notiflix.Loading.Pulse('Đang Xử Lý...');
+      
         let soluong = $('#quantity').val().toString();
         $.ajax({
             type:'GET',
@@ -52,17 +55,17 @@ App ={
                 if(result == 0){
                     
                     Notiflix.Report.Success( 'Thêm Sản Phẩm', 'Sản phẩm đã được thêm vào giỏ hàng', 'OK',function(){window.location='SanPham';}); 
-                    Notiflix.Loading.Remove();
+                   
                     
                 }
                 else{
                         if(result == 3){
-                            Notiflix.Report.Info( 'Thông Tin', 'Bạn nhập quá số lượng hàng còn lại', 'Xác Nhận', function(){Notiflix.Loading.Remove();} );
+                            Notiflix.Report.Info( 'Thông Tin', 'Bạn nhập quá số lượng hàng còn lại', 'Xác Nhận' );
                         }
                         if(result == 2){
-                            Notiflix.Report.Info( 'Thông Tin', 'Đã hết hàng', 'Xác Nhận', function(){Notiflix.Loading.Remove();} );
+                            Notiflix.Report.Info( 'Thông Tin', 'Đã hết hàng', 'Xác Nhận');
                         }else{
-                            Notiflix.Report.Info( 'Thông Tin', 'Bạn đã thêm mặt hàng này vào giỏ hàng rồi!! Vào chi tiết giỏ hàng để xác nhận thay đổi', 'Xác Nhận', function(){Notiflix.Loading.Remove();} );
+                            Notiflix.Report.Info( 'Thông Tin', 'Bạn đã thêm mặt hàng này vào giỏ hàng rồi!! Vào chi tiết giỏ hàng để xác nhận thay đổi', 'Xác Nhận' );
                         }
                      
                 }

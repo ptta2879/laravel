@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    
-
+	<link rel="shortcut icon"  href="favicon.ico"/>
 	@include('wrap')  
    
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -61,8 +60,12 @@
 									<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/sanphamnew-{{$item->id}}.jpg);">
 										<div class="desc">
 											<p class="meta-prod d-flex">
-												
+												@if (Auth::check())
 												<a onclick="App.addCart({{$item->id}})" href="javascript:void(0);" class=" d-flex align-items-center justify-content-center"><span class="flaticon-shopping-bag"></span></a>
+												@else
+													
+												@endif
+												
 												<a href="ChiTietSanPham?id={{$item->id}}" class="d-flex align-items-center justify-content-center"><span class="flaticon-visibility"></span></a>
 											</p>
 										</div>

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    
+    <link rel="shortcut icon"  href="favicon.ico"/>
 
   	@include('wrap')  
     
@@ -130,7 +130,12 @@
 							<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/sanphamnew-{{$valsp->id}}.jpg);">
 								<div class="desc">
 									<p class="meta-prod d-flex">
+										@if (Auth::check())
 										<a href="javascript:void(0);" onclick="App.addCart({{$valsp->id}});" class=" d-flex align-items-center justify-content-center"><span class="flaticon-shopping-bag"></span></a>
+										@else 
+
+										@endif
+										
 										<a href="ChiTietSanPham?id={{$valsp->id}}" class="d-flex align-items-center justify-content-center"><span class="flaticon-visibility"></span></a>
 									</p>
 								</div>
