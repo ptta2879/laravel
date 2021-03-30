@@ -45,7 +45,7 @@ class SanPhamController extends Controller
         $news = SanPham::find($id);
         if($request->hasFile('hinhsanpham')){
            $hinh = $request->hinhsanpham;
-           $newname = 'sanpham-'.$id.'.jpg';
+           $newname = 'sanphamnew-'.$id.'.jpg';
            $news->tensp= $tensp;
            $news->gia= $gia;
            $news->mota= $mota;
@@ -103,7 +103,7 @@ class SanPhamController extends Controller
             $newsanpham->gioithieu= $gioithieu;
             if($newsanpham->save()){
                $idsp = $newsanpham->id;
-               $tenmoi = 'sanpham-'.$idsp.'.jpg';
+               $tenmoi = 'sanphamnew-'.$idsp.'.jpg';
                if($hinh->move('images',$tenmoi)){
                 return redirect('admin/SanPham')->with('success','Thêm sản phẩm thành công');
                }else{
@@ -123,7 +123,7 @@ class SanPhamController extends Controller
         $news = SanPham::find($id);
         $news->trangthai = 1;
         if($news->save()){
-            $namefile = 'images\sanpham-'.$id.'.jpg';
+            $namefile = 'images\sanphamnew-'.$id.'.jpg';
             if(File::delete($namefile)){
                 echo 'thanhcong';
             }else{

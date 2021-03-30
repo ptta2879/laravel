@@ -286,7 +286,7 @@
                                         <div class="form-group">
                                             <label>Hình sản phẩm</label>
                                             <div>@php
-                                                $linkimg = 'images\sanpham-'.$sanpham->id.'.jpg'
+                                                $linkimg = 'images\sanphamnew-'.$sanpham->id.'.jpg'
                                             @endphp
                                                     <img src="{{url(''.$linkimg.'')}}" width="200px" height="300px" alt="">
                                                  <input name="hinhsanpham" type="file" class="form-control" required="" >

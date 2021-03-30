@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Liquor Store - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Chi Tiết Sản Phẩm BaChaCha</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -50,7 +50,7 @@
     		<div class="row">
           
             <div class="col-lg-6 mb-5 ftco-animate">
-    		  		<a href="images/sanpham-{{$sanpham->id}}.jpg" class="image-popup prod-img-bg"><img src="images/sanpham-{{$sanpham->id}}.jpg" class="img-fluid" alt="Colorlib Template"></a>
+    		  		<a href="images/sanphamnew-{{$sanpham->id}}.jpg" class="image-popup prod-img-bg"><img src="images/sanphamnew-{{$sanpham->id}}.jpg" class="img-fluid" alt="Colorlib Template"></a>
     		  	</div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
               <h3>{{$sanpham->tensp}}</h3>

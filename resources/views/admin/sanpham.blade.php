@@ -273,9 +273,9 @@
                                                     
                                                     <td>{{$item->tensp}}</td>
                                                     <td>{{$item->gia}}</td>
-                                                    <td>{{$item->mota}}</td>
-                                                    <td>{{$item->nguongoc}}</td>
-                                                    <td>{{$item->gioithieu}}</td>
+                                                    <td><p class="d-inline-block text-truncate" style="max-width: 250px;">{{$item->mota}}</p> </td>
+                                                    <td> <p class="d-inline-block text-truncate" style="max-width: 250px;">{{$item->nguongoc}}</p> </td>
+                                                    <td> <p class="d-inline-block text-truncate" style="max-width: 250px;">{{$item->gioithieu}}</p> </td>
                                                    
                                                
                                                 

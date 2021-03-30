@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Liquor Store - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Bài Viết BaChaCha</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -51,7 +51,7 @@
           @foreach ($baiviet as $item)
           <div class="col-lg-6 d-flex align-items-stretch ftco-animate">
           	<div class="blog-entry d-md-flex">
-          		<a href="NoiDungBaiViet?id={{$item->id}}" class="block-20 img" style="background-image: url('images/baiviet-{{$item->id}}.jpg');">
+          		<a href="NoiDungBaiViet?id={{$item->id}}" class="block-20 img" style="background-image: url('images/baivietnew-{{$item->id}}.jpg');">
               </a>
               <div class="text p-4 bg-light">
               	<div class="meta">

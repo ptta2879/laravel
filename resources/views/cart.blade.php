@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Liquor Store - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Giỏ Hàng Của Bạn BaChaCha</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -69,7 +69,7 @@
 								@foreach ($giohang as $item)
 								<tr class="alert" role="alert">
 								<td>
-						    		<div class="img" style="background-image: url(images/sanpham-{{$item->idsp}}.jpg);"></div>
+						    		<div class="img" style="background-image: url(images/sanphamnew-{{$item->idsp}}.jpg);"></div>
 						    	</td>
 								@foreach ($item->sanpham as $val)
 								<td>

@@ -127,7 +127,7 @@
 					@foreach ($sanpham as $valsp)
 					<div class="col-md-3 d-flex">
 						<div class="product ftco-animate">
-							<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/sanpham-{{$valsp->id}}.jpg);">
+							<div class="img d-flex align-items-center justify-content-center" style="background-image: url(images/sanphamnew-{{$valsp->id}}.jpg);">
 								<div class="desc">
 									<p class="meta-prod d-flex">
 										<a href="javascript:void(0);" onclick="App.addCart({{$valsp->id}});" class=" d-flex align-items-center justify-content-center"><span class="flaticon-shopping-bag"></span></a>
@@ -264,7 +264,7 @@
 			@foreach ($baiviet as $val)
 			<div class="col-lg-6 d-flex align-items-stretch ftco-animate">
 				<div class="blog-entry d-flex">
-					  <a href="NoiDungBaiViet?id={{$val->id}}" class="block-20 img" style="background-image: url('images/baiviet-{{$val->id}}.jpg');">
+					  <a href="NoiDungBaiViet?id={{$val->id}}" class="block-20 img" style="background-image: url('images/baivietnew-{{$val->id}}.jpg');">
 				  </a>
 				  <div class="text p-4 bg-light">
 					  <div class="meta">

@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-12  offset-lg-3 offset-sm-2 offset-md-3">
             <div class="panel panel-default">
-                <a href="Home"><img src="" alt=""> âsdasd</a>
+                <a href="Home"><img src="" alt="">Trở Về Trang Chủ</a>
                 <div class="panel-heading">Đăng Ký</div>
                 <div class="panel-body">
                     

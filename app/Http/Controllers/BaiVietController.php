@@ -64,7 +64,7 @@ class BaiVietController extends Controller
         $news->noidung = $noidung;
         if($news->save()){
             $idbaiviet = $news->id;
-            $tenmoi = 'baiviet-'.$idbaiviet.'.jpg';
+            $tenmoi = 'baivietnew-'.$idbaiviet.'.jpg';
             if($hinhbaiviet->move('images',$tenmoi)){
                 return redirect('admin/BaiViet')->with('success','Thêm bài viết thành công');
             }else{
