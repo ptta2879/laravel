@@ -15,6 +15,7 @@
         <link href="{{url('assets\libs\datatables\responsive.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\libs\datatables\buttons.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\libs\datatables\select.bootstrap4.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets\libs\bootstrap-tagsinput\bootstrap-tagsinput.css')}}" rel="stylesheet">
         <!-- third party css end -->
         
         <!-- App css -->
@@ -254,7 +255,11 @@
                                     						</span>
                                							 @endif
                                         </div>
-                                        
+                                        <div class="form-group">
+                                            <label>Tags bài viết</label>
+                                            <div class="tags-default">
+                                                <input type="text" name="tags" value="" data-role="tagsinput" placeholder="add tags">
+                                            </div>
                                         <div class="form-group">
                                             <label>Hình Đại Diện Cho Bài Viết</label>
                                             <div>
@@ -437,6 +442,8 @@
         <script src="{{url('assets\libs\pdfmake\pdfmake.min.js')}}"></script>
         <script src="{{url('assets\libs\pdfmake\vfs_fonts.js')}}"></script>
         <!-- third party js ends -->
+        <script src="{{url('assets\libs\bootstrap-tagsinput\bootstrap-tagsinput.min.js')}}"></script>
+        <script src="{{url('assets\js\pages\form-advanced.init.js')}}"></script>
 
         <!-- Datatables init -->
         <script src="{{url('assets\js\pages\datatables.init.js')}}"></script>

@@ -38,11 +38,12 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
           <div class="col-md-9 ftco-animate mb-5 text-center">
-          	<p class="breadcrumbs mb-0"><span class="mr-2"><a href="Home">Trang Chủ <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="BaiViet">Bài Viết <i class="fa fa-chevron-right"></i></a></span> <span>Blog Single <i class="fa fa-chevron-right"></i></span></p>
+          	<p class="breadcrumbs mb-0"><span class="mr-2"><a href="Home">Trang Chủ <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="BaiViet">Bài Viết <i class="fa fa-chevron-right"></i></a></span> <span>Nội Dung Bài Viết <i class="fa fa-chevron-right"></i></span></p>
             <h2 class="mb-0 bread">Nội Dung Bài Viết</h2>
           </div>
         </div>
       </div>
+      
     </section>
 
     <section class="ftco-section ftco-degree-bg">
@@ -50,11 +51,23 @@
         <div class="row">
 
            
-          <div class="col-lg-12 ftco-animate m-auto">
+          <div class="col-lg-8 ftco-animate m-auto">
             <h1> {{$baiviet->tieude}} </h1>
-          	{!!$baiviet->noidung!!}
+          	 <div class="overflow-auto">{!!$baiviet->noidung!!}</div> 
             <div class="tag-widget post-tag-container mb-5 mt-5">
-              
+              <div class="tag-widget post-tag-container mb-5 mt-5">
+                <div class="tagcloud">
+                 @php
+                     $arrTag = explode(",",$baiviet->tags); ;
+                 @endphp
+                 @foreach ($arrTag as $tag)
+ 
+                     <a href="BaiViet/{{$tag}}" class="tag-cloud-link">{{$tag}}</a>
+                 @endforeach
+                  
+                  
+                </div>
+              </div>
             </div>
             @foreach ($thanhvien as $item)
             
@@ -72,15 +85,56 @@
             </div>
             @endforeach
             
-
-          
-          
-
-            
-
           </div> <!-- .col-md-8 -->
           
+          <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
 
+            <div class="sidebar-box ftco-animate">
+              <h3>Bài Viết Mới</h3>
+              @foreach ($baivietmoi as $item)
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(images/baivietnew-{{$item->id}}.jpg);"></a>
+                <div class="text">
+                  <h3 class="heading"><a href="NoiDungBaiViet?id={{$item->id}}">{{$item->tieude}}</a></h3>
+                  <div class="meta">
+                    <div><span class="fa fa-calendar"></span> {{$item->ngaydang}}</div>
+                    
+                  </div>
+                </div>
+              </div>
+              
+              @endforeach
+              
+            </div>
+
+            <div class="sidebar-box ftco-animate overflow-auto">
+              <h3>Bài Viết Liên Quan</h3>
+              @if (isset($baivietlienquan))
+              @foreach ($baivietlienquan as $result)
+                
+                <div class="block-21 mb-4 d-flex">
+                  <a class="blog-img mr-4" style="background-image: url(images/baivietnew-{{$result->id}}.jpg);"></a>
+                  <div class="text">
+                    <h3 class="heading"><a href="NoiDungBaiViet?id={{$result->id}}">{{$result->tieude}}</a></h3>
+                    <div class="meta">
+                      <div><span class="fa fa-calendar"></span> {{$result->ngaydang}}</div>
+                      
+                    </div>
+                  </div>
+                </div>
+               
+              
+              
+              @endforeach
+                  @else
+                  {{'Chưa có bài liên quan'}}
+              @endif
+              
+              
+            </div>
+
+            
+          </div>
         </div>
       </div>
     </section> <!-- .section -->

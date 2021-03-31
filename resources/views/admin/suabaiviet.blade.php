@@ -15,6 +15,7 @@
         <link href="{{url('assets\libs\datatables\responsive.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\libs\datatables\buttons.bootstrap4.css')}}" rel="stylesheet" type="text/css">
         <link href="{{url('assets\libs\datatables\select.bootstrap4.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{url('assets\libs\bootstrap-tagsinput\bootstrap-tagsinput.css')}}" rel="stylesheet">
         <!-- third party css end -->
         <link href="{{url('assets\libs\summernote\summernote-bs4.css')}}" rel="stylesheet" type="text/css">
         <!-- App css -->
@@ -251,11 +252,15 @@
                                                 
                                             </div>
                                         </div>
-                                        
+                                        <div class="form-group">
+                                            <label>Tags bài viết</label>
+                                            <div class="tags-default">
+                                                <input type="text" name="tags" value="{{$thongtinbaiviet->tags}}" data-role="tagsinput" placeholder="add tags">
+                                            </div>
                                         <div class="form-group">
                                             <label>Hình Đại Diện</label>
                                             <div>@php
-                                                $linkimg = 'images\baiviet-'.$thongtinbaiviet->id.'.jpg'
+                                                $linkimg = 'images\baivietnew-'.$thongtinbaiviet->id.'.jpg'
                                             @endphp
                                                     <img src="{{url(''.$linkimg.'')}}" width="200px" height="300px" alt="">
                                                  <input name="hinhbaiviet" type="file" class="form-control" required="" >
@@ -329,7 +334,7 @@
         <script src="{{url('assets\libs\pdfmake\pdfmake.min.js')}}"></script>
         <script src="{{url('assets\libs\pdfmake\vfs_fonts.js')}}"></script>
         <!-- third party js ends -->
-
+        <script src="{{url('assets\libs\bootstrap-tagsinput\bootstrap-tagsinput.min.js')}}"></script>
         <!-- Datatables init -->
         <script src="{{url('assets\js\pages\datatables.init.js')}}"></script>
         <script src="{{url('assets\libs\summernote\summernote-bs4.min.js')}}"></script>

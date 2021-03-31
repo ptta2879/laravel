@@ -20,13 +20,13 @@
 
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item "><a href="Home" class="nav-link">Trang Chủ</a></li>
-        <li class="nav-item"><a href="GioiThieu" class="nav-link">Giới Thiệu</a></li>
+        <li class="nav-item "><a href="../Home" class="nav-link">Trang Chủ</a></li>
+        <li class="nav-item"><a href="../GioiThieu" class="nav-link">Giới Thiệu</a></li>
         @if (Auth::check())
-          <li class="nav-item "><a href="HangDaMua" class="nav-link">Đơn Hàng</a></li>
+          <li class="nav-item "><a href="../HangDaMua" class="nav-link">Đơn Hàng</a></li>
           @endif
-        <li class="nav-item active"><a href="BaiViet" class="nav-link">Bài Viết</a></li>
-        <li class="nav-item"><a href="LienHe" class="nav-link">Liên Hệ</a></li>
+        <li class="nav-item active"><a href="../BaiViet" class="nav-link">Bài Viết</a></li>
+        <li class="nav-item"><a href="../LienHe" class="nav-link">Liên Hệ</a></li>
       </ul>
     </div>
   </div>
@@ -51,15 +51,15 @@
           @foreach ($baiviet as $item)
           <div class="col-lg-6 d-flex align-items-stretch ftco-animate">
           	<div class="blog-entry d-md-flex">
-          		<a href="NoiDungBaiViet?id={{$item->id}}" class="block-20 img" style="background-image: url('{{url('').'/'}}images/baivietnew-{{$item->id}}.jpg');">
+          		<a href="../NoiDungBaiViet?id={{$item->id}}" class="block-20 img" style="background-image: url('{{url('').'/'}}images/baivietnew-{{$item->id}}.jpg');">
               </a>
               <div class="text p-4 bg-light">
               	<div class="meta">
               		<p><span class="fa fa-calendar"></span>{{$item->ngaydang}}</p>
               	</div>
-                <h3 class="heading mb-3"><a href="NoiDungBaiViet?id={{$item->id}}">{{$item->tieude}}</a></h3>
+                <h3 class="heading mb-3"><a href="../NoiDungBaiViet?id={{$item->id}}">{{$item->tieude}}</a></h3>
                 
-                <a href="NoiDungBaiViet?id={{$item->id}}" class="btn-custom">Tiếp Tục <span class="fa fa-long-arrow-right"></span></a>
+                <a href="../NoiDungBaiViet?id={{$item->id}}" class="btn-custom">Tiếp Tục <span class="fa fa-long-arrow-right"></span></a>
 
               </div>
             </div>

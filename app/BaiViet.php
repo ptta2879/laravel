@@ -18,5 +18,12 @@ class BaiViet extends Model
     {
         return $this->hasOne('App\ThongTinThanhVien','idtk','idtk');
     }
-    
+    public function links()
+    {
+        return $this->hasMany('App\Links');
+    }
+    public function tags()
+    {
+        Return $this->belongsToMany('App\Tags','links','id','id');
+    }
 }

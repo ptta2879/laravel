@@ -2,14 +2,14 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="{{url('css/animate.css')}}">
 
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/magnific-popup.css">
-<link rel="stylesheet" href="css/flaticon.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="{{url('css/owl.carousel.min.css')}}">
+<link rel="stylesheet" href="{{url('css/owl.theme.default.min.css')}}">
+<link rel="stylesheet" href="{{url('css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{url('css/magnific-popup.css')}}">
+<link rel="stylesheet" href="{{url('css/flaticon.css')}}">
+<link rel="stylesheet" href="{{url('css/style.css')}}">
 </head>
 <body >
 

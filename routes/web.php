@@ -12,7 +12,6 @@
 */
 
 
-
 Route::get('/','HomeController@index');
 Route::get('/GioiThieu', 'AboutController@index');
 Route::get('/Home','HomeController@index' );
@@ -67,3 +66,5 @@ Route::get('/admin/SuaBaiViet', 'BaiVietController@suaBaiVietView');
 Route::post('/admin/SuaBaiViet', 'BaiVietController@suaBaiViet');
 Route::post('/admin/ThemBaiViet', 'BaiVietController@addBaiViet');
 Route::post('/admin/NhapKho', 'KhoController@addKho');
+
+Route::get('BaiViet/{tag}', 'BlogController@tag');
