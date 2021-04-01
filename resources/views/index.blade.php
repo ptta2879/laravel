@@ -276,7 +276,7 @@
 						  <p><span class="fa fa-calendar"></span> {{$val->ngaydang}}</p>
 					  </div>
 					<h3 class="heading mb-3"><a href="NoiDungBaiViet?id={{$val->id}}">{{$val->tieude}}</a></h3>
-					
+					<p>{{$val->tomtat}}</p>
 					<a href="NoiDungBaiViet?id={{$val->id}}" class="btn-custom">Tiếp tục <span class="fa fa-long-arrow-right"></span></a>
 	
 				  </div>

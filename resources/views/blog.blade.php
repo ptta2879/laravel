@@ -58,7 +58,7 @@
               		<p><span class="fa fa-calendar"></span>{{$item->ngaydang}}</p>
               	</div>
                 <h3 class="heading mb-3"><a href="NoiDungBaiViet?id={{$item->id}}">{{$item->tieude}}</a></h3>
-                
+                <p>{{$item->tomtat}}</p>
                 <a href="NoiDungBaiViet?id={{$item->id}}" class="btn-custom">Tiếp Tục <span class="fa fa-long-arrow-right"></span></a>
 
               </div>

@@ -40,6 +40,7 @@ class BaiVietController extends Controller
         $tieude = $request->tieude;
         $noidung= $request->noidung;
         $tags = $request->tags;
+        $tomtat = $request->tomtat;
         DB::delete('delete from links where idbaiviet = ?', [$id]);
         $news = BaiViet::find($id);
         if($request->hasFile('hinhbaiviet')){
@@ -47,6 +48,7 @@ class BaiVietController extends Controller
             $newname = 'baiviet-'.$id.'.jpg';
             $news->tieude= $tieude;
             $news->noidung= $noidung;
+            $news->tomtat = $tomtat;
             $news->tags = $tags;
             if($news->save()){
                 $arrTag = explode(",",$tags);
@@ -78,6 +80,7 @@ class BaiVietController extends Controller
             $id = $request->id;
             $tieude = $request->tieude;
             $noidung= $request->noidung;
+            $news->tomtat = $tomtat;
             $tags = $request->tags;
             DB::delete('delete from links where idbaiviet = ?', [$id]);
             $news = BaiViet::find($id);
@@ -112,12 +115,14 @@ class BaiVietController extends Controller
         $idtk = Auth::user()->id;
         $tieude = $request->tieude;
         $noidung= $request->noidung;
+        $tomtat = $request->tomtat;
         $hinhbaiviet = $request->hinhbaiviet;
         $tags = $request->tags;
         $news = new BaiViet();
         $news->idtk = $idtk;
         $news->tieude = $tieude;
         $news->noidung = $noidung;
+        $news->tomtat = $tomtat;
         $news->tags = $tags;
         if($news->save()){
             $idbaiviet = $news->id;

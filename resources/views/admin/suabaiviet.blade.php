@@ -244,7 +244,13 @@
                                                 
                                             </div>
                                         </div>
-                                        
+                                        <div class="form-group">
+                                            <label>Mô tả tóm tắt nội dung bài viết</label>
+                                            <div>
+                                                <textarea name="tomtat" id="" class="form-control"  id="example-textarea" rows="5">{{$thongtinbaiviet->tomtat}}</textarea>
+                                                
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <label>Nội Dung</label>
                                             <div>
