@@ -32,7 +32,7 @@ class BaiVietController extends Controller
     {
         $id = $request->id;
         $data = BaiViet::find($id);
-        return view('admin\suabaiviet',['thongtinbaiviet'=>$data]);
+        return view('admin/suabaiviet',['thongtinbaiviet'=>$data]);
     }
     public function suaBaiViet(Request $request)
     {
@@ -45,7 +45,7 @@ class BaiVietController extends Controller
         $news = BaiViet::find($id);
         if($request->hasFile('hinhbaiviet')){
             $hinh = $request->hinhbaiviet;
-            $newname = 'baiviet-'.$id.'.jpg';
+            $newname = 'baivietnew-'.$id.'.jpg';
             $news->tieude= $tieude;
             $news->noidung= $noidung;
             $news->tomtat = $tomtat;

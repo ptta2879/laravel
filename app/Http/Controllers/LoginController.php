@@ -10,7 +10,7 @@ class LoginController extends Controller
     //
     public function index()
     {
-        return view('admin\login');
+        return view('admin/login');
     }
     public function loginAdmin(Request $request)
     {

@@ -14,8 +14,9 @@ class BlogSingleController extends Controller
         # code...
         $id =  $request->get('id');
         $dataBaiViet = BaiViet::find($id);
-        $dataThanhVien = BaiViet::find($dataBaiViet->idtk)->thongTinThanhVien()->get();
-        $dataTaiKhoan =BaiViet::find($dataBaiViet->idtk)->taiKhoan()->get();
+        $dataThanhVien = DB::select('select * from thongtinthanhvien where idtk = ?', [$dataBaiViet->idtk]);
+        
+        $dataTaiKhoan = DB::select('select * from taikhoan where id = ?', [$dataBaiViet->idtk]); 
         $dataBaiVietRecent = BaiViet::orderBy('id','DESC')->take(3)->get();
         $tags = $dataBaiViet->tags;
         $arrTags = explode(",",$tags); 
@@ -29,6 +30,7 @@ class BlogSingleController extends Controller
         }
         
         $datavew = array_unique($dataview);
+        $idbaiviet[]='';
         foreach($datavew as $val){
             $datalink = DB::select('select idbaiviet from links where idtags = ? and idbaiviet != ?', [$val,$id]);
             foreach($datalink as $b){
