@@ -1,3 +1,6 @@
+@php
+	date_default_timezone_set('Asia/Ho_Chi_Minh');
+@endphp
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -273,7 +276,10 @@
 				  </a>
 				  <div class="text p-4 bg-light">
 					  <div class="meta">
-						  <p><span class="fa fa-calendar"></span> {{$val->ngaydang}}</p>
+						  <p><span class="fa fa-calendar"></span> @php
+							$dateint =  strtotime($val->ngaydang);
+							$date = date('d-m-Y',$dateint);
+						  @endphp {{$date}}  </p>
 					  </div>
 					<h3 class="heading mb-3"><a href="NoiDungBaiViet?id={{$val->id}}">{{$val->tieude}}</a></h3>
 					<p>{{$val->tomtat}}</p>

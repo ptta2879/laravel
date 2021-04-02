@@ -55,7 +55,10 @@
               </a>
               <div class="text p-4 bg-light">
               	<div class="meta">
-              		<p><span class="fa fa-calendar"></span>{{$item->ngaydang}}</p>
+              		<p><span class="fa fa-calendar"></span> @php
+                    $dateint =  strtotime($item->ngaydang);
+                    $date = date('d-m-Y',$dateint);
+                    @endphp {{$date}}  </p>
               	</div>
                 <h3 class="heading mb-3"><a href="NoiDungBaiViet?id={{$item->id}}">{{$item->tieude}}</a></h3>
                 <p>{{$item->tomtat}}</p>

@@ -109,7 +109,10 @@
                 <div class="text">
                   <h3 class="heading"><a href="NoiDungBaiViet?id={{$item->id}}">{{$item->tieude}}</a></h3>
                   <div class="meta">
-                    <div><span class="fa fa-calendar"></span> {{$item->ngaydang}} </div>
+                    <div><p><span class="fa fa-calendar"></span> @php
+						$dateint =  strtotime($item->ngaydang);
+						$date = date('d-m-Y',$dateint);
+						@endphp {{$date}}  </p> </div>
                     
                   </div>
                 </div>
