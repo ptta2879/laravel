@@ -54,7 +54,7 @@
     					</div>
     					<div class="text">
     						<h2>Hỗ trợ trực tuyến 24/7</h2>
-    						<p>Cửa hàng BaChaCha sẽ hỗ trợ bạn khi bạn cần thông tin chi tiết về sản phẩm và giải đáp các thắc mắc của khác hàng.</p>
+    						<p>Cửa hàng BaChaCha sẽ hỗ trợ bạn khi bạn cần thông tin chi tiết về sản phẩm và giải đáp các thắc mắc của khách hàng.</p>
     					</div>
     				</div>
     			</div>
