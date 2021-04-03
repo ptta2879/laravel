@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         $data = SanPham::with('loaiSanPham')->where('trangthai','=',0)->paginate(8);
         $dataloai = LoaiSanPham::all();
-        $databaiviet = BaiViet::orderBy('id','DESC')->get();
+        $databaiviet = BaiViet::orderBy('id','DESC')->paginate(4);
         
         return view('index',['sanpham' => $data,'loaisanpham1'=>$dataloai,'baiviet'=>$databaiviet]);
     }

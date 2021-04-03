@@ -4,14 +4,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>BaChaCha - Trang Chủ</title>
+    <title>BaChaCha - Foody</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <link rel="shortcut icon"  href="favicon.ico"/>
 
   	@include('wrap')  
-    
+	  @include('mess')
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
       <a class="navbar-brand" href="Home">bachacha <span>store</span></a>

@@ -8,7 +8,7 @@
     <link rel="shortcut icon"  href="favicon.ico"/>
 
 	@include('wrap')  
-    
+    @include('mess')
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
       <a class="navbar-brand" href="Home">bachacha <span>store</span></a>

@@ -7,7 +7,10 @@
               <p>BaChaCha Thơm Ngon Bá Cháy</p>
               <ul class="ftco-footer-social list-unstyled mt-2">
                 
-                <li class="ftco-animate"><a href="https://www.facebook.com/B%C3%A1nh-Tr%C3%A1ng-Bachacha-108555174656092"><span class="fa fa-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="https://www.facebook.com/B%C3%A1nh-Tr%C3%A1ng-Bachacha-108555174656092" target="_blank"><span class="fa fa-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="https://www.youtube.com/channel/UClXeUfy-Ra5OIILQQeciQ7Q" target="_blank"><span class="fa fa-youtube"></span></a></li>
+                <li class="ftco-animate"><a href="tel:0388823807"><span class="fa fa-phone"></span></a></li>
+                <li class="ftco-animate"><a href="mailto:bachacha@gmail.com"><span class="fa fa-envelope"></span></a></li>
                 
               </ul>
             </div>
@@ -27,7 +30,7 @@
           
           <div class="col-sm-12 col-md">
             <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Bạn Có Những Câu Hỏi?</h2>
+            	<h2 class="ftco-heading-2">Liên Hệ</h2>
             	<div class="block-23 mb-3">
 	              <ul>
 	                <li><span class="icon fa fa-map marker"></span><span class="text"></span>12 Nguyễn Văn Bảo, Phường 5, Quận Gò Vấp</li>
@@ -45,7 +48,7 @@
 	          <div class="col-md-12">
 		
 	            <p class="mb-0" style="color: rgba(255,255,255,.5);"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-	  Copyright &copy;<script>document.write(new Date().getFullYear());</script> BaChaCha
+	   BaChaCha - Foody 
 	  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 	          </div>
 	        </div>
